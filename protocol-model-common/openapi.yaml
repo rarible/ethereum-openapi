@@ -579,6 +579,8 @@ components:
         - BID
         - LIST
         - SELL
+        - CANCEL_BID
+        - CANCEL_LIST
 
     ActivityFilterByUser:
       type: object
@@ -618,6 +620,8 @@ components:
         - LIST
         - BUY
         - SELL
+        - CANCEL_BID
+        - CANCEL_LIST
 
     ActivityFilterByItem:
       type: object
@@ -649,6 +653,8 @@ components:
         - BID
         - LIST
         - MATCH
+        - CANCEL_BID
+        - CANCEL_LIST
 
     ActivityFilterByCollection:
       type: object
@@ -677,6 +683,8 @@ components:
         - BID
         - LIST
         - MATCH
+        - CANCEL_BID
+        - CANCEL_LIST
 
     NftActivityFilter:
       type: object
