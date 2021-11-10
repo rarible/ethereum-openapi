@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rarible-ethereum-openapi</artifactId>
+        <groupId>com.rarible.protocol.ethereum</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>protocol-client-nft</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- =============== Protocol-API ================ -->
+        <dependency>
+            <groupId>com.rarible.protocol.ethereum</groupId>
+            <artifactId>protocol-api-nft</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.rarible.protocol.ethereum</groupId>
+            <artifactId>protocol-model-nft</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rarible.protocol.ethereum</groupId>
+            <artifactId>protocol-client-common</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.rarible.protocol</groupId>
+                <artifactId>model-generator-maven-plugin</artifactId>
+                <configuration>
+                    <schema>
+                        <outputFile>${dir.target.temp}/openapi.yaml</outputFile>
+                    </schema>
+                    <dependencies>
+                        <dependency>
+                            <name>protocol-api-nft</name>
+                            <packageName>${codegen.package}</packageName>
+                        </dependency>
+                    </dependencies>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-code</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generatorName>rarible-client</generatorName>
+                            <inputSpec>${dir.target.temp}/openapi.yaml</inputSpec>
+                            <generateModels>false</generateModels>
+                            <generateApiTests>false</generateApiTests>
+                            <generateApis>true</generateApis>
+                            <apiPackage>com.rarible.protocol.nft.api.client</apiPackage>
+                            <generateModelTests>false</generateModelTests>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

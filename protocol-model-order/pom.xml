@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rarible-ethereum-openapi</artifactId>
+        <groupId>com.rarible.protocol.ethereum</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>protocol-model-order</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.rarible.protocol.ethereum</groupId>
+            <artifactId>protocol-model-nft</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.rarible.protocol</groupId>
+                <artifactId>model-generator-maven-plugin</artifactId>
+                <configuration>
+
+                    <generators>
+                        <generator>
+                            <lang>kotlin</lang>
+                            <packageName>${codegen.package}</packageName>
+                        </generator>
+                    </generators>
+
+                    <dependencies>
+                        <dependency>
+                            <name>protocol-model-nft</name>
+                            <packageName>${codegen.package}</packageName>
+                        </dependency>
+                    </dependencies>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
