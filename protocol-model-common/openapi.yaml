@@ -823,6 +823,8 @@ components:
               - BID
               - LIST
               - MATCH
+              - CANCEL_BID
+              - CANCEL_LIST
 
     OrderActivityFilterByUser:
       type: object
@@ -851,6 +853,8 @@ components:
               - LIST
               - BUY
               - SELL
+              - CANCEL_BID
+              - CANCEL_LIST
         from:
           type: integer
           format: int64
@@ -883,6 +887,8 @@ components:
               - BID
               - LIST
               - MATCH
+              - CANCEL_BID
+              - CANCEL_LIST
 
     OrderActivityFilterByCollection:
       type: object
@@ -906,6 +912,8 @@ components:
               - BID
               - LIST
               - MATCH
+              - CANCEL_BID
+              - CANCEL_LIST
 
     ItemHistory:
       type: object
