@@ -153,7 +153,7 @@ components:
           enum:
             - RARIBLE_V2
         data:
-          $ref: "#/components/schemas/OrderRaribleV2DataV1"
+          $ref: "#/components/schemas/OrderRaribleV2Data"
 
     OpenSeaV1OrderBid:
       type: object
@@ -381,10 +381,16 @@ components:
     OrderData:
       type: object
       oneOf:
-        - "$ref": "#/components/schemas/OrderRaribleV2DataV1"
+        - "$ref": "#/components/schemas/OrderRaribleV2Data"
         - "$ref": "#/components/schemas/OrderDataLegacy"
         - "$ref": "#/components/schemas/OrderOpenSeaV1DataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
+
+    OrderRaribleV2Data:
+      type: object
+      oneOf:
+        - "$ref": "#/components/schemas/OrderRaribleV2DataV1"
+        - "$ref": "#/components/schemas/OrderRaribleV2DataV2"
 
     OrderRaribleV2DataV1:
       type: object
@@ -409,6 +415,34 @@ components:
           description: "Value of the origin fees for the order"
           items:
             "$ref": "#/components/schemas/Part"
+
+    OrderRaribleV2DataV2:
+      type: object
+      description: "Order data for create or update"
+      required:
+        - dataType
+        - payouts
+        - originFees
+        - isMakeFill
+      properties:
+        dataType:
+          type: string
+          description: "Data type of the order"
+          enum:
+            - RARIBLE_V2_DATA_V2
+        payouts:
+          type: array
+          description: "Value of the payouts for the order"
+          items:
+            "$ref": "#/components/schemas/Part"
+        originFees:
+          type: array
+          description: "Value of the origin fees for the order"
+          items:
+            "$ref": "#/components/schemas/Part"
+        isMakeFill:
+          type: boolean
+          description: "If true, the 'fill' part of the order applies to the 'make' side, otherwise to the 'take' side"
 
     OrderDataLegacy:
       type: object
@@ -605,7 +639,7 @@ components:
           enum:
             - RARIBLE_V2
         data:
-          $ref: "#/components/schemas/OrderRaribleV2DataV1"
+          $ref: "#/components/schemas/OrderRaribleV2Data"
 
     OpenSeaV1Order:
       type: object
@@ -727,7 +761,7 @@ components:
           enum:
             - RARIBLE_V2
         data:
-          $ref: "#/components/schemas/OrderRaribleV2DataV1"
+          $ref: "#/components/schemas/OrderRaribleV2Data"
 
     Platform:
       type: string
