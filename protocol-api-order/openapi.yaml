@@ -38,6 +38,8 @@ paths:
       tags:
         - order-encode-controller
       operationId: encodeOrder
+      deprecated: true
+      description: Deprecated. Use Rarible Protocol Ethereum SDK https://github.com/rarible/ethereum-sdk/tree/master
       requestBody:
         content:
           application/json:
@@ -132,7 +134,8 @@ paths:
     post:
       tags:
         - order-controller
-      description: Prepare order transaction
+      deprecated: true
+      description: Prepare order transaction. Deprecated. Use Rarible Protocol Ethereum SDK https://github.com/rarible/ethereum-sdk/tree/master
       operationId: prepareOrderTransaction
       parameters:
         - name: hash
@@ -155,70 +158,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PrepareOrderTxResponse"
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
-  "/v0.1/orders/{hash}/prepareV2Tx":
-    post:
-      deprecated: true
-      tags:
-        - order-controller
-      operationId: prepareOrderV2Transaction
-      parameters:
-        - name: hash
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/OrderForm"
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/PrepareOrderTxResponse"
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/OrderDataApiError"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
-  "/v0.1/orders/{hash}/invert":
-    post:
-      deprecated: true
-      tags:
-        - order-controller
-      operationId: invertOrder
-      parameters:
-        - name: hash
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/InvertOrderForm"
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/OrderForm"
         '404':
           $ref: "#/components/responses/EntityNotFound"
         '400':

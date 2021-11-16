@@ -743,21 +743,6 @@ components:
         - LAST_UPDATE_ASC
         - LAST_UPDATE_DESC
 
-    InvertOrderForm:
-      type: object
-      required: [ maker, amount, originFees, salt ]
-      properties:
-        maker:
-          "$ref": "#/components/schemas/Address"
-        amount:
-          "$ref": "#/components/schemas/BigInteger"
-        salt:
-          "$ref": "#/components/schemas/BigInteger"
-        originFees:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Part"
-
     OrdersPagination:
       type: object
       required:
