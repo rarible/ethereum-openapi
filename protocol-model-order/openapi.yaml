@@ -1044,6 +1044,17 @@ components:
       oneOf:
         - "$ref": "#/components/schemas/RaribleAuctionV1DataV1"
 
+    AuctionIds:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "List of the auctions hash"
+          items:
+            $ref: "#/components/schemas/Word"
+
     AuctionsPagination:
       type: object
       required:
