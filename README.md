@@ -33,7 +33,7 @@ Be careful of backward compatibility:
       This actually has happened to us when we made `NftItemDto.meta` to be a required field:
       > com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException: Instantiation of [simple type, class com.rarible.protocol.dto.NftItemDto] value failed for JSON property meta due to missing (therefore NULL) value for creator parameter meta which is a non-nullable type
 
-    - Now to overcome this:
+    - How to overcome this:
         - *firstly*, deploy the application with *optional* type (as before) but always have a value
         - wait for some time to guarantee all Kafka queues are emptied
         - *secondly*, make the field as *required*
