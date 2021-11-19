@@ -1484,6 +1484,20 @@ paths:
           schema:
             type: string
           example: 0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0
+        - name: continuation
+          description: "Continuation token from the previous response"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          description: "The number of auction bids to return"
+          in: query
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
       x-codeSamples:
         - lang: 'cURL'
           source: |
