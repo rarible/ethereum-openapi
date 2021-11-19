@@ -1101,6 +1101,18 @@ components:
         continuation:
           type: string
 
+    AuctionBidsPagination:
+      type: object
+      required:
+        - bids
+      properties:
+        bids:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuctionBid"
+        continuation:
+          type: string
+
     RaribleAuctionV1DataV1:
       type: object
       required:

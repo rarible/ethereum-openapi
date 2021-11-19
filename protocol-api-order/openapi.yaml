@@ -1470,6 +1470,35 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/auctions/{hash}/bids":
+    get:
+      tags:
+        - auction-controller
+      description: Returns auction bids by the auction hash
+      operationId: getAuctionBidsByHash
+      parameters:
+        - name: hash
+          description: "Hash of auction"
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --request GET \
+            --url 'https://ethereum-api.rarible.org/v0.1/auction/auctions/0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0/bids'
+      responses:
+        '200':
+          $ref: "#/components/responses/AuctionBidPage"
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/auctions/all":
     get:
       deprecated: true
@@ -1780,7 +1809,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/AuctionsPagination"
-
+    AuctionBidPage:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AuctionBidsPagination"
     OrderUpdateApiError:
       description: Bad Request
       content:
