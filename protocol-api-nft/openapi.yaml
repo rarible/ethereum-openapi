@@ -452,6 +452,13 @@ paths:
           schema:
             $ref: "#/components/schemas/Address"
           example: 0x60f80121c31a0d46b5279700f9df786054aa5ee5
+        - name: owner
+          in: query
+          description: "Address of NFT item owner"
+          required: false
+          schema:
+            $ref: "#/components/schemas/Address"
+          example: 0x70f80121c31a0d46b5279700f9df786054aa5ee5
         - name: continuation
           in: query
           description: "Continuation token from the previous response"

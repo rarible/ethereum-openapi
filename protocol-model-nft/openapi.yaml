@@ -200,6 +200,8 @@ components:
             - by_collection
         collection:
           $ref: "#/components/schemas/Address"
+        owner:
+          $ref: "#/components/schemas/Address"
 
     NftOwnershipFilter:
       type: object
