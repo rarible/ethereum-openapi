@@ -1173,8 +1173,6 @@ components:
       properties:
         seller:
           $ref: "#/components/schemas/Address"
-        buyer:
-          $ref: "#/components/schemas/Address"
         sell:
           $ref: "#/components/schemas/Asset"
         buy:

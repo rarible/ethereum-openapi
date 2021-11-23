@@ -1165,8 +1165,11 @@ components:
     AuctionBid:
       type: object
       required:
+        - buyer
         - amount
       properties:
+        buyer:
+          $ref: "#/components/schemas/Address"
         amount:
           $ref: "#/components/schemas/BigDecimal"
       oneOf:
