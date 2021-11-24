@@ -603,6 +603,7 @@ components:
           $ref: "#/components/schemas/BigDecimal"
         priceHistory:
           type: array
+          deprecated: true
           default: [ ]
           items:
             $ref: "#/components/schemas/OrderPriceHistoryRecord"
@@ -669,6 +670,7 @@ components:
 
     OrderPriceHistoryRecord:
       type: object
+      deprecated: true
       required:
         - date
         - makeValue
