@@ -310,44 +310,6 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-                <plugin>
-                    <groupId>se.bjurr.gitchangelog</groupId>
-                    <artifactId>git-changelog-maven-plugin</artifactId>
-                    <version>${changelog.version}</version>
-                    <executions>
-                        <execution>
-                            <id>GenerateGitChangelog</id>
-                            <phase>generate-sources</phase>
-                            <goals>
-                                <goal>git-changelog</goal>
-                            </goals>
-                            <configuration>
-                                <templateContent>
-                                    <![CDATA[
-                                    # Git Changelog Maven plugin changelog
-                                    Changelog of Git Changelog Maven plugin.
-                                    {{#tags}}
-                                    ## {{name}}
-                                       {{#issues}}
-                                         {{#hasLink}}
-                                    ### {{name}} [{{issue}}]({{link}}) {{title}}
-                                         {{/hasLink}}
-                                      {{^hasLink}}
-                                    ### {{name}}
-                                      {{/hasLink}}
-                                      {{#commits}}
-                                    [{{hash}}](https://github.com/tomasbjerre/git-changelog-maven-plugin/commit/{{hash}}) {{authorName}} *{{commitTime}}*
-                                    {{{message}}}
-                                      {{/commits}}
-                                     {{/issues}}
-                                    {{/tags}}
-                                    ]]>
-                                </templateContent>
-                                <file>CHANGELOG.md</file>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -359,6 +321,31 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>se.bjurr.gitchangelog</groupId>
+                <artifactId>git-changelog-maven-plugin</artifactId>
+                <version>${changelog.version}</version>
+                <executions>
+                    <execution>
+                        <id>GenerateGitChangelog</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>git-changelog</goal>
+                        </goals>
+                        <configuration>
+                            <readableTagName>-(*+)$</readableTagName>
+                            <templateContent>
+                                <![CDATA[
+{{#tags}}
+## {{name}}
+{{/tags}}
+]]>
+                            </templateContent>
+                            <file>CHANGELOG.md</file>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
