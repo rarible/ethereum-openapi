@@ -336,16 +336,33 @@
                         <configuration>
                             <templateContent>
                                 <![CDATA[
+# Change Log
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 {{#tags}}
-## {{name}}{{#hasTagTime}} ({{tagTime}}){{/hasTagTime}}
-{{annotation}}
- {{#commits}}
-### {{authorName}} - {{commitTime}}
-[{{hash}}](https://server/{{hash}})
+# [{{name}}](https://github.com/rarible/ethereum-openapi/releases/tag/{{name}}) ({{tagDate}})
+{{#ifContainsType commits type='feat'}}
+### Features
 
-{{{message}}}
+    {{#commits}}
+      {{#ifCommitType . type='feat'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitservice/commit/{{hashFull}}))
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
 
- {{/commits}}
+  {{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+    {{#commits}}
+      {{#ifCommitType . type='fix'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitservice/commit/{{hashFull}}))
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+{{/ifReleaseTag}}
 {{/tags}}
 ]]>
                             </templateContent>
