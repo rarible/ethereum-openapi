@@ -334,11 +334,18 @@
                             <goal>git-changelog</goal>
                         </goals>
                         <configuration>
-                            <readableTagName>-(*+)$</readableTagName>
                             <templateContent>
                                 <![CDATA[
 {{#tags}}
-## {{name}}
+## {{name}}{{#hasTagTime}} ({{tagTime}}){{/hasTagTime}}
+{{annotation}}
+ {{#commits}}
+### {{authorName}} - {{commitTime}}
+[{{hash}}](https://server/{{hash}})
+
+{{{message}}}
+
+ {{/commits}}
 {{/tags}}
 ]]>
                             </templateContent>
