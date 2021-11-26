@@ -41,6 +41,7 @@
         <rarible.codegen.model.version>1.4.1</rarible.codegen.model.version>
 
         <codegen.package>com.rarible.protocol.dto</codegen.package>
+        <changelog.version>1.79</changelog.version>
 
         <rarible.core.version>1.4.6</rarible.core.version>
         <rarible.ethereum.version>1.3.5</rarible.ethereum.version>
@@ -250,6 +251,11 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+                <plugin>
                     <groupId>com.rarible.codegen</groupId>
                     <artifactId>model-generator-maven-plugin</artifactId>
                     <version>${rarible.codegen.model.version}</version>
@@ -303,6 +309,44 @@
                             <version>${rarible.codegen.client.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>se.bjurr.gitchangelog</groupId>
+                    <artifactId>git-changelog-maven-plugin</artifactId>
+                    <version>${changelog.version}</version>
+                    <executions>
+                        <execution>
+                            <id>GenerateGitChangelog</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>git-changelog</goal>
+                            </goals>
+                            <configuration>
+                                <templateContent>
+                                    <![CDATA[
+                                    # Git Changelog Maven plugin changelog
+                                    Changelog of Git Changelog Maven plugin.
+                                    {{#tags}}
+                                    ## {{name}}
+                                        {{#issues}}
+                                         {{#hasLink}}
+                                    ### {{name}} [{{issue}}]({{link}}) {{title}}
+                                         {{/hasLink}}
+                                      {{^hasLink}}
+                                    ### {{name}}
+                                      {{/hasLink}}
+                                      {{#commits}}
+                                    [{{hash}}](https://github.com/tomasbjerre/git-changelog-maven-plugin/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+                                    {{{message}}}
+                                      {{/commits}}
+                                     {{/issues}}
+                                    {{/tags}}
+                                    ]]>
+                                </templateContent>
+                                <file>CHANGELOG.md</file>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
