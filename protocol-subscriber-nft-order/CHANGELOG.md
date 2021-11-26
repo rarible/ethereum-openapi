@@ -1,4 +1,34 @@
-## Unreleased
+## 1.343 (2021-11-26 03:21:11)
+test
+
+### sergey.anufriev - 2021-11-26 03:21:11
+[d81425b4cb94135](https://server/d81425b4cb94135)
+
+New files
+
+## release-1.1 (2021-11-26 03:02:17)
+test
+
+### sergey.anufriev - 2021-11-26 03:02:17
+[2e0b89e74023eeb](https://server/2e0b89e74023eeb)
+
+teett
+
+## v1.0.1 (2021-11-26 01:58:15)
+Release 1.0.0
+
+### sergey.anufriev - 2021-11-26 01:58:15
+[dbc5d767c067064](https://server/dbc5d767c067064)
+
+test 1
+
+## 1.0 (2021-11-26 01:57:21)
+1
+
+### sergey.anufriev - 2021-11-26 01:57:21
+[7fea99464ce22c3](https://server/7fea99464ce22c3)
+
+test
 
 ### Denis Mazin - 2021-11-25 06:58:56
 [89790f00e9fcb17](https://server/89790f00e9fcb17)
