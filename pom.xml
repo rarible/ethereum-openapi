@@ -328,7 +328,7 @@
                                     Changelog of Git Changelog Maven plugin.
                                     {{#tags}}
                                     ## {{name}}
-                                        {{#issues}}
+                                       {{#issues}}
                                          {{#hasLink}}
                                     ### {{name}} [{{issue}}]({{link}}) {{title}}
                                          {{/hasLink}}
