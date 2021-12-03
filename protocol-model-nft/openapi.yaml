@@ -65,6 +65,8 @@ components:
           description: "List of addresses that can mint items in this collection"
           items:
             "$ref": "#/components/schemas/Address"
+        meta:
+          "$ref": "#/components/schemas/NftCollectionMeta"
 
     NftCollections:
       required:
@@ -457,6 +459,27 @@ components:
           "$ref": "#/components/schemas/NftMedia"
         animation:
           "$ref": "#/components/schemas/NftMedia"
+    NftCollectionMeta:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "Name of the NFT collection"
+        description:
+          type: string
+          description: "Description of the NFT collection"
+        image:
+          "$ref": "#/components/schemas/NftMedia"
+        external_link:
+          type: string
+          description: "Description of the NFT collection"
+        seller_fee_basis_points:
+          type: integer
+          format: int32
+          description: "Base points"
+        fee_recipient:
+          description: "Where seller fees will be paid to"
+          "$ref": "#/components/schemas/Address"
     NftItemRoyaltyList:
       type: object
       properties:
