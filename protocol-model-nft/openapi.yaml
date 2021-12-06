@@ -460,6 +460,8 @@ components:
         animation:
           "$ref": "#/components/schemas/NftMedia"
     NftCollectionMeta:
+      required:
+        - name
       type: object
       properties:
         name:
