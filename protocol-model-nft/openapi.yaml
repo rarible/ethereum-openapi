@@ -474,11 +474,11 @@ components:
           "$ref": "#/components/schemas/NftMedia"
         external_link:
           type: string
-          description: "Description of the NFT collection"
+          description: "External link to the original website for the collection"
         seller_fee_basis_points:
           type: integer
           format: int32
-          description: "Base points"
+          description: "Indicates a 1% seller fee"
         fee_recipient:
           description: "Where seller fees will be paid to"
           "$ref": "#/components/schemas/Address"
