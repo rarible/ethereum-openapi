@@ -60,6 +60,8 @@ paths:
 
   "/v0.1/encoder/data":
     post:
+      deprecated: true
+      description: This method should not be used and will be removed soon
       tags:
         - order-encode-controller
       operationId: encodeOrderData
@@ -83,6 +85,8 @@ paths:
 
   "/v0.1/encoder/assetType":
     post:
+      deprecated: true
+      description: This method should not be used and will be removed soon
       tags:
         - order-encode-controller
       operationId: encodeOrderAssetType
