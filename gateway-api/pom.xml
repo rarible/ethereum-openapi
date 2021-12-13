@@ -92,15 +92,6 @@
                             </pathProcessor>
                         </dependency>
                         <dependency>
-                            <name>protocol-api-unlockable</name>
-                            <packageName>${codegen.package}</packageName>
-                            <pathProcessor>
-                                <apiPathReplacement></apiPathReplacement>
-                                <apiPathReplacementRegex>/v0.1</apiPathReplacementRegex>
-                                <template>/v0.1/unlockable{originalPath}</template>
-                            </pathProcessor>
-                        </dependency>
-                        <dependency>
                             <name>protocol-api-nft-order</name>
                             <packageName>${codegen.package}</packageName>
                             <pathProcessor>
