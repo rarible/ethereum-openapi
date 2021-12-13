@@ -38,7 +38,6 @@ components:
         - creators
         - supply
         - lazySupply
-        - owners
         - royalties
         - date
         - pending
@@ -65,6 +64,7 @@ components:
           $ref: "#/components/schemas/BigInteger"
         owners:
           type: array
+          deprecated: true
           description: Owners of the target items
           items:
             "$ref": "#/components/schemas/Address"
@@ -163,6 +163,7 @@ components:
           $ref: "#/components/schemas/Address"
         creators:
           type: array
+          deprecated: true
           items:
             "$ref": "#/components/schemas/Part"
         value:
