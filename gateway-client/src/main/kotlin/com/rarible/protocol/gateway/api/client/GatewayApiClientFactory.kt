@@ -86,10 +86,6 @@ class GatewayApiClientFactory(
         return OrderAggregationControllerApi(createApiClient(blockchain))
     }
 
-    fun createUnlockableApiClient(blockchain: String): LockControllerApi {
-        return LockControllerApi(createApiClient(blockchain))
-    }
-
     fun createGatewayControllerApiClient(blockchain: String): GatewayControllerApi {
         return GatewayControllerApi(createApiClient(blockchain))
     }
