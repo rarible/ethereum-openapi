@@ -173,10 +173,14 @@ components:
           description: List of royalties
           items:
             "$ref": "#/components/schemas/Part"
-        date:
+        lastUpdatedAt:
           type: string
           format: date-time
-          description: "Data when the item was created"
+          description: "Datetime when the item was created"
+        mintedAt:
+          type: string
+          format: date-time
+          description: "Datetime when the item was minted"
         pending:
           type: array
           description: "Pending information about the item"
