@@ -1036,6 +1036,7 @@ components:
     Auction:
       type: object
       required:
+        - contract
         - seller
         - sell
         - buy
@@ -1046,6 +1047,8 @@ components:
         - status
         - hash
       properties:
+        contract:
+          $ref: "#/components/schemas/Address"
         seller:
           $ref: "#/components/schemas/Address"
         sell:
