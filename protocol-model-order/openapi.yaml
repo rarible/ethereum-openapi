@@ -948,11 +948,6 @@ components:
         - LAST_UPDATE_DESC
         - BUY_PRICE_ASC
 
-    AuctionData:
-      type: object
-      oneOf:
-        - "$ref": "#/components/schemas/RaribleAuctionV1DataV1"
-
     AuctionIds:
       type: object
       required:

@@ -445,6 +445,11 @@ components:
         data:
           $ref: "#/components/schemas/RaribleAuctionV1DataV1"
 
+    AuctionData:
+      type: object
+      oneOf:
+        - "$ref": "#/components/schemas/RaribleAuctionV1DataV1"
+
     RaribleAuctionV1DataV1:
       type: object
       required:
