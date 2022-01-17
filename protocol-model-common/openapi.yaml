@@ -1022,6 +1022,117 @@ components:
               - CANCEL_BID
               - CANCEL_LIST
 
+    AuctionActivityFilter:
+      type: object
+      oneOf:
+        - $ref: "#/components/schemas/AuctionActivityFilterAll"
+        - $ref: "#/components/schemas/AuctionActivityFilterByUser"
+        - $ref: "#/components/schemas/AuctionActivityFilterByItem"
+        - $ref: "#/components/schemas/AuctionActivityFilterByCollection"
+
+
+    AuctionActivityFilterAll:
+      type: object
+      required:
+        - "@type"
+        - types
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "all"
+        types:
+          type: array
+          items:
+            type: string
+            description: "Auction activity type"
+            enum:
+              - CREATED
+              - BID
+              - CANCEL
+              - FINISHED
+
+    AuctionActivityFilterByUser:
+      type: object
+      required:
+        - "@type"
+        - types
+        - user
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "by_user"
+        user:
+          $ref: "#/components/schemas/Address"
+        types:
+          type: array
+          items:
+            type: string
+            description: "Auction activity type by user"
+            enum:
+              - CREATED
+              - BID
+              - CANCEL
+              - FINISHED
+        from:
+          type: integer
+          format: int64
+        to:
+          type: integer
+          format: int64
+
+    AuctionActivityFilterByItem:
+      type: object
+      required:
+        - "@type"
+        - contract
+        - tokenId
+        - types
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "by_item"
+        contract:
+          $ref: "#/components/schemas/Address"
+        tokenId:
+          $ref: "#/components/schemas/BigInteger"
+        types:
+          type: array
+          items:
+            type: string
+            description: "Auction activity type"
+            enum:
+              - CREATED
+              - BID
+              - CANCEL
+              - FINISHED
+
+    AuctionActivityFilterByCollection:
+      type: object
+      required:
+        - "@type"
+        - contract
+        - types
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "by_collection"
+        contract:
+          $ref: "#/components/schemas/Address"
+        types:
+          type: array
+          items:
+            type: string
+            description: "Auction activity type"
+            enum:
+              - CREATED
+              - BID
+              - CANCEL
+              - FINISHED
+
     ItemHistory:
       type: object
       required:
