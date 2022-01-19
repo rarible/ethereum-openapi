@@ -596,6 +596,7 @@ paths:
         - name: currencyId
           in: query
           required: false
+          description: "This parameter will be required in future releases."
           schema:
             $ref: "#/components/schemas/Address"
       responses:
@@ -1101,6 +1102,7 @@ paths:
         - name: currencyId
           in: query
           required: false
+          description: "This parameter will be required in future releases."
           schema:
             $ref: "#/components/schemas/Address"
         - name: startDate
