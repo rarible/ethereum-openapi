@@ -598,8 +598,10 @@ components:
         takePrice:
           $ref: "#/components/schemas/BigDecimal"
         makePriceUsd:
+          deprecated: true
           $ref: "#/components/schemas/BigDecimal"
         takePriceUsd:
+          deprecated: true
           $ref: "#/components/schemas/BigDecimal"
         priceHistory:
           type: array
