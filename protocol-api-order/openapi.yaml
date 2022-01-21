@@ -1005,7 +1005,9 @@ paths:
           in: query
           required: false
           schema:
-            $ref: "#/components/schemas/Address"
+            type: array
+            items:
+              $ref: "#/components/schemas/Address"
         - name: origin
           description: "Address of the consumer to receive the commission for order"
           in: query
@@ -1064,7 +1066,9 @@ paths:
           in: query
           required: false
           schema:
-            $ref: "#/components/schemas/Address"
+            type: array
+            items:
+              $ref: "#/components/schemas/Address"
         - name: origin
           description: "Address of the consumer to receive the commission for order"
           in: query
@@ -1196,7 +1200,9 @@ paths:
           in: query
           required: false
           schema:
-            $ref: "#/components/schemas/Address"
+            type: array
+            items:
+              $ref: "#/components/schemas/Address"
         - name: origin
           in: query
           required: false
