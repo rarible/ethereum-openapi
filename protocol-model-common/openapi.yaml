@@ -1051,6 +1051,8 @@ components:
               - BID
               - CANCEL
               - FINISHED
+              - STARTED
+              - ENDED
 
     AuctionActivityFilterByUser:
       type: object
@@ -1075,12 +1077,8 @@ components:
               - BID
               - CANCEL
               - FINISHED
-        from:
-          type: integer
-          format: int64
-        to:
-          type: integer
-          format: int64
+              - STARTED
+              - ENDED
 
     AuctionActivityFilterByItem:
       type: object
@@ -1108,6 +1106,8 @@ components:
               - BID
               - CANCEL
               - FINISHED
+              - STARTED
+              - ENDED
 
     AuctionActivityFilterByCollection:
       type: object
@@ -1132,6 +1132,8 @@ components:
               - BID
               - CANCEL
               - FINISHED
+              - STARTED
+              - ENDED
 
     ItemHistory:
       type: object
