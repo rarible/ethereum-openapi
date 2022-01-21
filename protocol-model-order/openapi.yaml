@@ -19,6 +19,20 @@ components:
           items:
             "$ref": "#/components/schemas/OrderActivity"
 
+    AuctionActivities:
+      required:
+        - items
+      type: object
+      properties:
+        continuation:
+          type: string
+          description: Continuation token to paginate items search result
+        items:
+          type: array
+          description: List of found activities
+          items:
+            "$ref": "#/components/schemas/AuctionActivity"
+
     EthereumOrderDataApiError:
       required:
         - code
