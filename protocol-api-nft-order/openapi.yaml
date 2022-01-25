@@ -13,6 +13,7 @@ paths:
         - nft-order-ownership-controller
       operationId: getNftOrderOwnershipById
       description: Returns order ownership by ownership address
+      deprecated: true
       parameters:
         - name: ownershipId
           description: "ID of the ownership in format: '$contractAddress:$tokenId:$ownerAddress'"
@@ -41,6 +42,7 @@ paths:
         - nft-order-ownership-controller
       operationId: getNftOrderOwnershipsByItem
       description: Returns order ownership by item address
+      deprecated: true
       parameters:
         - name: contract
           description: "Address of the contract"
@@ -81,6 +83,7 @@ paths:
         - nft-order-ownership-controller
       operationId: getNftOrderAllOwnerships
       description: Returns all orders with ownerships
+      deprecated: true
       parameters:
         - name: continuation
           description: "Continuation token from the previous response"
@@ -110,6 +113,7 @@ paths:
       tags:
         - nft-order-lazy-mint-controller
       description: Lazy mint of NFT
+      deprecated: true
       operationId: mintNftOrderAsset
       requestBody:
         content:
@@ -139,6 +143,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderItemById
       description: Returns order item by item identifier
+      deprecated: true
       parameters:
         - name: itemId
           description: "Item identifier, has format `${contract}:${tokenId}`"
@@ -166,6 +171,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderItemMetaById
       description: Returns order item meta by item identifier
+      deprecated: true
       parameters:
         - name: itemId
           description: "Item identifier, has format `${contract}:${tokenId}`"
@@ -191,6 +197,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderLazyItemById
       description: Returns lazy order item by item identifier
+      deprecated: true
       parameters:
         - name: itemId
           description: "Item identifier, has format `${contract}:${tokenId}`"
@@ -218,6 +225,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderItemsByOwner
       description: Returns order items by owner
+      deprecated: true
       parameters:
         - name: owner
           description: "Address of the item owner"
@@ -252,6 +260,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderItemsByCreator
       description: Returns order items by creator
+      deprecated: true
       parameters:
         - name: creator
           description: "Address of the item creator"
@@ -286,6 +295,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderItemsByCollection
       description: Returns order items by collection address
+      deprecated: true
       parameters:
         - name: collection
           description: "Address of the NFT collection"
@@ -320,6 +330,7 @@ paths:
         - nft-order-item-controller
       operationId: getNftOrderAllItems
       description: Returns all orders
+      deprecated: true
       parameters:
         - name: continuation
           description: "Continuation token from the previous response"
@@ -370,6 +381,7 @@ paths:
         - nft-order-activity-controller
       operationId: getNftOrderActivitiesByUser
       description: Returns orders event history by user
+      deprecated: true
       parameters:
         - name: type
           description: "Order activity type"
@@ -434,6 +446,7 @@ paths:
         - nft-order-activity-controller
       operationId: getNftOrderActivitiesByItem
       description: Returns orders event history by item
+      deprecated: true
       parameters:
         - name: type
           description: "Order activity type"
@@ -488,6 +501,7 @@ paths:
         - nft-order-activity-controller
       operationId: getNftOrderActivitiesByCollection
       description: Returns orders event history by collection
+      deprecated: true
       parameters:
         - name: type
           description: "Order activity type"
@@ -535,6 +549,7 @@ paths:
         - nft-order-activity-controller
       operationId: getNftOrderAllActivities
       description: Returns all orders event history
+      deprecated: true
       parameters:
         - name: type
           description: "Order activity type"
@@ -578,6 +593,7 @@ paths:
       tags:
         - nft-order-collection-controller
       description: Returns next available tokenId for minter
+      deprecated: true
       operationId: generateNftOrderTokenId
       parameters:
         - name: collection
@@ -609,6 +625,7 @@ paths:
       tags:
         - nft-order-collection-controller
       description: Returns collection by address
+      deprecated: true
       operationId: getNftOrderCollectionById
       parameters:
         - name: collection
@@ -636,6 +653,7 @@ paths:
       tags:
         - nft-order-collection-controller
       description: Returns all collections by owner
+      deprecated: true
       operationId: searchNftOrderCollectionsByOwner
       parameters:
         - name: owner
@@ -674,6 +692,7 @@ paths:
       tags:
         - nft-order-collection-controller
       description: Returns all collections
+      deprecated: true
       operationId: searchNftOrderAllCollections
       parameters:
         - name: continuation
