@@ -1065,8 +1065,11 @@ components:
           type: string
           enum:
             - "by_user"
-        user:
-          $ref: "#/components/schemas/Address"
+        users:
+          type: array
+          description: "List of users"
+          items:
+            $ref: "#/components/schemas/Address"
         types:
           type: array
           items:
@@ -1076,9 +1079,12 @@ components:
               - CREATED
               - BID
               - CANCEL
-              - FINISHED
-              - STARTED
-              - ENDED
+        from:
+          type: integer
+          format: int64
+        to:
+          type: integer
+          format: int64
 
     AuctionActivityFilterByItem:
       type: object
