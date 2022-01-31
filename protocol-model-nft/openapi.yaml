@@ -559,3 +559,14 @@ components:
         - ORIGINAL
         - BIG
         - PREVIEW
+
+    NftItemIds:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "List of the items id"
+          items:
+            type: string

@@ -362,6 +362,32 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/items/byIds":
+    post:
+      tags:
+        - nft-item-controller
+      description: Returns the NFT item by identifier
+      operationId: getNftItemsByIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NftItemIds"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NftItem"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/items/byOwner":
     get:
       tags:
