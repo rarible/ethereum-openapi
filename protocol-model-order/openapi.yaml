@@ -1026,8 +1026,12 @@ components:
 
     AuctionDeleteEvent:
       type: object
+      required:
+        - auction
       properties:
         type:
           type: string
           enum:
             - DELETE
+        auction:
+          "$ref": "#/components/schemas/Auction"
