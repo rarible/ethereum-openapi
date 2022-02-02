@@ -1082,6 +1082,9 @@ components:
               - CREATED
               - BID
               - CANCEL
+              - FINISHED
+              - STARTED
+              - ENDED
         from:
           type: integer
           format: int64
