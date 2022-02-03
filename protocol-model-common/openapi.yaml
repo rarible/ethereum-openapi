@@ -1399,11 +1399,16 @@ components:
       required:
         - buyer
         - amount
+        - date
       properties:
         buyer:
           $ref: "#/components/schemas/Address"
         amount:
           $ref: "#/components/schemas/BigDecimal"
+        date:
+          type: string
+          format: date-time
+          description: "Date and time when the bid was created"
       oneOf:
         - "$ref": "#/components/schemas/RaribleAuctionV1BidV1"
 
