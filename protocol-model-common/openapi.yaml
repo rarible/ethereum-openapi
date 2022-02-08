@@ -1400,6 +1400,7 @@ components:
         - buyer
         - amount
         - date
+        - status
       properties:
         buyer:
           $ref: "#/components/schemas/Address"
@@ -1409,6 +1410,12 @@ components:
           type: string
           format: date-time
           description: "Date and time when the bid was created"
+        status:
+          type: string
+          description: "Status of the auction bid"
+          enum:
+            - ACTIVE
+            - HISTORICAL
       oneOf:
         - "$ref": "#/components/schemas/RaribleAuctionV1BidV1"
 
