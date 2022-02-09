@@ -1399,11 +1399,23 @@ components:
       required:
         - buyer
         - amount
+        - date
+        - status
       properties:
         buyer:
           $ref: "#/components/schemas/Address"
         amount:
           $ref: "#/components/schemas/BigDecimal"
+        date:
+          type: string
+          format: date-time
+          description: "Date and time when the bid was created"
+        status:
+          type: string
+          description: "Status of the auction bid"
+          enum:
+            - ACTIVE
+            - HISTORICAL
       oneOf:
         - "$ref": "#/components/schemas/RaribleAuctionV1BidV1"
 

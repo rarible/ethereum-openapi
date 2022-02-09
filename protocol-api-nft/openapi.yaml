@@ -120,6 +120,12 @@ paths:
           required: true
           schema:
             type: string
+        - name: showDeleted
+          in: query
+          description: "Return ownership if it is deleted"
+          required: false
+          schema:
+            type: boolean
       responses:
         '200':
           description: OK
