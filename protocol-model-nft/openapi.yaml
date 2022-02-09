@@ -524,8 +524,6 @@ components:
           $ref: "#/components/schemas/NftOwnership"
     NftOwnershipDeleteEvent:
       type: object
-      required:
-        - ownership
       properties:
         type:
           type: string
@@ -533,6 +531,8 @@ components:
             - DELETE
         ownership:
           $ref: "#/components/schemas/NftDeletedOwnership"
+        deletedOwnership:
+          $ref: "#/components/schemas/NftOwnership"
 
     NftOwnerships:
       required:
