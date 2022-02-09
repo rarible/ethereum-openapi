@@ -15,6 +15,12 @@ components:
           $ref: '#/components/schemas/Address'
         balance:
           $ref: '#/components/schemas/BigInteger'
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdatedAt:
+          type: string
+          format: date-time
 
     Erc20DecimalBalance:
       type: object
@@ -28,6 +34,12 @@ components:
           $ref: '#/components/schemas/BigInteger'
         decimalBalance:
           $ref: '#/components/schemas/BigDecimal'
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdatedAt:
+          type: string
+          format: date-time
 
     Erc20Token:
       type: object
@@ -72,6 +84,12 @@ components:
           type: string
         balanceId:
           type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdatedAt:
+          type: string
+          format: date-time
       oneOf:
         - $ref: "#/components/schemas/Erc20BalanceUpdateEvent"
 
