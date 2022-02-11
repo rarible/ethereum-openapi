@@ -191,6 +191,8 @@ components:
           description: "Item was deleted or not"
         meta:
           "$ref": "#/components/schemas/NftItemMeta"
+          deprecated: true
+          description: Deprecated and will be removed. Ethereum Protocol API will not be responsible for loading NFT metadata. Please migrate to Rarible Multichain Protocol (https://docs.rarible.org/) and especially this endpoint - https://api.rarible.org/v0.1/doc#operation/getItemById.
     NftItemAttribute:
       required:
         - key
