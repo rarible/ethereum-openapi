@@ -4,10 +4,48 @@ info:
   version: v0.1
 
 paths:
+  /v0.1/balances/eth/{owner}:
+    get:
+      tags:
+        - balance-controller
+      description: Return ETH balance
+      operationId: getEthBalance
+      parameters:
+        - name: owner
+          description: "Address of the ETH owner"
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Address'
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --request GET \
+            --url 'https://ethereum-api.rarible.org/v0.1/erc20/balances/eth/0x60f80121c31a0d46b5279700f9df786054aa5ee5'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EthBalance'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erc20IndexerApiError'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erc20IndexerApiError'
+
   /v0.1/balances/{contract}/{owner}:
     get:
       tags:
-        - erc20-balance-controller
+        - balance-controller
       description: Return ERC20 token balance
       operationId: getErc20Balance
       parameters:

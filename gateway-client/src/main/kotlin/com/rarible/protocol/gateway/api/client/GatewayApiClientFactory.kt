@@ -10,8 +10,8 @@ class GatewayApiClientFactory(
     webClientCustomizer: WebClientCustomizer
 ) : AbstractApiClientFactory(uriProvider, webClientCustomizer) {
 
-    fun createErc20BalanceApiClient(blockchain: String): Erc20BalanceControllerApi {
-        return Erc20BalanceControllerApi(createApiClient(blockchain))
+    fun createErc20BalanceApiClient(blockchain: String): BalanceControllerApi {
+        return BalanceControllerApi(createApiClient(blockchain))
     }
 
     fun createErc20TokenApiClient(blockchain: String): Erc20TokenControllerApi {
