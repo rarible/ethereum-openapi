@@ -41,7 +41,7 @@ class Erc20IndexerApiClientAutoConfigurationIt {
 
         every { webClientCustomizer.customize(any()) } returns Unit
 
-        erc20IndexerApiClientFactory.createErc20BalanceApiClient("ethereum")
+        erc20IndexerApiClientFactory.createBalanceApiClient("ethereum")
 
         verify { webClientCustomizer.customize(any()) }
     }
