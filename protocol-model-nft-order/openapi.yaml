@@ -38,7 +38,6 @@ components:
         - creators
         - supply
         - lazySupply
-        - royalties
         - date
         - pending
         - totalStock
@@ -70,7 +69,8 @@ components:
             "$ref": "#/components/schemas/Address"
         royalties:
           type: array
-          description: List of royalties
+          deprecated: true
+          description: Use a special endpoint '/v0.1/items/{itemId}/royalty'
           items:
             $ref: "#/components/schemas/Part"
         date:
