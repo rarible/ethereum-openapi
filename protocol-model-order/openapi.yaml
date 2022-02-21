@@ -540,6 +540,8 @@ components:
           $ref: "#/components/schemas/Binary"
         extra:
           $ref: "#/components/schemas/BigInteger"
+        target:
+          $ref: "#/components/schemas/Address"
 
     OrderCryptoPunksData:
       type: object
