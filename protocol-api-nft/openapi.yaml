@@ -729,6 +729,7 @@ paths:
         - nft-collection-controller
       description: Returns collection by address
       operationId: getNftCollectionStats
+      deprecated: true
       parameters:
         - name: collection
           in: path
