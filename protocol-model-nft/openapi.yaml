@@ -68,6 +68,21 @@ components:
         meta:
           "$ref": "#/components/schemas/NftCollectionMeta"
 
+    NftCollectionStats:
+      type: object
+      properties:
+        token:
+          "$ref": "#/components/schemas/Address"
+        totalItemSupply:
+          "$ref": "#/components/schemas/BigInteger"
+        totalOwnerCount:
+          type: integer
+        lastUpdatedAt:
+          type: string
+          format: date-time
+      required:
+        - token
+
     NftCollections:
       required:
         - total
