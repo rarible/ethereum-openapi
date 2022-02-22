@@ -9,6 +9,7 @@ import com.rarible.protocol.erc20.api.client.Erc20IndexerApiServiceUriProvider
 import com.rarible.protocol.erc20.api.client.SwarmErc20IndexerApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.context.annotation.Bean
@@ -25,7 +26,9 @@ class Erc20IndexerApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(Erc20IndexerApiServiceUriProvider::class)
-    fun erc20IndexerApiServiceUriProvider(): Erc20IndexerApiServiceUriProvider {
+    fun erc20IndexerApiServiceUriProvider(
+        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+    ): Erc20IndexerApiServiceUriProvider {
         return SwarmErc20IndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
     }
 

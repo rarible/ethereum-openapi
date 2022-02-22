@@ -4,11 +4,13 @@ import com.rarible.core.application.ApplicationEnvironmentInfo
 import com.rarible.protocol.client.CompositeWebClientCustomizer
 import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
+import com.rarible.protocol.nftorder.api.client.K8sNftOrderApiServiceUriProvider
 import com.rarible.protocol.nftorder.api.client.NftOrderApiClientFactory
 import com.rarible.protocol.nftorder.api.client.NftOrderApiServiceUriProvider
 import com.rarible.protocol.nftorder.api.client.SwarmNftOrderApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.context.annotation.Bean
@@ -25,8 +27,13 @@ class NftOrderApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(NftOrderApiServiceUriProvider::class)
-    fun nftOrderApiServiceUriProvider(): NftOrderApiServiceUriProvider {
-        return SwarmNftOrderApiServiceUriProvider(applicationEnvironmentInfo.name)
+    fun nftOrderApiServiceUriProvider(
+        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+    ): NftOrderApiServiceUriProvider {
+        return if (k8s)
+            K8sNftOrderApiServiceUriProvider()
+        else
+            SwarmNftOrderApiServiceUriProvider(applicationEnvironmentInfo.name)
     }
 
     @Bean

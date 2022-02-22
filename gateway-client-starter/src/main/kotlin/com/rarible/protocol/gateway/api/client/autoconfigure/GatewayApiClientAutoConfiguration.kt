@@ -6,9 +6,11 @@ import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
 import com.rarible.protocol.gateway.api.client.GatewayApiClientFactory
 import com.rarible.protocol.gateway.client.GatewayApiServiceUriProvider
+import com.rarible.protocol.gateway.client.K8sGatewayApiServiceUriProvider
 import com.rarible.protocol.gateway.client.SwarmGatewayApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.context.annotation.Bean
@@ -25,8 +27,13 @@ class GatewayApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(GatewayApiServiceUriProvider::class)
-    fun gatewayApiServiceUriProvider(): GatewayApiServiceUriProvider {
-        return SwarmGatewayApiServiceUriProvider(applicationEnvironmentInfo.name)
+    fun gatewayApiServiceUriProvider(
+        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+    ): GatewayApiServiceUriProvider {
+        return if (k8s)
+            K8sGatewayApiServiceUriProvider()
+        else
+            SwarmGatewayApiServiceUriProvider(applicationEnvironmentInfo.name)
     }
 
     @Bean

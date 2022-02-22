@@ -4,11 +4,13 @@ import com.rarible.core.application.ApplicationEnvironmentInfo
 import com.rarible.protocol.client.CompositeWebClientCustomizer
 import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
+import com.rarible.protocol.order.api.client.K8sOrderIndexerApiServiceUriProvider
 import com.rarible.protocol.order.api.client.OrderIndexerApiClientFactory
 import com.rarible.protocol.order.api.client.OrderIndexerApiServiceUriProvider
 import com.rarible.protocol.order.api.client.SwarmOrderIndexerApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.context.annotation.Bean
@@ -25,8 +27,13 @@ class OrderIndexerApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(OrderIndexerApiServiceUriProvider::class)
-    fun orderIndexerApiServiceUriProvider(): OrderIndexerApiServiceUriProvider {
-        return SwarmOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
+    fun orderIndexerApiServiceUriProvider(
+        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+    ): OrderIndexerApiServiceUriProvider {
+        return if (k8s)
+            K8sOrderIndexerApiServiceUriProvider()
+        else
+            SwarmOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
     }
 
     @Bean
