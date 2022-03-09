@@ -364,6 +364,8 @@ components:
             - "transfer"
         from:
           $ref: "#/components/schemas/Address"
+        purchase:
+          type: boolean
 
     AuctionStatus:
       type: string
