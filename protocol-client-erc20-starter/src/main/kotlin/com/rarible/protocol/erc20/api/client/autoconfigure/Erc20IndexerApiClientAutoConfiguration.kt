@@ -6,6 +6,7 @@ import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
 import com.rarible.protocol.erc20.api.client.Erc20IndexerApiClientFactory
 import com.rarible.protocol.erc20.api.client.Erc20IndexerApiServiceUriProvider
+import com.rarible.protocol.erc20.api.client.K8sErc20IndexerApiServiceUriProvider
 import com.rarible.protocol.erc20.api.client.SwarmErc20IndexerApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
@@ -29,7 +30,11 @@ class Erc20IndexerApiClientAutoConfiguration(
     fun erc20IndexerApiServiceUriProvider(
         @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
     ): Erc20IndexerApiServiceUriProvider {
-        return SwarmErc20IndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
+        return if (k8s) {
+            K8sErc20IndexerApiServiceUriProvider()
+        } else {
+            SwarmErc20IndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
+        }
     }
 
     @Bean
