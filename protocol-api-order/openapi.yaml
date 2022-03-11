@@ -1505,6 +1505,12 @@ paths:
           schema:
             $ref: "#/components/schemas/Address"
           example: 0x60f80121c31a0d46b5279700f9df786054aa5ee5
+        - name: currency
+          in: query
+          description: "Currency address"
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: OK
