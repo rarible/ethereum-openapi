@@ -37,6 +37,13 @@ components:
             - ERC721
             - ERC1155
             - CRYPTO_PUNKS
+        status:
+          type: string
+          description: "Collection status"
+          enum:
+            - PENDING
+            - ERROR
+            - CONFIRMED
         owner:
           "$ref": "#/components/schemas/Address"
         name:
