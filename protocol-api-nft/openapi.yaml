@@ -106,6 +106,29 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/activities/byId":
+    post:
+      tags:
+        - nft-activity-controller
+      operationId: getNftActivitiesById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NftActivitiesByIdRequest"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NftActivities"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   ###################### Ownerships ######################
 
   "/v0.1/ownerships/{ownershipId}":
