@@ -910,7 +910,7 @@ components:
               - MINT
               - BURN
 
-    NftActivitiesByIdRequest:
+    ActivitiesByIdRequest:
       type: object
       required:
         - ids
