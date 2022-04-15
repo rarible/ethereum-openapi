@@ -601,6 +601,9 @@ components:
         lastUpdateAt:
           type: string
           format: date-time
+        dbUpdatedAt:
+          type: string
+          format: "date-time"
         pending:
           type: array
           items:
@@ -795,6 +798,8 @@ components:
       enum:
         - LAST_UPDATE_ASC
         - LAST_UPDATE_DESC
+        - DB_UPDATE_ASC
+        - DB_UPDATE_DESC
 
     OrdersPagination:
       type: object
