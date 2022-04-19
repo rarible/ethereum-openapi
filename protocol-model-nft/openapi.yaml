@@ -92,12 +92,12 @@ components:
 
     NftCollections:
       required:
-        - total
         - collections
       type: object
       properties:
         total:
           type: integer
+          deprecated: true
           description: Number of collections were found by request
           format: int64
         continuation:
@@ -290,12 +290,12 @@ components:
 
     NftItems:
       required:
-        - total
         - items
       type: object
       properties:
         total:
           type: integer
+          deprecated: true
           description: "The total number of items satisfy the query"
           format: int64
         continuation:
@@ -561,11 +561,11 @@ components:
     NftOwnerships:
       required:
         - ownerships
-        - total
       type: object
       properties:
         total:
           type: integer
+          deprecated: true
           description: Number of ownerships were found by request
           format: int64
         continuation:
