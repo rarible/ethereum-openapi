@@ -9,6 +9,7 @@ import com.rarible.protocol.dto.NftItemEventDto
 import com.rarible.protocol.dto.NftItemEventTopicProvider
 import com.rarible.protocol.dto.NftOwnershipEventDto
 import com.rarible.protocol.dto.NftOwnershipEventTopicProvider
+import org.apache.kafka.clients.consumer.OffsetResetStrategy
 import java.util.*
 
 class NftIndexerEventsConsumerFactory(
@@ -26,7 +27,8 @@ class NftIndexerEventsConsumerFactory(
             valueClass = NftCollectionEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = NftCollectionEventTopicProvider.getTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
@@ -37,7 +39,8 @@ class NftIndexerEventsConsumerFactory(
             valueClass = NftItemEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = NftItemEventTopicProvider.getTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
@@ -51,11 +54,16 @@ class NftIndexerEventsConsumerFactory(
             valueClass = NftOwnershipEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = NftOwnershipEventTopicProvider.getTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
     private fun createClientIdPrefix(blockchain: Blockchain): String {
         return "$environment.${blockchain.value}.$host.${UUID.randomUUID()}"
+    }
+
+    private fun getOffsetResetStrategy(): OffsetResetStrategy {
+        return OffsetResetStrategy.EARLIEST
     }
 }
