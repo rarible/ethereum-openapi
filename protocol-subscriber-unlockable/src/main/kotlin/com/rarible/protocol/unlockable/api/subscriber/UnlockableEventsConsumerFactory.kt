@@ -5,6 +5,7 @@ import com.rarible.core.kafka.json.JsonDeserializer
 import com.rarible.ethereum.domain.Blockchain
 import com.rarible.protocol.dto.UnlockableEventDto
 import com.rarible.protocol.dto.UnlockableTopicProvider
+import org.apache.kafka.clients.consumer.OffsetResetStrategy
 import java.util.*
 
 class UnlockableEventsConsumerFactory(
@@ -22,11 +23,16 @@ class UnlockableEventsConsumerFactory(
             valueClass = UnlockableEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = UnlockableTopicProvider.getTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
     private fun createClientIdPrefix(blockchain: Blockchain): String {
         return "$environment.${blockchain.value}.$host.${UUID.randomUUID()}"
+    }
+
+    private fun getOffsetResetStrategy(): OffsetResetStrategy {
+        return OffsetResetStrategy.EARLIEST
     }
 }
