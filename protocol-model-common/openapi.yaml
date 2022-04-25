@@ -910,6 +910,17 @@ components:
               - MINT
               - BURN
 
+    ActivitiesByIdRequest:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+            description: "List of activity ids"
+
     OrderActivityFilter:
       type: object
       oneOf:
