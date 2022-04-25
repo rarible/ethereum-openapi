@@ -3,6 +3,7 @@ package com.rarible.protocol.erc20.api.subscriber
 import com.rarible.ethereum.domain.Blockchain
 import com.rarible.protocol.dto.Erc20BalanceEventDto
 import com.rarible.protocol.dto.Erc20BalanceEventTopicProvider
+import org.apache.kafka.clients.consumer.OffsetResetStrategy
 import java.util.*
 
 class Erc20IndexerEventsConsumerFactory(
@@ -19,11 +20,16 @@ class Erc20IndexerEventsConsumerFactory(
             valueDeserializerClass = Erc20EventDtoDeserializer::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = Erc20BalanceEventTopicProvider.getTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
     private fun createClientIdPrefix(blockchain: Blockchain): String {
         return "$environment.${blockchain.value}.$host.${UUID.randomUUID()}"
+    }
+
+    private fun getOffsetResetStrategy(): OffsetResetStrategy {
+        return OffsetResetStrategy.EARLIEST
     }
 }
