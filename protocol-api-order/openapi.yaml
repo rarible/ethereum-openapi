@@ -1135,7 +1135,7 @@ paths:
     get:
       tags:
         - order-controller
-      description: Returns all orders with data base update sorting
+      description: Returns all orders with dbUpdatedAt sorting
       operationId: getAllSync
       parameters:
         - name: sort
