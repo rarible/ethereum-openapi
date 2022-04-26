@@ -7,18 +7,17 @@ Indexers use Rarible Ethereum Protocol OpenAPI to describe APIs (and events). Cl
 
 Rarible Ethereum Protocol OpenAPI is a component of the [Rarible Protocol](https://github.com/rarible/union-service).
 
-See more information in our [documentation](https://docs.rarible.org/ethereum/ethereum-overview).
+See more information about Rarible Protocol at [docs.rarible.org](https://docs.rarible.org).
 
 ## API Reference
 
 Use these base URLs to access API on different Ethereum networks:
 
-| Base URL | Network | Chain ID |
-| :--- | :--- | :--- |
-| [https://ethereum-api.rarible.org/v0.1/doc](https://ethereum-api.rarible.org/v0.1/doc) | Mainnet | 1 |
-| [https://ethereum-api-staging.rarible.org/v0.1/doc](https://ethereum-api-staging.rarible.org/v0.1/doc) | Rinkeby | 4 |
-| [https://ethereum-api-dev.rarible.org/v0.1/doc](https://ethereum-api-dev.rarible.org/v0.1/doc) | Ropsten | 3 |
-| [https://ethereum-api-e2e.rarible.org/v0.1/doc](https://ethereum-api-e2e.rarible.org/v0.1/doc) | - | - |
+| Documentation                                                                                          | Base URL                                       | Environments | Chain ID |
+|:-------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:------------:|:--------:|
+| [https://ethereum-api.rarible.org/v0.1/doc](https://ethereum-api.rarible.org/v0.1/doc)                 | https://ethereum-api.rarible.org/v0.1          |   Mainnet    |    1     |
+| [https://ethereum-api-staging.rarible.org/v0.1/doc](https://ethereum-api-staging.rarible.org/v0.1/doc) | https://ethereum-api-staging.rarible.org/v0.1  |   Rinkeby    |    4     |
+| [https://ethereum-api-dev.rarible.org/v0.1/doc](https://ethereum-api-dev.rarible.org/v0.1/doc)         | https://ethereum-api-dev.rarible.org/v0.1      |   Ropsten    |    3     |
 
 ## Backward compatibility
 
@@ -44,11 +43,12 @@ Be careful of backward compatibility:
 
 You are welcome to [suggest features](https://github.com/rarible/protocol/discussions) and [report bugs found](https://github.com/rarible/protocol/issues)!
 
+## Contributing
+
+The codebase is maintained using the "contributor workflow" where everyone without exception contributes patch proposals using "pull requests" (PRs). This facilitates social contribution, easy testing, and peer review.
+
+See more information on [CONTRIBUTING.md](https://github.com/rarible/protocol/blob/main/CONTRIBUTING.md).
+
 ## License
 
 Rarible Ethereum Protocol OpenAPI (with generated clients) is available under [MIT License](LICENSE).
-
-
-
-
-
