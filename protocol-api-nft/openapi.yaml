@@ -274,8 +274,7 @@ paths:
     get:
       tags:
         - nft-item-controller
-      deprecated: true
-      description: Deprecated and will be removed. Ethereum Protocol API will not be responsible for loading NFT metadata. Please migrate to Rarible Multichain Protocol (https://docs.rarible.org/) and especially this endpoint - https://api.rarible.org/v0.1/doc#operation/getItemById.
+      description: Returns metadata of specified NFT item
       operationId: getNftItemMetaById
       parameters:
         - name: itemId
@@ -308,7 +307,8 @@ paths:
     delete:
       tags:
         - nft-item-controller
-      description: Deletes the NFT item meta by identifier
+      deprecated: true
+      description: Deletes the NFT item meta by identifier. In future indexer won't store metadata, so this endpoint will be removed.
       operationId: resetNftItemMetaById
       parameters:
         - name: itemId
