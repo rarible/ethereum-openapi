@@ -34,6 +34,13 @@ class ContinuationMapper {
             return toString(dto.date.toEpochMilli(), dto.id)
         }
 
+        fun toSyncString(dto: ActivityDto?): String? {
+            if (dto == null) {
+                return null
+            }
+            return toString(dto.updatedAt.toEpochMilli(), dto.id)
+        }
+
         fun toString(time: Long, id: String): String {
             return "${time}_${id}"
         }

@@ -76,6 +76,7 @@ components:
       required:
         - id
         - date
+        - updatedAt
       properties:
         id:
           type: string
@@ -84,6 +85,10 @@ components:
           type: string
           format: date-time
           description: "Date and time when the event, related to activity, happened"
+        updatedAt:
+          type: string
+          format: date-time
+          description: "Date and time when the activity was updated in the DB"
         reverted:
           type: boolean
       oneOf:
