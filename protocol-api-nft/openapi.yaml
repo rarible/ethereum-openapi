@@ -153,7 +153,7 @@ paths:
           description: Sorting by data update time
           required: false
           schema:
-            $ref: "#/components/schemas/ActivitySort"
+            $ref: "#/components/schemas/SyncSort"
       responses:
         '200':
           description: OK

@@ -38,7 +38,7 @@ class ContinuationMapper {
             if (dto == null) {
                 return null
             }
-            return toString(dto.updatedAt.toEpochMilli(), dto.id)
+            return toString((dto.lastUpdatedAt ?: dto.date).toEpochMilli(), dto.id)
         }
 
         fun toString(time: Long, id: String): String {

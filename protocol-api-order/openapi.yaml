@@ -1143,7 +1143,7 @@ paths:
           in: query
           required: false
           schema:
-            "$ref": "#/components/schemas/OrderSyncSort"
+            "$ref": "#/components/schemas/SyncSort"
         - name: continuation
           description: "Continuation token from the previous response"
           in: query
@@ -1402,7 +1402,7 @@ paths:
           in: query
           required: false
           schema:
-            $ref: "#/components/schemas/ActivitySort"
+            $ref: "#/components/schemas/SyncSort"
       responses:
         '200':
           description: OK
@@ -1484,7 +1484,7 @@ paths:
           in: query
           required: false
           schema:
-            $ref: "#/components/schemas/ActivitySort"
+            $ref: "#/components/schemas/SyncSort"
       responses:
         '200':
           description: OK
