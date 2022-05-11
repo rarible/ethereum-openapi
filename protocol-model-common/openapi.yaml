@@ -84,6 +84,10 @@ components:
           type: string
           format: date-time
           description: "Date and time when the event, related to activity, happened"
+        lastUpdatedAt:
+          type: string
+          format: date-time
+          description: "Date and time when the activity was updated in the DB"
         reverted:
           type: boolean
       oneOf:
@@ -660,6 +664,12 @@ components:
       enum:
         - LATEST_FIRST
         - EARLIEST_FIRST
+
+    SyncSort:
+      type: string
+      enum:
+        - DB_UPDATE_ASC
+        - DB_UPDATE_DESC
 
     ActivityFilter:
       type: object

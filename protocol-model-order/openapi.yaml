@@ -799,12 +799,6 @@ components:
         - LAST_UPDATE_ASC
         - LAST_UPDATE_DESC
 
-    OrderSyncSort:
-      type: string
-      enum:
-        - DB_UPDATE_ASC
-        - DB_UPDATE_DESC
-
     OrdersPagination:
       type: object
       required:
