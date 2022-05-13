@@ -129,6 +129,43 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/activities/sync":
+    get:
+      tags:
+        - nft-activity-controller
+      operationId: getNftActivitiesSync
+      parameters:
+        - name: continuation
+          description: "Continuation token from the previous response"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          in: query
+          description: The number of items to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          description: Sorting by data update time
+          required: false
+          schema:
+            $ref: "#/components/schemas/SyncSort"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NftActivities"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   ###################### Ownerships ######################
 
   "/v0.1/ownerships/{ownershipId}":
