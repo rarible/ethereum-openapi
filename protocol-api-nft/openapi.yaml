@@ -881,26 +881,18 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
-  "/v0.1/collections/byIds":
-    get:
+  "/v0.1/collections/byId":
+    post:
       tags:
         - nft-collection-controller
       description: Returns collections by ids
-      operationId: searchNftCollectionsByIds
-      parameters:
-        - name: ids
-          in: query
-          description: "Ids of the collections"
-          required: true
-          schema:
-            type: array
-            items:
-              type: string
-      x-codeSamples:
-        - lang: 'cURL'
-          source: |
-            curl --request GET \
-            --url 'https://ethereum-api.rarible.org/v0.1/nft/collections/ByIds?ids=0x488728a8a3e51f7c34410164c4469c71fce1084a&ids=0x60f80121c31a0d46b5279700f9df786054aa5ee5'
+      operationId: getNftCollectionsByIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsByIdRequest"
+        required: true
       responses:
         '200':
           $ref: "#/components/responses/NftCollectionsPage"
