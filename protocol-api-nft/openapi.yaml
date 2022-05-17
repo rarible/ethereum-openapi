@@ -881,6 +881,26 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/collections/byId":
+    post:
+      tags:
+        - nft-collection-controller
+      description: Returns collections by ids
+      operationId: getNftCollectionsByIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsByIdRequest"
+        required: true
+      responses:
+        '200':
+          $ref: "#/components/responses/NftCollectionsPage"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/collections/all":
     get:
       tags:

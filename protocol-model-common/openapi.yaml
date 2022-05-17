@@ -931,6 +931,17 @@ components:
             type: string
             description: "List of activity ids"
 
+    CollectionsByIdRequest:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+            description: "List of collection ids"
+
     OrderActivityFilter:
       type: object
       oneOf:
