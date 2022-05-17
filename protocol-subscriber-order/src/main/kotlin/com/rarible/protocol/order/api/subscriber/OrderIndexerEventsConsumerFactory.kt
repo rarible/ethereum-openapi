@@ -7,6 +7,7 @@ import com.rarible.protocol.dto.AuctionEventDto
 import com.rarible.protocol.dto.NftOrdersPriceUpdateEventDto
 import com.rarible.protocol.dto.OrderEventDto
 import com.rarible.protocol.dto.OrderIndexerTopicProvider
+import org.apache.kafka.clients.consumer.OffsetResetStrategy
 import java.util.*
 
 class OrderIndexerEventsConsumerFactory(
@@ -21,7 +22,8 @@ class OrderIndexerEventsConsumerFactory(
             valueClass = OrderEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = OrderIndexerTopicProvider.getOrderUpdateTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
@@ -35,7 +37,8 @@ class OrderIndexerEventsConsumerFactory(
             valueClass = NftOrdersPriceUpdateEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = OrderIndexerTopicProvider.getPriceUpdateTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
@@ -49,11 +52,16 @@ class OrderIndexerEventsConsumerFactory(
             valueClass = AuctionEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = OrderIndexerTopicProvider.getAuctionUpdateTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet
+            bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
         )
     }
 
     private fun createClientIdPrefix(blockchain: Blockchain): String {
         return "$environment.${blockchain.value}.$host.${UUID.randomUUID()}"
+    }
+
+    private fun getOffsetResetStrategy(): OffsetResetStrategy {
+        return OffsetResetStrategy.EARLIEST
     }
 }

@@ -9,5 +9,5 @@ data class Erc20KafkaConsumerArguments<V>(
     val valueDeserializerClass: Class<out Deserializer<V>>,
     val defaultTopic: String,
     val bootstrapServers: String,
-    val offsetResetStrategy: OffsetResetStrategy = OffsetResetStrategy.LATEST
+    val offsetResetStrategy: OffsetResetStrategy
 )
