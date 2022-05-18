@@ -517,6 +517,9 @@ components:
           type: string
           description: Start date of ownership
           format: date-time
+        lastUpdatedAt:
+          type: string
+          format: date-time
         pending:
           type: array
           description: History of ownership
