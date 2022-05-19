@@ -13,11 +13,11 @@ See more information about Rarible Protocol at [docs.rarible.org](https://docs.r
 
 Use these base URLs to access API on different Ethereum networks:
 
-| Documentation                                                                                          | Base URL                                       | Environments | Chain ID |
-|:-------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:------------:|:--------:|
-| [https://ethereum-api.rarible.org/v0.1/doc](https://ethereum-api.rarible.org/v0.1/doc)                 | https://ethereum-api.rarible.org/v0.1          |   Mainnet    |    1     |
-| [https://ethereum-api-staging.rarible.org/v0.1/doc](https://ethereum-api-staging.rarible.org/v0.1/doc) | https://ethereum-api-staging.rarible.org/v0.1  |   Rinkeby    |    4     |
-| [https://ethereum-api-dev.rarible.org/v0.1/doc](https://ethereum-api-dev.rarible.org/v0.1/doc)         | https://ethereum-api-dev.rarible.org/v0.1      |   Ropsten    |    3     |
+| Documentation                                                                                  | Base URL                                       | Environments | Chain ID |
+|:-----------------------------------------------------------------------------------------------|:-----------------------------------------------|:------------:|:--------:|
+| [ethereum-api.rarible.org/v0.1/doc](https://ethereum-api.rarible.org/v0.1/doc)                 | https://ethereum-api.rarible.org/v0.1          |   Mainnet    |    1     |
+| [ethereum-api-staging.rarible.org/v0.1/doc](https://ethereum-api-staging.rarible.org/v0.1/doc) | https://ethereum-api-staging.rarible.org/v0.1  |   Rinkeby    |    4     |
+| [dev-ethereum-api.rarible.org/v0.1/doc](https://dev-ethereum-api.rarible.org/v0.1/doc)         | https://dev-ethereum-api.rarible.org/v0.1      |   Ropsten    |    3     |
 
 ## Backward compatibility
 
