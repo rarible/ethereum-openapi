@@ -371,54 +371,6 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
-  "/v0.1/orders/sell/byMaker":
-    get:
-      deprecated: true
-      tags:
-        - order-controller
-      description: Returns all orders for sale by maker
-      operationId: getSellOrdersByMaker
-      parameters:
-        - name: maker
-          description: "The maker of the order"
-          in: query
-          required: true
-          schema:
-            $ref: "#/components/schemas/Address"
-        - name: origin
-          description: "Address of the consumer to receive the commission for order"
-          in: query
-          required: false
-          schema:
-            $ref: "#/components/schemas/Address"
-        - name: platform
-          description: "The platform where the order was created"
-          in: query
-          required: false
-          schema:
-            $ref: "#/components/schemas/Platform"
-        - name: continuation
-          description: "Continuation token from the previous response"
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: size
-          description: "The number of orders to return"
-          in: query
-          required: false
-          schema:
-            minimum: 1
-            type: integer
-            format: int32
-      responses:
-        '200':
-          $ref: "#/components/responses/OrderPage"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
   "/v0.1/orders/sell/byMakerAndByStatus":
     get:
       tags:
@@ -862,54 +814,6 @@ paths:
           $ref: "#/components/responses/ServerError"
 
   ###################### Bids ######################
-
-  "/v0.1/orders/bids/byMaker":
-    get:
-      deprecated: true
-      tags:
-        - order-controller
-      description: Returns all order bids by maker
-      operationId: getOrderBidsByMaker
-      parameters:
-        - name: maker
-          description: "The maker of the order"
-          in: query
-          required: true
-          schema:
-            $ref: "#/components/schemas/Address"
-        - name: origin
-          description: "Address of the consumer to receive the commission for order"
-          in: query
-          required: false
-          schema:
-            $ref: "#/components/schemas/Address"
-        - name: platform
-          description: "The platform where the order was created"
-          in: query
-          required: false
-          schema:
-            $ref: "#/components/schemas/Platform"
-        - name: continuation
-          description: "Continuation token from the previous response"
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: size
-          description: "The number of orders to return"
-          in: query
-          required: false
-          schema:
-            minimum: 1
-            type: integer
-            format: int32
-      responses:
-        '200':
-          $ref: "#/components/responses/OrderPage"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
 
   "/v0.1/orders/bids/byMakerAndByStatus":
     get:
