@@ -1050,6 +1050,25 @@ components:
               - CANCEL_BID
               - CANCEL_LIST
 
+    OrderActivitiesSyncTypes:
+      type: string
+      enum:
+        - MATCH
+        - CANCEL_BID
+        - CANCEL_LIST
+        - LIST
+        - BID
+
+    AuctionActivitiesSyncTypes:
+      type: string
+      enum:
+        - CREATED
+        - BID
+        - CANCEL
+        - FINISHED
+        - STARTED
+        - ENDED
+
     AuctionActivityFilter:
       type: object
       oneOf:

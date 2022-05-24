@@ -154,6 +154,14 @@ paths:
           required: false
           schema:
             $ref: "#/components/schemas/SyncSort"
+        - name: filter
+          in: query
+          description: The types of activity to return
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/NftActivitiesSyncTypes"
       responses:
         '200':
           description: OK

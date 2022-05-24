@@ -1307,6 +1307,14 @@ paths:
           required: false
           schema:
             $ref: "#/components/schemas/SyncSort"
+        - name: filter
+          in: query
+          description: The types of activity to return
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/OrderActivitiesSyncTypes"
       responses:
         '200':
           description: OK
@@ -1389,6 +1397,14 @@ paths:
           required: false
           schema:
             $ref: "#/components/schemas/SyncSort"
+        - name: filter
+          in: query
+          description: The types of activity to return
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/AuctionActivitiesSyncTypes"
       responses:
         '200':
           description: OK

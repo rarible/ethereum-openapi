@@ -597,3 +597,10 @@ components:
           description: "List of the items id"
           items:
             type: string
+
+    NftActivitiesSyncTypes:
+      type: string
+      enum:
+        - TRANSFER
+        - MINT
+        - BURN
