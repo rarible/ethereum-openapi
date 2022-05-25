@@ -817,6 +817,7 @@ components:
         - $ref: "#/components/schemas/NftActivityFilterByUser"
         - $ref: "#/components/schemas/NftActivityFilterByItem"
         - $ref: "#/components/schemas/NftActivityFilterByCollection"
+        - $ref: "#/components/schemas/NftActivityFilterByItemAndOwner"
 
     NftActivityFilterAll:
       type: object
@@ -919,6 +920,34 @@ components:
               - TRANSFER
               - MINT
               - BURN
+
+    NftActivityFilterByItemAndOwner:
+      type: object
+      required:
+        - "@type"
+        - contract
+        - tokenId
+        - owner
+        - types
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "by_item_and_owner"
+        contract:
+          $ref: "#/components/schemas/Address"
+        tokenId:
+          $ref: "#/components/schemas/BigInteger"
+        owner:
+          $ref: "#/components/schemas/Address"
+        types:
+          type: array
+          description: "Type of the NFT activity"
+          items:
+            type: string
+            enum:
+              - TRANSFER
+              - MINT
 
     ActivitiesByIdRequest:
       type: object
