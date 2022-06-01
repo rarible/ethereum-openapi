@@ -306,6 +306,7 @@ components:
           description: "List of found items"
           items:
             "$ref": "#/components/schemas/NftItem"
+
     NftItemMeta:
       required:
         - name
@@ -317,6 +318,25 @@ components:
         description:
           type: string
           description: "Description of the NFT item"
+        createdAt:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        genres:
+          type: array
+          items:
+            type: string
+        language:
+          type: string
+        rights:
+          type: string
+        rightsUri:
+          type: string
+        externalUri:
+          type: string
         attributes:
           type: array
           description: "Attributes of the NFT item"
@@ -326,6 +346,12 @@ components:
           "$ref": "#/components/schemas/NftMedia"
         animation:
           "$ref": "#/components/schemas/NftMedia"
+        content:
+          type: array
+          description: "NFT content information"
+          items:
+            $ref: "#/components/schemas/MetaContent"
+
     NftCollectionMeta:
       required:
         - name
@@ -337,6 +363,25 @@ components:
         description:
           type: string
           description: "Description of the NFT collection"
+        createdAt:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        genres:
+          type: array
+          items:
+            type: string
+        language:
+          type: string
+        rights:
+          type: string
+        rightsUri:
+          type: string
+        externalUri:
+          type: string
         image:
           "$ref": "#/components/schemas/NftMedia"
         external_link:
@@ -349,6 +394,12 @@ components:
         fee_recipient:
           description: "Where seller fees will be paid to"
           "$ref": "#/components/schemas/Address"
+        content:
+          type: array
+          description: "NFT content information"
+          items:
+            $ref: "#/components/schemas/MetaContent"
+
     NftItemRoyaltyList:
       type: object
       properties:
@@ -356,7 +407,9 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/NftItemRoyalty"
+
     NftMedia:
+      deprecated: true
       required:
         - meta
         - url
@@ -372,7 +425,9 @@ components:
           description: "Meta of the NFT media"
           additionalProperties:
             "$ref": "#/components/schemas/NftMediaMeta"
+
     NftMediaMeta:
+      deprecated: true
       required:
         - type
       type: object
@@ -388,6 +443,84 @@ components:
           type: integer
           format: int32
           description: "Height of the NFT image/video"
+
+    MetaContent:
+      type: object
+      properties:
+        fileName:
+          type: string
+        url:
+          type: string
+        representation:
+          type: string
+          enum:
+            - PREVIEW
+            - BIG
+            - ORIGINAL
+        mimeType:
+          type: string
+          example: "image/png"
+        size:
+          type: integer
+          format: int64
+      required:
+        - url
+        - representation
+
+      oneOf:
+        - $ref: "#/components/schemas/ImageContent"
+        - $ref: "#/components/schemas/VideoContent"
+        - $ref: "#/components/schemas/AudioContent"
+        - $ref: "#/components/schemas/Model3dContent"
+        - $ref: "#/components/schemas/HtmlContent"
+
+    ImageContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - IMAGE
+        width:
+          type: integer
+        height:
+          type: integer
+
+    VideoContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - VIDEO
+        width:
+          type: integer
+        height:
+          type: integer
+
+    AudioContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - AUDIO
+
+    Model3dContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - MODEL_3D
+
+    HtmlContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - HTML
 
     LazyNft:
       type: object
