@@ -473,6 +473,7 @@ components:
         - $ref: "#/components/schemas/AudioContent"
         - $ref: "#/components/schemas/Model3dContent"
         - $ref: "#/components/schemas/HtmlContent"
+        - $ref: "#/components/schemas/UnknownContent"
 
     ImageContent:
       type: object
@@ -521,6 +522,14 @@ components:
           type: string
           enum:
             - HTML
+
+    UnknownContent:
+      type: object
+      properties:
+        "@type":
+          type: string
+          enum:
+            - UNKNOWN
 
     LazyNft:
       type: object
