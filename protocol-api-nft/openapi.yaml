@@ -305,6 +305,34 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/ownerships/byIds":
+    get:
+      tags:
+        - nft-ownership-controller
+      description: Returns ownerships by ids
+      operationId: getNftOwnershipsByIds
+      parameters:
+        - name: ids
+          in: query
+          description: "Ids of the ownerships"
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --request GET \
+            --url 'https://ethereum-api.rarible.org/v0.1/nft/collections/ByIds?ids=0xfe454f0ba1f9e0019ddadd0728bace01634289a0:0x000000000000000000000000000000000000000000000000000000000000001d:0xbbd88ecc15b8e65f44507926aeb062f0a7131230&ids=0xfe454f0ba1f9e0019ddadd0728bace01634289a0:0x000000000000000000000000000000000000000000000000000000000000001f:0xbbd88ecc15b8e65f44507926aeb062f0a7131230'
+      responses:
+        '200':
+          $ref: "#/components/responses/NftOwnershipsPage"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   ###################### Items ######################
 
   "/v0.1/items/{itemId}/meta":
