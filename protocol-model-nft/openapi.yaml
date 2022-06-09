@@ -401,6 +401,8 @@ components:
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
+        originalMetaUri:
+          type: string
 
     NftItemRoyaltyList:
       type: object
