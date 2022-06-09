@@ -351,6 +351,8 @@ components:
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
+        tokenUri:
+          type: string
 
     NftCollectionMeta:
       required:
