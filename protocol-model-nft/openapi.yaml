@@ -310,6 +310,9 @@ components:
     NftItemMeta:
       required:
         - name
+        - tags
+        - genres
+        - content
       type: object
       properties:
         name:
@@ -357,6 +360,9 @@ components:
     NftCollectionMeta:
       required:
         - name
+        - tags
+        - genres
+        - content
       type: object
       properties:
         name:
