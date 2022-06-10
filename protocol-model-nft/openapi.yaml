@@ -743,3 +743,14 @@ components:
           description: "List of the items id"
           items:
             type: string
+
+    NftOwnershipIds:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "List of the ownerships id"
+          items:
+            type: string
