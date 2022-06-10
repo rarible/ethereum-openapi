@@ -384,25 +384,35 @@ components:
           type: string
         externalUri:
           type: string
-        image:
-          "$ref": "#/components/schemas/NftMedia"
-        external_link:
-          type: string
           description: "External link to the original website for the collection"
-        seller_fee_basis_points:
+        originalMetaUri:
+          type: string
+        feeRecipient:
+          "$ref": "#/components/schemas/Address"
+        sellerFeeBasisPoints:
           type: integer
           format: int32
+          deprecated: true
           description: "Indicates a 1% seller fee"
-        fee_recipient:
-          description: "Where seller fees will be paid to"
-          "$ref": "#/components/schemas/Address"
         content:
           type: array
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
-        originalMetaUri:
+        # TODO replaced due to naming conventions, should be removed later
+        image:
+          "$ref": "#/components/schemas/NftMedia" # content field should be used
+        external_link:
           type: string
+          deprecated: true
+          description: "External link to the original website for the collection, use externalUri"
+        seller_fee_basis_points:
+          type: integer
+          format: int32
+          deprecated: true
+          description: "Indicates a 1% seller fee"
+        fee_recipient:
+          "$ref": "#/components/schemas/Address"
 
     NftItemRoyaltyList:
       type: object
