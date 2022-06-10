@@ -326,10 +326,12 @@ components:
           format: date-time
         tags:
           type: array
+          default: [ ]
           items:
             type: string
         genres:
           type: array
+          default: [ ]
           items:
             type: string
         language:
@@ -351,6 +353,7 @@ components:
           "$ref": "#/components/schemas/NftMedia"
         content:
           type: array
+          default: [ ]
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
@@ -376,10 +379,12 @@ components:
           format: date-time
         tags:
           type: array
+          default: [ ]
           items:
             type: string
         genres:
           type: array
+          default: [ ]
           items:
             type: string
         language:
@@ -402,6 +407,7 @@ components:
           description: "Indicates a 1% seller fee"
         content:
           type: array
+          default: [ ]
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
