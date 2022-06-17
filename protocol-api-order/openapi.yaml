@@ -857,7 +857,7 @@ paths:
         - name: status
           description: "The order status"
           in: query
-          required: true
+          required: false
           schema:
             type: array
             items:
@@ -1002,7 +1002,7 @@ paths:
         - name: status
           description: "The order status"
           in: query
-          required: true
+          required: false
           schema:
             type: array
             items:
