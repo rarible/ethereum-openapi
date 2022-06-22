@@ -547,7 +547,7 @@ components:
     OrderSeaportDataV1:
       type: object
       oneOf:
-        - "$ref": "#/components/schemas/BasicOrderSeaportDataV1"
+        - "$ref": "#/components/schemas/OrderBasicSeaportDataV1"
 
     SeaportOrderType:
       type: string
@@ -567,7 +567,7 @@ components:
         - ERC721_WITH_CRITERIA
         - ERC1155_WITH_CRITERIA
 
-    BasicOrderSeaportDataV1:
+    OrderBasicSeaportDataV1:
       type: object
       required:
         - dataType
