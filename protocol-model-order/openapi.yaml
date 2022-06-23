@@ -141,6 +141,7 @@ components:
         - "$ref": "#/components/schemas/LegacyOrderBid"
         - "$ref": "#/components/schemas/RaribleV2OrderBid"
         - "$ref": "#/components/schemas/OpenSeaV1OrderBid"
+        - "$ref": "#/components/schemas/SeaportV1OrderBid"
         - "$ref": "#/components/schemas/CryptoPunksOrderBid"
 
     LegacyOrderBid:
@@ -181,6 +182,19 @@ components:
             - OPEN_SEA_V1
         data:
           $ref: "#/components/schemas/OrderOpenSeaV1DataV1"
+
+    SeaportV1OrderBid:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - SEAPORT_V1
+        data:
+          $ref: "#/components/schemas/OrderSeaportDataV1"
 
     CryptoPunksOrderBid:
       type: object
