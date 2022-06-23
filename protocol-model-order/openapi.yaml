@@ -398,6 +398,7 @@ components:
         - "$ref": "#/components/schemas/OrderRaribleV2Data"
         - "$ref": "#/components/schemas/OrderDataLegacy"
         - "$ref": "#/components/schemas/OrderOpenSeaV1DataV1"
+        - "$ref": "#/components/schemas/OrderSeaportDataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
 
     OrderRaribleV2Data:
@@ -543,6 +544,111 @@ components:
         target:
           $ref: "#/components/schemas/Address"
 
+    OrderSeaportDataV1:
+      type: object
+      oneOf:
+        - "$ref": "#/components/schemas/OrderBasicSeaportDataV1"
+
+    SeaportOrderType:
+      type: string
+      enum:
+        - FULL_OPEN
+        - PARTIAL_OPEN
+        - FULL_RESTRICTED
+        - PARTIAL_RESTRICTED
+
+    SeaportItemType:
+      type: string
+      enum:
+        - NATIVE
+        - ERC20
+        - ERC721
+        - ERC1155
+        - ERC721_WITH_CRITERIA
+        - ERC1155_WITH_CRITERIA
+
+    OrderBasicSeaportDataV1:
+      type: object
+      required:
+        - dataType
+        - protocol
+        - orderType
+        - offer
+        - consideration
+        - zone
+        - zoneHash
+        - conduitKey
+        - counter
+      properties:
+        dataType:
+          type: string
+          enum:
+            - BASIC_SEAPORT_DATA_V1
+        protocol:
+          $ref: "#/components/schemas/Address"
+        orderType:
+          $ref: "#/components/schemas/SeaportOrderType"
+        offer:
+          type: array
+          items:
+            $ref: "#/components/schemas/SeaportOffer"
+        consideration:
+          type: array
+          items:
+            $ref: "#/components/schemas/SeaportConsideration"
+        zone:
+          $ref: "#/components/schemas/Address"
+        zoneHash:
+          $ref: "#/components/schemas/Word"
+        conduitKey:
+          $ref: "#/components/schemas/Word"
+        counter:
+          type: integer
+          format: int64
+
+    SeaportOffer:
+      type: object
+      required:
+        - itemType
+        - token
+        - identifierOrCriteria
+        - startAmount
+        - endAmount
+      properties:
+        itemType:
+          $ref: "#/components/schemas/SeaportItemType"
+        token:
+          $ref: "#/components/schemas/Address"
+        identifierOrCriteria:
+          $ref: "#/components/schemas/BigInteger"
+        startAmount:
+          $ref: "#/components/schemas/BigInteger"
+        endAmount:
+          $ref: "#/components/schemas/BigInteger"
+
+    SeaportConsideration:
+      type: object
+      required:
+        - itemType
+        - token
+        - identifierOrCriteria
+        - startAmount
+        - endAmount
+        - recipient
+      properties:
+        itemType:
+          $ref: "#/components/schemas/SeaportItemType"
+        token:
+          $ref: "#/components/schemas/Address"
+        identifierOrCriteria:
+          $ref: "#/components/schemas/BigInteger"
+        startAmount:
+          $ref: "#/components/schemas/BigInteger"
+        endAmount:
+          $ref: "#/components/schemas/BigInteger"
+        recipient:
+          $ref: "#/components/schemas/Address"
+
     OrderCryptoPunksData:
       type: object
       required:
@@ -635,6 +741,7 @@ components:
         - "$ref": "#/components/schemas/LegacyOrder"
         - "$ref": "#/components/schemas/RaribleV2Order"
         - "$ref": "#/components/schemas/OpenSeaV1Order"
+        - "$ref": "#/components/schemas/SeaportV1Order"
         - "$ref": "#/components/schemas/CryptoPunkOrder"
 
     LegacyOrder:
@@ -675,6 +782,19 @@ components:
             - OPEN_SEA_V1
         data:
           $ref: "#/components/schemas/OrderOpenSeaV1DataV1"
+
+    SeaportV1Order:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - SEAPORT_V1
+        data:
+          $ref: "#/components/schemas/OrderSeaportDataV1"
 
     CryptoPunkOrder:
       type: object
