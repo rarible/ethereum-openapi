@@ -836,6 +836,7 @@ paths:
     delete:
       tags:
         - nft-collection-controller
+      deprecated: true
       description: Deletes the NFT collection meta by identifier
       operationId: resetNftCollectionMetaById
       parameters:

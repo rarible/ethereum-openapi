@@ -211,10 +211,6 @@ components:
         deleted:
           type: boolean
           description: "Item was deleted or not"
-        meta:
-          "$ref": "#/components/schemas/NftItemMeta"
-          deprecated: true
-          description: Deprecated and will be removed. Ethereum Protocol API will not be responsible for loading NFT metadata. Please migrate to Rarible Multichain Protocol (https://docs.rarible.org/) and especially this endpoint - https://api.rarible.org/v0.1/doc#operation/getItemById.
     NftItemAttribute:
       required:
         - key
@@ -347,10 +343,6 @@ components:
           description: "Attributes of the NFT item"
           items:
             "$ref": "#/components/schemas/NftItemAttribute"
-        image:
-          "$ref": "#/components/schemas/NftMedia"
-        animation:
-          "$ref": "#/components/schemas/NftMedia"
         content:
           type: array
           default: [ ]
@@ -411,9 +403,6 @@ components:
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
-        # TODO replaced due to naming conventions, should be removed later
-        image:
-          "$ref": "#/components/schemas/NftMedia" # content field should be used
         external_link:
           type: string
           deprecated: true
@@ -433,42 +422,6 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/NftItemRoyalty"
-
-    NftMedia:
-      deprecated: true
-      required:
-        - meta
-        - url
-      type: object
-      properties:
-        url:
-          type: object
-          description: "URL address of the NFT media"
-          additionalProperties:
-            type: string
-        meta:
-          type: object
-          description: "Meta of the NFT media"
-          additionalProperties:
-            "$ref": "#/components/schemas/NftMediaMeta"
-
-    NftMediaMeta:
-      deprecated: true
-      required:
-        - type
-      type: object
-      properties:
-        type:
-          type: string
-          description: "NFT media type"
-        width:
-          type: integer
-          format: int32
-          description: "Width of the NFT image/video"
-        height:
-          type: integer
-          format: int32
-          description: "Height of the NFT image/video"
 
     MetaContent:
       type: object
