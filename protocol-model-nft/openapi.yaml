@@ -403,17 +403,6 @@ components:
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
-        external_link:
-          type: string
-          deprecated: true
-          description: "External link to the original website for the collection, use externalUri"
-        seller_fee_basis_points:
-          type: integer
-          format: int32
-          deprecated: true
-          description: "Indicates a 1% seller fee"
-        fee_recipient:
-          "$ref": "#/components/schemas/Address"
 
     NftItemRoyaltyList:
       type: object
