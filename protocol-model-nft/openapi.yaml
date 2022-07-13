@@ -74,6 +74,8 @@ components:
             "$ref": "#/components/schemas/Address"
         meta:
           "$ref": "#/components/schemas/NftCollectionMeta"
+        isRaribleContract:
+          type: boolean
 
     NftCollectionStats:
       type: object
@@ -211,6 +213,9 @@ components:
         deleted:
           type: boolean
           description: "Item was deleted or not"
+        isRaribleContract:
+          type: boolean
+
     NftItemAttribute:
       required:
         - key
