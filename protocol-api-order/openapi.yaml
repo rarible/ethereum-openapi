@@ -383,7 +383,10 @@ paths:
           in: query
           required: true
           schema:
-            $ref: "#/components/schemas/Address"
+            type: array
+            minItems: 1
+            items:
+              $ref: "#/components/schemas/Address"
         - name: origin
           description: "Address of the consumer to receive the commission for order"
           in: query
@@ -827,7 +830,10 @@ paths:
           in: query
           required: true
           schema:
-            $ref: "#/components/schemas/Address"
+            type: array
+            minItems: 1
+            items:
+              $ref: "#/components/schemas/Address"
         - name: origin
           description: "Address of the consumer to receive the commission for order"
           in: query
