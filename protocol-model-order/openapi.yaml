@@ -143,6 +143,7 @@ components:
         - "$ref": "#/components/schemas/OpenSeaV1OrderBid"
         - "$ref": "#/components/schemas/SeaportV1OrderBid"
         - "$ref": "#/components/schemas/CryptoPunksOrderBid"
+        - "$ref": "#/components/schemas/LooksrareOrderBid"
 
     LegacyOrderBid:
       type: object
@@ -200,11 +201,25 @@ components:
       type: object
       required:
         - type
+        - data
       properties:
         type:
           type: string
           enum:
             - CRYPTO_PUNKS
+
+    LooksrareOrderBid:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - LOOKSRARE
+        data:
+          $ref: "#/components/schemas/OrderLooksrareDataV1"
 
     OrderStatus:
       type: string
@@ -414,6 +429,7 @@ components:
         - "$ref": "#/components/schemas/OrderOpenSeaV1DataV1"
         - "$ref": "#/components/schemas/OrderSeaportDataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
+        - "$ref": "#/components/schemas/OrderLooksrareDataV1"
 
     OrderRaribleV2Data:
       type: object
@@ -717,6 +733,22 @@ components:
           type: string
           enum:
             - CRYPTO_PUNKS_DATA
+
+    OrderLooksrareDataV1:
+      type: object
+      required:
+        - dataType
+        - minPercentageToAsk
+        - params
+      properties:
+        dataType:
+          type: string
+          enum:
+            - LOOKSRARE_DATA_V1
+        minPercentageToAsk:
+          type: integer
+        params:
+          type: string
 
     Order:
       type: object
