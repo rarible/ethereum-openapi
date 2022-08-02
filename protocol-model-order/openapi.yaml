@@ -414,6 +414,7 @@ components:
         - "$ref": "#/components/schemas/OrderOpenSeaV1DataV1"
         - "$ref": "#/components/schemas/OrderSeaportDataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
+        - "$ref": "#/components/schemas/OrderX2Y2Data"
 
     OrderRaribleV2Data:
       type: object
@@ -718,6 +719,26 @@ components:
           enum:
             - CRYPTO_PUNKS_DATA
 
+    OrderX2Y2Data:
+      type: object
+      required:
+        - dataType
+      properties:
+        dataType:
+          type: string
+          enum:
+            - X2Y2_DATA
+        itemHash:
+          $ref: "#/components/schemas/Word"
+        isCollectionOffer:
+          type: boolean
+        isBundle:
+          type: boolean
+        side:
+          type: integer
+        orderId:
+          $ref: "#/components/schemas/BigInteger"
+
     Order:
       type: object
       required:
@@ -802,6 +823,7 @@ components:
         - "$ref": "#/components/schemas/OpenSeaV1Order"
         - "$ref": "#/components/schemas/SeaportV1Order"
         - "$ref": "#/components/schemas/CryptoPunkOrder"
+        - "$ref": "#/components/schemas/X2Y2Order"
 
     LegacyOrder:
       type: object
@@ -867,6 +889,19 @@ components:
             - CRYPTO_PUNK
         data:
           $ref: "#/components/schemas/OrderCryptoPunksData"
+
+    X2Y2Order:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - X2Y2
+        data:
+          $ref: "#/components/schemas/OrderX2Y2Data"
 
     OrderPriceHistoryRecord:
       type: object
@@ -971,6 +1006,7 @@ components:
         - RARIBLE
         - OPEN_SEA
         - CRYPTO_PUNKS
+        - X2Y2
 
     OrderSort:
       type: string
