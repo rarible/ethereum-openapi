@@ -133,6 +133,7 @@ components:
             - OPEN_SEA
             - CRYPTO_PUNKS
             - X2Y2
+            - LOOKSRARE
       oneOf:
         - $ref: "#/components/schemas/OrderActivityMatch"
         - $ref: "#/components/schemas/OrderActivityBid"
