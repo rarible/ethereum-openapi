@@ -760,7 +760,8 @@ components:
       required:
         - dataType
         - minPercentageToAsk
-        - params
+        - strategy
+        - nonce
       properties:
         dataType:
           type: string
