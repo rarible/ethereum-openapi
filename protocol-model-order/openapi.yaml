@@ -736,6 +736,8 @@ components:
           type: boolean
         side:
           type: integer
+        orderId:
+          $ref: "#/components/schemas/BigInteger"
 
     Order:
       type: object
