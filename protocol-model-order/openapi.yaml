@@ -945,7 +945,7 @@ components:
         type:
           type: string
           enum:
-            - LOOKS_RARE
+            - LOOKSRARE
         data:
           $ref: "#/components/schemas/OrderLooksrareDataV1"
 
