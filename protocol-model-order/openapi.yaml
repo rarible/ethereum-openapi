@@ -768,8 +768,13 @@ components:
             - LOOKSRARE_DATA_V1
         minPercentageToAsk:
           type: integer
+        strategy:
+          $ref: "#/components/schemas/Address"
+        nonce:
+          type: integer
+          format: int64
         params:
-          type: string
+          $ref: "#/components/schemas/Binary"
 
     Order:
       type: object
