@@ -739,6 +739,11 @@ components:
       type: object
       required:
         - dataType
+        - itemHash
+        - isCollectionOffer
+        - isBundle
+        - orderId
+        - side
       properties:
         dataType:
           type: string
