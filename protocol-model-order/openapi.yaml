@@ -143,7 +143,7 @@ components:
         - "$ref": "#/components/schemas/OpenSeaV1OrderBid"
         - "$ref": "#/components/schemas/SeaportV1OrderBid"
         - "$ref": "#/components/schemas/CryptoPunksOrderBid"
-        - "$ref": "#/components/schemas/LooksrareOrderBid"
+        - "$ref": "#/components/schemas/LooksRareOrderBid"
 
     LegacyOrderBid:
       type: object
@@ -208,7 +208,7 @@ components:
           enum:
             - CRYPTO_PUNKS
 
-    LooksrareOrderBid:
+    LooksRareOrderBid:
       type: object
       required:
         - type
@@ -219,7 +219,7 @@ components:
           enum:
             - LOOKSRARE
         data:
-          $ref: "#/components/schemas/OrderLooksrareDataV1"
+          $ref: "#/components/schemas/OrderLooksRareDataV1"
 
     OrderStatus:
       type: string
@@ -429,7 +429,7 @@ components:
         - "$ref": "#/components/schemas/OrderOpenSeaV1DataV1"
         - "$ref": "#/components/schemas/OrderSeaportDataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
-        - "$ref": "#/components/schemas/OrderLooksrareDataV1"
+        - "$ref": "#/components/schemas/OrderLooksRareDataV1"
         - "$ref": "#/components/schemas/OrderX2Y2Data"
 
     OrderRaribleV2Data:
@@ -760,7 +760,7 @@ components:
         orderId:
           $ref: "#/components/schemas/BigInteger"
 
-    OrderLooksrareDataV1:
+    OrderLooksRareDataV1:
       type: object
       required:
         - dataType
@@ -867,7 +867,7 @@ components:
         - "$ref": "#/components/schemas/SeaportV1Order"
         - "$ref": "#/components/schemas/CryptoPunkOrder"
         - "$ref": "#/components/schemas/X2Y2Order"
-        - "$ref": "#/components/schemas/LooksrareOrder"
+        - "$ref": "#/components/schemas/LooksRareOrder"
 
     LegacyOrder:
       type: object
@@ -947,7 +947,7 @@ components:
         data:
           $ref: "#/components/schemas/OrderX2Y2Data"
 
-    LooksrareOrder:
+    LooksRareOrder:
       type: object
       required:
         - type
@@ -958,7 +958,7 @@ components:
           enum:
             - LOOKSRARE
         data:
-          $ref: "#/components/schemas/OrderLooksrareDataV1"
+          $ref: "#/components/schemas/OrderLooksRareDataV1"
 
     OrderPriceHistoryRecord:
       type: object
