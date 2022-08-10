@@ -11,7 +11,7 @@ paths:
     post:
       tags:
         - order-signature-controller
-      operationId: x2y2 order sign
+      operationId: orderSignX2Y2
       description: Fetch x2y2 order sign
       requestBody:
         content:
@@ -35,7 +35,7 @@ paths:
     post:
       tags:
         - order-signature-controller
-      operationId: x2y2 cancel sign
+      operationId: cancelSignX2Y2
       description: Fetch x2y2 cancel sign
       requestBody:
         content:
