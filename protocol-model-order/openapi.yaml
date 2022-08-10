@@ -1217,6 +1217,56 @@ components:
         data:
           "$ref": "#/components/schemas/Binary"
 
+    X2Y2OrderSignRequest:
+      required:
+        - caller
+        - op
+        - orderId
+        - currency
+        - price
+      type: object
+      properties:
+        caller:
+          type: string
+        op:
+          $ref: "#/components/schemas/BigInteger"
+        orderId:
+          $ref: "#/components/schemas/BigInteger"
+        currency:
+          $ref: "#/components/schemas/Address"
+        price:
+          $ref: "#/components/schemas/BigInteger"
+        tokenId:
+          $ref: "#/components/schemas/BigInteger"
+
+    X2Y2GetCancelInputRequest:
+      required:
+        - caller
+        - op
+        - orderId
+        - signMessage
+        - sign
+      type: object
+      properties:
+        caller:
+          type: string
+        op:
+          $ref: "#/components/schemas/BigInteger"
+        orderId:
+          $ref: "#/components/schemas/BigInteger"
+        signMessage:
+          type: string
+        sign:
+          type: string
+
+    X2Y2SignResponse:
+      required:
+        - input
+      type: object
+      properties:
+        input:
+          type: string
+
     EthereumSignatureValidationForm:
       required:
         - signer
