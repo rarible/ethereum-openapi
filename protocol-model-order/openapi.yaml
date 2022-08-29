@@ -221,6 +221,19 @@ components:
         data:
           $ref: "#/components/schemas/OrderLooksRareDataV1"
 
+    AmmOrderBid:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - AMM
+        data:
+          $ref: "#/components/schemas/OrderAmmDataV1"
+
     OrderStatus:
       type: string
       enum:
@@ -782,6 +795,24 @@ components:
         params:
           $ref: "#/components/schemas/Binary"
 
+    OrderAmmDataV1:
+      type: object
+      oneOf:
+        - "$ref": "#/components/schemas/OrderSudoSwapAmmDataV1"
+
+    OrderSudoSwapAmmDataV1:
+      type: object
+      required:
+        - dataType
+        - contract
+      properties:
+        dataType:
+          type: string
+          enum:
+            - SUDOSWAP_AMM_DATA_V1
+        contract:
+          $ref: "#/components/schemas/Address"
+
     Order:
       type: object
       required:
@@ -868,6 +899,7 @@ components:
         - "$ref": "#/components/schemas/CryptoPunkOrder"
         - "$ref": "#/components/schemas/X2Y2Order"
         - "$ref": "#/components/schemas/LooksRareOrder"
+        - "$ref": "#/components/schemas/AmmOrder"
 
     LegacyOrder:
       type: object
@@ -959,6 +991,19 @@ components:
             - LOOKSRARE
         data:
           $ref: "#/components/schemas/OrderLooksRareDataV1"
+
+    AmmOrder:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - AMM
+        data:
+          $ref: "#/components/schemas/OrderAmmDataV1"
 
     OrderPriceHistoryRecord:
       type: object
@@ -1115,6 +1160,8 @@ components:
           type: string
       oneOf:
         - "$ref": "#/components/schemas/OrderUpdateEvent"
+        - "$ref": "#/components/schemas/AmmOrderNftUpdateEvent"
+
 
     OrderUpdateEvent:
       type: object
@@ -1127,6 +1174,27 @@ components:
             - UPDATE
         order:
           "$ref": "#/components/schemas/Order"
+
+    AmmOrderNftUpdateEvent:
+      type: object
+      required:
+        - inNft
+        - outNft
+      properties:
+        type:
+          type: string
+          enum:
+            - AMM_NFT_UPDATE
+        inNft:
+          type: array
+          items:
+            type: string
+            description: "Item identifier, has format `${contract}:${tokenId}`"
+        outNft:
+          type: array
+          items:
+            type: string
+            description: "Item identifier, has format `${contract}:${tokenId}`"
 
     NftOrdersPriceUpdateEvent:
       type: object
