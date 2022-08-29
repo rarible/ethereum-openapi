@@ -134,6 +134,7 @@ components:
             - CRYPTO_PUNKS
             - X2Y2
             - LOOKSRARE
+            - SUDOSWAP
       oneOf:
         - $ref: "#/components/schemas/OrderActivityMatch"
         - $ref: "#/components/schemas/OrderActivityBid"
