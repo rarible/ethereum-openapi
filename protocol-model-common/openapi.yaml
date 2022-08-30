@@ -1279,6 +1279,7 @@ components:
         - $ref: "#/components/schemas/Erc1155LazyAssetType"
         - $ref: "#/components/schemas/CryptoPunksAssetType"
         - $ref: "#/components/schemas/CollectionAssetType"
+        - $ref: "#/components/schemas/AmmNftAssetType"
         - $ref: "#/components/schemas/GenerativeArtAssetType"
 
     EthAssetType:
@@ -1446,6 +1447,19 @@ components:
           type: string
           enum:
             - "COLLECTION"
+        contract:
+          $ref: "#/components/schemas/Address"
+
+    AmmNftAssetType:
+      required:
+        - assetClass
+        - contract
+      type: object
+      properties:
+        assetClass:
+          type: string
+          enum:
+            - "AMM_NFT"
         contract:
           $ref: "#/components/schemas/Address"
 
