@@ -247,7 +247,7 @@ components:
           enum:
             - AMM
         data:
-          $ref: "#/components/schemas/OrderAmmData"
+          $ref: "#/components/schemas/OrderAmmDataV1"
 
     OrderStatus:
       type: string
@@ -459,7 +459,7 @@ components:
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
         - "$ref": "#/components/schemas/OrderLooksRareDataV1"
         - "$ref": "#/components/schemas/OrderX2Y2Data"
-        - "$ref": "#/components/schemas/OrderAmmData"
+        - "$ref": "#/components/schemas/OrderAmmDataV1"
 
     OrderRaribleV2Data:
       type: object
@@ -811,7 +811,7 @@ components:
         params:
           $ref: "#/components/schemas/Binary"
 
-    OrderAmmData:
+    OrderAmmDataV1:
       type: object
       oneOf:
         - "$ref": "#/components/schemas/OrderSudoSwapAmmDataV1"
@@ -1019,7 +1019,7 @@ components:
           enum:
             - AMM
         data:
-          $ref: "#/components/schemas/OrderAmmData"
+          $ref: "#/components/schemas/OrderAmmDataV1"
 
     OrderPriceHistoryRecord:
       type: object
