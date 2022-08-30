@@ -367,6 +367,7 @@ components:
         - "$ref": "#/components/schemas/OrderCancel"
         - "$ref": "#/components/schemas/OrderSideMatch"
         - "$ref": "#/components/schemas/OnChainOrder"
+        - "$ref": "#/components/schemas/OnChainAmmOrder"
 
     ItemBuy:
       type: object
@@ -436,6 +437,16 @@ components:
           type: string
           enum:
             - ON_CHAIN_ORDER
+
+    OnChainAmmOrder:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - ON_CHAIN_AMM_ORDER
 
     OrderBidsPagination:
       type: object
