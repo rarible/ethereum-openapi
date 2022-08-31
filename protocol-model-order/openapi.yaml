@@ -824,21 +824,57 @@ components:
 
     OrderAmmDataV1:
       type: object
+      required:
+        - poolAddress
+      properties:
+        poolAddress:
+          $ref: "#/components/schemas/Address"
       oneOf:
         - "$ref": "#/components/schemas/OrderSudoSwapAmmDataV1"
+
+    SudoSwapPoolType:
+      type: string
+      enum:
+        - TOKEN
+        - NFT
+        - TRADE
+
+    SudoSwapCurveType:
+      type: string
+      enum:
+        - LINEAR
+        - EXPONENTIAL
+        - UNKNOWN
 
     OrderSudoSwapAmmDataV1:
       type: object
       required:
         - dataType
-        - contract
+        - bondingCurve
+        - curveType
+        - assetRecipient
+        - poolType
+        - delta
+        - fee
       properties:
         dataType:
           type: string
           enum:
             - SUDOSWAP_AMM_DATA_V1
-        contract:
+        bondingCurve:
           $ref: "#/components/schemas/Address"
+        curveType:
+          $ref: "#/components/schemas/SudoSwapCurveType"
+        assetRecipient:
+          $ref: "#/components/schemas/Address"
+        poolType:
+          $ref: "#/components/schemas/SudoSwapPoolType"
+        delta:
+          $ref: "#/components/schemas/BigInteger"
+        fee:
+          $ref: "#/components/schemas/BigInteger"
+        feeDecimal:
+          type: integer
 
     Order:
       type: object
