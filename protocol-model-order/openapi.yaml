@@ -856,6 +856,7 @@ components:
         - poolType
         - delta
         - fee
+        - feeDecimal
       properties:
         dataType:
           type: string
