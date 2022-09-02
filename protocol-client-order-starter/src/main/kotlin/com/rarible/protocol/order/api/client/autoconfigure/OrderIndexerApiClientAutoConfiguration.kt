@@ -31,7 +31,7 @@ class OrderIndexerApiClientAutoConfiguration(
         @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
     ): OrderIndexerApiServiceUriProvider {
         return if (k8s)
-            K8sOrderIndexerApiServiceUriProvider()
+            K8sOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
         else
             SwarmOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
     }
