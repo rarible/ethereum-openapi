@@ -877,6 +877,19 @@ components:
         feeDecimal:
           type: integer
 
+    HoldNftItemIds:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "List of nft item ids hold by AMM order"
+          items:
+            type: string
+        continuation:
+          type: string
+
     Order:
       type: object
       required:

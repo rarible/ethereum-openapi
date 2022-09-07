@@ -393,6 +393,46 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/orders/{hash}/holdItemIds":
+    get:
+      tags:
+        - order-controller
+      description: Returns all item ida hold by AMM order
+      operationId: getAmmOrderItemIds
+      parameters:
+        - name: hash
+          description: "Hash of the AMM order"
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0
+        - name: continuation
+          description: "Continuation token from the previous response"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          description: "The number of item ids to return"
+          in: query
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HoldNftItemIds"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/orders/byIds":
     post:
       tags:
