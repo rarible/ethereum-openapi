@@ -71,6 +71,24 @@ components:
           description: "HTTP status code"
           default: 500
 
+    EthereumApiMetaError:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - UNPARSEABLE_LINK
+            - UNPARSEABLE_JSON
+            - TIMEOUT
+            - ERROR
+          default: ERROR
+        message:
+          type: string
+          description: "Error message"
+
     Activity:
       type: object
       required:
@@ -1632,6 +1650,12 @@ components:
         application/json:
           schema:
             "$ref": "#/components/schemas/EthereumApiErrorServerError"
+    MetaError:
+      description: Meta Error
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/EthereumApiMetaError"
     EntityNotFound:
       description: Not Found
       content:
