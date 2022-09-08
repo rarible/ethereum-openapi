@@ -393,7 +393,56 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
-  "/v0.1/orders/{hash}/holdItemIds":
+  "/v0.1/orders/amm/byItemAndByStatus":
+    get:
+      tags:
+        - order-controller
+      operationId: getAmmOrdersByItemAndByStatus
+      description: Returns all AMM orders by item and order status
+      parameters:
+        - name: contract
+          description: "Address of the contract"
+          in: query
+          required: true
+          schema:
+            $ref: "#/components/schemas/Address"
+        - name: tokenId
+          description: "Token identifier"
+          in: query
+          required: true
+          schema:
+            $ref: "#/components/schemas/BigInteger"
+        - name: status
+          description: "The order status"
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/OrderStatus"
+        - name: continuation
+          description: "Continuation token from the previous response"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          description: "The number of items to return"
+          in: query
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          $ref: "#/components/responses/OrderPage"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
+  "/v0.1/orders/amm/{hash}/holdItemIds":
     get:
       tags:
         - order-controller
