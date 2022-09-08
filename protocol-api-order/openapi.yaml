@@ -397,7 +397,7 @@ paths:
     get:
       tags:
         - order-controller
-      operationId: getAmmOrdersByItemAndByStatus
+      operationId: getAmmOrdersByItem
       description: Returns all AMM orders by item and order status
       parameters:
         - name: contract
