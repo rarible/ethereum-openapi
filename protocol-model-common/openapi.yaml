@@ -179,6 +179,8 @@ components:
           enum:
             - SELL
             - ACCEPT_BID
+        marketplaceMarker:
+          $ref: "#/components/schemas/Word"
 
     OrderActivityBid:
       type: object
