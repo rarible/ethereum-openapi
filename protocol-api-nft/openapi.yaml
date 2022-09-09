@@ -251,6 +251,12 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/Address"
+        - name: collection
+          description: "Address of the collection"
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/Address"
         - name: continuation
           description: "Continuation token from the previous response"
           in: query
