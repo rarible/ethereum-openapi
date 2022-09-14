@@ -182,6 +182,8 @@ components:
             - ACCEPT_BID
         marketplaceMarker:
           $ref: "#/components/schemas/Word"
+        counterMarketplaceMarker:
+          $ref: "#/components/schemas/Word"
 
     OrderActivityBid:
       type: object
