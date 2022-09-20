@@ -13,7 +13,9 @@ import reactor.netty.resources.ConnectionProvider
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 
-class DefaultProtocolWebClientCustomizer : WebClientCustomizer {
+class DefaultProtocolWebClientCustomizer(
+    private val clientName: String?
+) : WebClientCustomizer {
 
     override fun customize(webClientBuilder: WebClient.Builder) {
         webClientBuilder.codecs { clientCodecConfigurer ->
@@ -46,6 +48,9 @@ class DefaultProtocolWebClientCustomizer : WebClientCustomizer {
         val connector = ReactorClientHttpConnector(client)
 
         webClientBuilder.clientConnector(connector)
+        if (!clientName.isNullOrBlank()) {
+            webClientBuilder.defaultHeader("x-rarible-client", clientName)
+        }
     }
 
     companion object {

@@ -38,9 +38,12 @@ class NftOrderApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(NftOrderApiClientFactory::class)
-    fun nftOrderApiClientFactory(nftOrderApiServiceUriProvider: NftOrderApiServiceUriProvider): NftOrderApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
+    fun nftOrderApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        nftOrderApiServiceUriProvider: NftOrderApiServiceUriProvider
+    ): NftOrderApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
         return NftOrderApiClientFactory(nftOrderApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }

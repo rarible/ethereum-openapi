@@ -38,9 +38,12 @@ class UnlockableApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(UnlockableApiClientFactory::class)
-    fun unlockableApiClientFactory(orderIndexerApiServiceUriProvider: UnlockableApiServiceUriProvider): UnlockableApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
-        return UnlockableApiClientFactory(orderIndexerApiServiceUriProvider, compositeWebClientCustomizer)
+    fun unlockableApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        unlockableApiServiceUriProvider: UnlockableApiServiceUriProvider
+    ): UnlockableApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
+        return UnlockableApiClientFactory(unlockableApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }
