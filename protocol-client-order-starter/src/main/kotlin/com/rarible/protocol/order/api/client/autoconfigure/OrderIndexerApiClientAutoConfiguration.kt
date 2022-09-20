@@ -38,9 +38,12 @@ class OrderIndexerApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(OrderIndexerApiClientFactory::class)
-    fun orderIndexerApiClientFactory(orderIndexerApiServiceUriProvider: OrderIndexerApiServiceUriProvider): OrderIndexerApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
+    fun orderIndexerApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        orderIndexerApiServiceUriProvider: OrderIndexerApiServiceUriProvider
+    ): OrderIndexerApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
         return OrderIndexerApiClientFactory(orderIndexerApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }
