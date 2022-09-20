@@ -39,9 +39,12 @@ class Erc20IndexerApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(Erc20IndexerApiClientFactory::class)
-    fun erc20IndexerApiClientFactory(erc20IndexerApiServiceUriProvider: Erc20IndexerApiServiceUriProvider): Erc20IndexerApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
+    fun erc20IndexerApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        erc20IndexerApiServiceUriProvider: Erc20IndexerApiServiceUriProvider
+    ): Erc20IndexerApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
         return Erc20IndexerApiClientFactory(erc20IndexerApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }

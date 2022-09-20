@@ -38,9 +38,12 @@ class GatewayApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(GatewayApiClientFactory::class)
-    fun gatewayApiClientFactory(gatewayApiApiServiceUriProvider: GatewayApiServiceUriProvider): GatewayApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
+    fun gatewayApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        gatewayApiApiServiceUriProvider: GatewayApiServiceUriProvider
+    ): GatewayApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
         return GatewayApiClientFactory(gatewayApiApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }

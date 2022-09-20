@@ -39,9 +39,12 @@ class NftIndexerApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(NftIndexerApiClientFactory::class)
-    fun nftIndexerApiClientFactory(nftIndexerApiServiceUriProvider: NftIndexerApiServiceUriProvider): NftIndexerApiClientFactory {
-        val compositeWebClientCustomizer =
-            CompositeWebClientCustomizer(listOf(DefaultProtocolWebClientCustomizer(), webClientCustomizer))
+    fun nftIndexerApiClientFactory(
+        @Value("\${rarible.core.client.name:}") clientName: String,
+        nftIndexerApiServiceUriProvider: NftIndexerApiServiceUriProvider
+    ): NftIndexerApiClientFactory {
+        val customizers = listOf(DefaultProtocolWebClientCustomizer(clientName), webClientCustomizer)
+        val compositeWebClientCustomizer = CompositeWebClientCustomizer(customizers)
         return NftIndexerApiClientFactory(nftIndexerApiServiceUriProvider, compositeWebClientCustomizer)
     }
 }
