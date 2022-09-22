@@ -1526,3 +1526,11 @@ components:
           format: date-time
       required:
         - token
+
+    OrderState:
+      type: object
+      properties:
+        canceled:
+          type: boolean
+      required:
+        - canceled
