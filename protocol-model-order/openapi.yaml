@@ -890,6 +890,29 @@ components:
         continuation:
           type: string
 
+    AmmPriceInfo:
+      type: object
+      required:
+        - price
+        - priceValue
+      properties:
+        price:
+          $ref: "#/components/schemas/BigInteger"
+        priceValue:
+          $ref: "#/components/schemas/BigDecimal"
+        priceUsd:
+          $ref: "#/components/schemas/BigDecimal"
+
+    AmmTradeInfo:
+      type: object
+      required:
+        - prices
+      properties:
+        prices:
+          type: array
+          items:
+            $ref: "#/components/schemas/AmmPriceInfo"
+
     Order:
       type: object
       required:
