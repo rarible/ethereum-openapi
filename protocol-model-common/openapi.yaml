@@ -998,6 +998,8 @@ components:
               - BID
               - LIST
               - MATCH
+              - MATCH_LEFT
+              - MATCH_RIGHT
               - CANCEL_BID
               - CANCEL_LIST
 
