@@ -703,6 +703,8 @@ components:
         - BID
         - LIST
         - SELL
+        - SELL_LEFT
+        - SELL_RIGHT
         - CANCEL_BID
         - CANCEL_LIST
 
