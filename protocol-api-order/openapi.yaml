@@ -1526,6 +1526,38 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/activities/sell/right":
+    get:
+      tags:
+        - order-activity-controller
+      operationId: getOrderSellRightActivities
+      description: Returns right sell event history with order
+      parameters:
+        - name: continuation
+          description: "Continuation token from the previous response"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          in: query
+          description: "The number of items to return"
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderActivities"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/auctions/activities/search":
     post:
       tags:
