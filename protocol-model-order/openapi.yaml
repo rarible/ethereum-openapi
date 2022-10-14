@@ -951,6 +951,8 @@ components:
           $ref: "#/components/schemas/BigDecimal"
         cancelled:
           type: boolean
+        optionalRoyalties:
+          type: boolean
         salt:
           $ref: "#/components/schemas/Word"
         signature:
