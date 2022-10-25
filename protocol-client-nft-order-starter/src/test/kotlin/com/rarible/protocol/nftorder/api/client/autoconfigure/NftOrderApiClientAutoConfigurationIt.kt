@@ -49,7 +49,7 @@ class NftOrderApiClientAutoConfigurationIt {
     @Test
     fun `test default client uri`() {
         val uri = nftOrderApiServiceUriProvider.getUri("ethereum")
-        assertThat(uri.toString()).isEqualTo("http://ethereum-nft-order-api:8080")
+        assertThat(uri.toString()).isEqualTo("http://test-ethereum-nft-order-api:8080")
     }
 
     @TestConfiguration

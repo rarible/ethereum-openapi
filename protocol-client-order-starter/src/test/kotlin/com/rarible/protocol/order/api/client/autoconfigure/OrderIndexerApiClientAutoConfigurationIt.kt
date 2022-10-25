@@ -49,7 +49,7 @@ class OrderIndexerApiClientAutoConfigurationIt {
     @Test
     fun `test default client uri`() {
         val uri = orderIndexerApiServiceUriProvider.getUri("ethereum")
-        assertThat(uri.toString()).isEqualTo("http://ethereum-order-api:8080")
+        assertThat(uri.toString()).isEqualTo("http://test-ethereum-order-api:8080")
     }
 
     @TestConfiguration
