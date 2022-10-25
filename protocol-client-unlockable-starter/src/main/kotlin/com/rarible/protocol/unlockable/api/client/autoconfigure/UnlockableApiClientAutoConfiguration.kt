@@ -5,7 +5,6 @@ import com.rarible.protocol.client.CompositeWebClientCustomizer
 import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
 import com.rarible.protocol.unlockable.api.client.K8sUnlockableApiServiceUriProvider
-import com.rarible.protocol.unlockable.api.client.SwarmUnlockableApiServiceUriProvider
 import com.rarible.protocol.unlockable.api.client.UnlockableApiClientFactory
 import com.rarible.protocol.unlockable.api.client.UnlockableApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,13 +26,8 @@ class UnlockableApiClientAutoConfiguration(
 
     @Bean
     @ConditionalOnMissingBean(UnlockableApiServiceUriProvider::class)
-    fun unlockableApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
-    ): UnlockableApiServiceUriProvider {
-        return if (k8s)
-            K8sUnlockableApiServiceUriProvider()
-        else
-            SwarmUnlockableApiServiceUriProvider(applicationEnvironmentInfo.name)
+    fun unlockableApiServiceUriProvider(): UnlockableApiServiceUriProvider {
+        return K8sUnlockableApiServiceUriProvider()
     }
 
     @Bean
