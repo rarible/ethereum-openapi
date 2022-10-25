@@ -28,10 +28,10 @@ class OrderIndexerApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(OrderIndexerApiServiceUriProvider::class)
     fun orderIndexerApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+        @Value("\${rarible.core.client.k8s:true}") k8s: Boolean
     ): OrderIndexerApiServiceUriProvider {
         return if (k8s)
-            K8sOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
+            K8sOrderIndexerApiServiceUriProvider()
         else
             SwarmOrderIndexerApiServiceUriProvider(applicationEnvironmentInfo.name)
     }

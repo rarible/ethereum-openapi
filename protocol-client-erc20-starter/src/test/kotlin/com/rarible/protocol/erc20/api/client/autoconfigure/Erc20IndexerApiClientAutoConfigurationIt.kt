@@ -49,7 +49,7 @@ class Erc20IndexerApiClientAutoConfigurationIt {
     @Test
     fun `test default client uri`() {
         val uri = erc20IndexerApiServiceUriProvider.getUri("ethereum")
-        assertThat(uri.toString()).isEqualTo("http://test-ethereum-erc20-api:8080")
+        assertThat(uri.toString()).isEqualTo("http://ethereum-erc20-api:8080")
     }
 
     @TestConfiguration

@@ -28,7 +28,7 @@ class NftIndexerApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(NftIndexerApiServiceUriProvider::class)
     fun nftIndexerApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+        @Value("\${rarible.core.client.k8s:true}") k8s: Boolean
     ): NftIndexerApiServiceUriProvider {
         return if (k8s) {
             K8sNftIndexerApiServiceUriProvider()

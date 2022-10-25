@@ -28,7 +28,7 @@ class Erc20IndexerApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(Erc20IndexerApiServiceUriProvider::class)
     fun erc20IndexerApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+        @Value("\${rarible.core.client.k8s:true}") k8s: Boolean
     ): Erc20IndexerApiServiceUriProvider {
         return if (k8s) {
             K8sErc20IndexerApiServiceUriProvider()

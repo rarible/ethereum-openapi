@@ -28,7 +28,7 @@ class GatewayApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(GatewayApiServiceUriProvider::class)
     fun gatewayApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+        @Value("\${rarible.core.client.k8s:true}") k8s: Boolean
     ): GatewayApiServiceUriProvider {
         return if (k8s)
             K8sGatewayApiServiceUriProvider()

@@ -28,7 +28,7 @@ class UnlockableApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(UnlockableApiServiceUriProvider::class)
     fun unlockableApiServiceUriProvider(
-        @Value("\${rarible.core.client.k8s:false}") k8s: Boolean
+        @Value("\${rarible.core.client.k8s:true}") k8s: Boolean
     ): UnlockableApiServiceUriProvider {
         return if (k8s)
             K8sUnlockableApiServiceUriProvider()
