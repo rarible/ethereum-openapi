@@ -1,9 +1,5 @@
 package com.rarible.protocol.client
 
-import io.netty.channel.ChannelOption
-import io.netty.channel.epoll.EpollChannelOption
-import io.netty.handler.timeout.ReadTimeoutHandler
-import io.netty.handler.timeout.WriteTimeoutHandler
 import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
 import org.springframework.util.unit.DataSize
@@ -11,7 +7,6 @@ import org.springframework.web.reactive.function.client.WebClient
 import reactor.netty.http.client.HttpClient
 import reactor.netty.resources.ConnectionProvider
 import java.time.Duration
-import java.util.concurrent.TimeUnit
 
 class DefaultProtocolWebClientCustomizer(
     private val clientName: String?
@@ -31,7 +26,7 @@ class DefaultProtocolWebClientCustomizer(
 
         val client = HttpClient
             .create(provider)
-            .tcpConfiguration {
+            /*.tcpConfiguration {
                 it.option(ChannelOption.SO_KEEPALIVE, true)
                     .option(EpollChannelOption.TCP_KEEPIDLE, 300)
                     .option(EpollChannelOption.TCP_KEEPINTVL, 60)
@@ -41,7 +36,7 @@ class DefaultProtocolWebClientCustomizer(
                         connection.addHandlerLast(ReadTimeoutHandler(DEFAULT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS))
                         connection.addHandlerLast(WriteTimeoutHandler(DEFAULT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS))
                     }
-            }
+            }*/
             .responseTimeout(DEFAULT_TIMEOUT)
             .followRedirect(true)
 
