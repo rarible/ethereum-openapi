@@ -63,7 +63,7 @@ components:
       properties:
         code:
           type: string
-          description: "Error type. `INCORRECT_SIGNATURE` - incorrect signature, `INCORRECT_ORDER_DATA` - asset type specified in the wrong way, `INCORRECT_LAZY_ASSET` - lazy minting asset specified in the wrong way, `ORDER_CANCELED` - the specified order has been canceled, `ORDER_INVALID_UPDATE` - the order has been updated incorrectly, 'INCORRECT_PRICE' - incorrect bid price"
+          description: "Error type. `INCORRECT_SIGNATURE` - incorrect signature, `INCORRECT_ORDER_DATA` - asset type specified in the wrong way, `INCORRECT_LAZY_ASSET` - lazy minting asset specified in the wrong way, `ORDER_CANCELED` - the specified order has been canceled, `ORDER_INVALID_UPDATE` - the order has been updated incorrectly, 'INCORRECT_PRICE' - incorrect order price"
           enum:
             - INCORRECT_SIGNATURE
             - INCORRECT_ORDER_DATA
