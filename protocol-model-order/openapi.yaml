@@ -971,6 +971,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/OrderExchangeHistory"
+        id:
+          type: string
         hash:
           $ref: "#/components/schemas/Word"
         makeBalance:
@@ -1133,7 +1135,7 @@ components:
           type: array
           description: "List of the orders hash"
           items:
-            $ref: "#/components/schemas/Word"
+            type: string
 
     OrderForm:
       type: object
