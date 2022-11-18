@@ -314,6 +314,7 @@ components:
         - tags
         - genres
         - content
+        - status
       type: object
       properties:
         name:
@@ -356,6 +357,14 @@ components:
             $ref: "#/components/schemas/MetaContent"
         originalMetaUri:
           type: string
+        status:
+          type: string
+          enum:
+            - UNPARSEABLE_LINK
+            - UNPARSEABLE_JSON
+            - TIMEOUT
+            - ERROR
+            - OK
 
     NftCollectionMeta:
       required:
