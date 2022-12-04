@@ -5,6 +5,20 @@ paths:
 components:
   schemas:
 
+    Ids:
+      required:
+        - items
+      type: object
+      properties:
+        continuation:
+          type: string
+          description: Continuation token to paginate ids search result
+        items:
+          type: array
+          description: List of found ids
+          items:
+            type: string
+
     OrderActivities:
       required:
         - items
