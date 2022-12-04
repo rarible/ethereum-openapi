@@ -1552,7 +1552,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OrderActivities"
+                $ref: "#/components/schemas/Ids"
         '400':
           $ref: "#/components/responses/BadRequest"
         '500':
