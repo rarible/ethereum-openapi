@@ -2,7 +2,7 @@ package com.rarible.protocol.gateway.api.client.autoconfigure
 
 import com.rarible.core.application.ApplicationEnvironmentInfo
 import com.rarible.protocol.gateway.api.client.GatewayApiClientFactory
-import com.rarible.protocol.gateway.client.GatewayApiServiceUriProvider
+import com.rarible.protocol.gateway.api.client.GatewayApiServiceUriProvider
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

@@ -5,9 +5,9 @@ import com.rarible.protocol.client.CompositeWebClientCustomizer
 import com.rarible.protocol.client.DefaultProtocolWebClientCustomizer
 import com.rarible.protocol.client.NoopWebClientCustomizer
 import com.rarible.protocol.gateway.api.client.GatewayApiClientFactory
-import com.rarible.protocol.gateway.client.GatewayApiServiceUriProvider
-import com.rarible.protocol.gateway.client.K8sGatewayApiServiceUriProvider
-import com.rarible.protocol.gateway.client.SwarmGatewayApiServiceUriProvider
+import com.rarible.protocol.gateway.api.client.GatewayApiServiceUriProvider
+import com.rarible.protocol.gateway.api.client.K8sGatewayApiServiceUriProvider
+import com.rarible.protocol.gateway.api.client.SwarmGatewayApiServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
