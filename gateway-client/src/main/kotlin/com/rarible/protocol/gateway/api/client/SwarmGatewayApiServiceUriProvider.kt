@@ -1,4 +1,4 @@
-package com.rarible.protocol.gateway.client
+package com.rarible.protocol.gateway.api.client
 
 import java.net.URI
 
