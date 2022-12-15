@@ -215,6 +215,8 @@ components:
           description: "Item was deleted or not"
         isRaribleContract:
           type: boolean
+        isSuspiciousOnOS:
+          type: boolean
 
     NftItemAttribute:
       required:
