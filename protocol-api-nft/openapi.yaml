@@ -135,6 +135,12 @@ paths:
         - nft-activity-controller
       operationId: getNftActivitiesSync
       parameters:
+        - name: reverted
+          description: "Flag to return only reverted activities"
+          in: query
+          required: false
+          schema:
+            type: boolean
         - name: continuation
           description: "Continuation token from the previous response"
           in: query
