@@ -510,6 +510,7 @@ paths:
 
   "/v0.1/orders/byIds":
     post:
+      deprecated: true
       tags:
         - order-controller
       description: Returns all orders by order hash
@@ -529,6 +530,26 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Order"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
+  "/v0.1/orders/byOrderIds":
+    post:
+      tags:
+        - order-controller
+      description: Returns all orders by order hash
+      operationId: getByIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderIds"
+        required: true
+      responses:
+        '200':
+          $ref: "#/components/responses/OrderPage"
         '400':
           $ref: "#/components/responses/BadRequest"
         '500':
