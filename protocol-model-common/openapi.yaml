@@ -370,6 +370,8 @@ components:
           type: string
           enum:
             - "mint"
+        mintPrice:
+          $ref: "#/components/schemas/BigDecimal"
 
     Burn:
       type: object
