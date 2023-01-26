@@ -120,6 +120,9 @@ components:
           type: string
         id:
           $ref: '#/components/schemas/Address'
+        eventTimeMarks:
+          # TODO make it mandatory in 1.43
+          $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: '#/components/schemas/NftCollectionUpdateEvent'
 
@@ -265,6 +268,9 @@ components:
           type: string
         itemId:
           type: string
+        eventTimeMarks:
+          # TODO make it mandatory in 1.43
+          $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: "#/components/schemas/NftItemUpdateEvent"
         - $ref: "#/components/schemas/NftItemDeleteEvent"
@@ -661,6 +667,9 @@ components:
           type: string
         ownershipId:
           type: string
+        eventTimeMarks:
+          # TODO make it mandatory in 1.43
+          $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: "#/components/schemas/NftOwnershipUpdateEvent"
         - $ref: "#/components/schemas/NftOwnershipDeleteEvent"
