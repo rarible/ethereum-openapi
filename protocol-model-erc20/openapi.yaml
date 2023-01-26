@@ -101,6 +101,9 @@ components:
         lastUpdatedAt:
           type: string
           format: date-time
+        eventTimeMarks:
+          # TODO make it mandatory in 1.43
+          $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: "#/components/schemas/Erc20BalanceUpdateEvent"
 

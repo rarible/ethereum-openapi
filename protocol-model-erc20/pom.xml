@@ -18,8 +18,8 @@
             <artifactId>domain_2.13</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
+            <groupId>com.rarible.protocol.ethereum</groupId>
+            <artifactId>protocol-model-common</artifactId>
         </dependency>
     </dependencies>
 
@@ -30,12 +30,21 @@
                 <groupId>com.rarible.codegen</groupId>
                 <artifactId>model-generator-maven-plugin</artifactId>
                 <configuration>
+
                     <generators>
                         <generator>
                             <lang>kotlin</lang>
                             <packageName>${codegen.package}</packageName>
                         </generator>
                     </generators>
+
+                    <dependencies>
+                        <dependency>
+                            <name>protocol-model-common</name>
+                            <packageName>${codegen.package}</packageName>
+                        </dependency>
+                    </dependencies>
+
                 </configuration>
             </plugin>
         </plugins>

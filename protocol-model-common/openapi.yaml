@@ -108,9 +108,6 @@ components:
           description: "Date and time when the activity was updated in the DB"
         reverted:
           type: boolean
-        eventTimeMarks:
-          # TODO make it mandatory in 1.43
-          $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: "#/components/schemas/OrderActivity"
         - $ref: "#/components/schemas/NftActivity"
@@ -1629,14 +1626,28 @@ components:
       required:
         - indexer
       properties:
-        blockchain:
-          type: string
-          format: date-time
-          description: "Date and time of blockchain transaction triggered this event. Might be NULL if event triggered by indexer, not blockchain's transaction"
+        source:
+          $ref: "#/components/schemas/SourceEventTimeMark"
         indexer:
           type: string
           format: date-time
           description: "Date and time of event emission at indexer"
+
+    SourceEventTimeMark:
+      type: object
+      required:
+        - type
+        - date
+      properties:
+        type:
+          type: string
+          enum:
+            - BLOCKCHAIN
+            - INTEGRATION
+        date:
+          type: string
+          format: date-time
+          description: "Date and time of source event (transaction in blockchain, other marketplace event). Might be NULL if event triggered by indexer."
 
     Word:
       type: string
