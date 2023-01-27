@@ -1230,6 +1230,7 @@ components:
         - X2Y2
         - LOOKSRARE
         - SUDOSWAP
+        - BLUR
 
     OrderSort:
       type: string
