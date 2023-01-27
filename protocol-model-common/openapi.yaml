@@ -153,6 +153,7 @@ components:
             - X2Y2
             - LOOKSRARE
             - SUDOSWAP
+            - BLUR
       oneOf:
         - $ref: "#/components/schemas/OrderActivityMatch"
         - $ref: "#/components/schemas/OrderActivityBid"
