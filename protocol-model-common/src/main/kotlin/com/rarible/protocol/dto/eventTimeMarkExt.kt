@@ -2,28 +2,29 @@ package com.rarible.protocol.dto
 
 import java.time.Instant
 
-fun indexerEventMark(): EventTimeMarksDto {
-    return EventTimeMarksDto(null, Instant.now())
+fun blockchainEventMark(markName: String, seconds: Long): EventTimeMarksDto {
+    return blockchainEventMark(markName, Instant.ofEpochSecond(seconds))
 }
 
-fun transitiveEventMark(source: SourceEventTimeMarkDto?): EventTimeMarksDto {
-    return EventTimeMarksDto(source, Instant.now())
+fun blockchainEventMark(markName: String, date: Instant): EventTimeMarksDto {
+    return EventTimeMarksDto("blockchain")
+        .add("source", date)
+        .add(markName, date)
 }
 
-fun blockchainEventMark(seconds: Long?): EventTimeMarksDto {
-    return blockchainEventMark(seconds?.let { Instant.ofEpochSecond(seconds) })
+fun integrationEventMark(markName: String, date: Instant): EventTimeMarksDto {
+    return EventTimeMarksDto("integration")
+        .add("source", date)
+        .add(markName, date)
 }
 
-fun blockchainEventMark(date: Instant?): EventTimeMarksDto {
-    return EventTimeMarksDto(
-        source = date?.let { SourceEventTimeMarkDto(SourceEventTimeMarkDto.Type.BLOCKCHAIN, date) },
-        indexer = Instant.now()
-    )
+fun offchainEventMark(markName: String): EventTimeMarksDto {
+    return EventTimeMarksDto("offchain").add(markName, null)
 }
 
-fun integrationEventMark(date: Instant?): EventTimeMarksDto {
-    return EventTimeMarksDto(
-        source = date?.let { SourceEventTimeMarkDto(SourceEventTimeMarkDto.Type.INTEGRATION, date) },
-        indexer = Instant.now()
-    )
+fun EventTimeMarksDto.add(name: String, date: Instant? = null): EventTimeMarksDto {
+    val mark = EventTimeMarkDto(name, date ?: Instant.now())
+    val marks = this.marks.toMutableList()
+    marks.add(mark)
+    return this.copy(marks = marks)
 }

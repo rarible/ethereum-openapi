@@ -1625,30 +1625,30 @@ components:
     EventTimeMarks:
       type: object
       required:
-        - indexer
+        - source
+        - marks
       properties:
         source:
-          $ref: "#/components/schemas/SourceEventTimeMark"
-        indexer:
           type: string
-          format: date-time
-          description: "Date and time of event emission at indexer"
+          description: "Describes what was the trigger of the event"
+        marks:
+          type: array
+          default: [ ]
+          items:
+            $ref: "#/components/schemas/EventTimeMark"
 
-    SourceEventTimeMark:
+    EventTimeMark:
       type: object
       required:
-        - type
+        - name
         - date
       properties:
-        type:
+        name:
           type: string
-          enum:
-            - BLOCKCHAIN
-            - INTEGRATION
+          description: "Describes 'place' where event has been handled/received"
         date:
           type: string
           format: date-time
-          description: "Date and time of source event (transaction in blockchain, other marketplace event). Might be NULL if event triggered by indexer."
 
     Word:
       type: string
