@@ -9,13 +9,13 @@ fun blockchainEventMark(markName: String, seconds: Long): EventTimeMarksDto {
 fun blockchainEventMark(markName: String, date: Instant): EventTimeMarksDto {
     return EventTimeMarksDto("blockchain")
         .add("source", date)
-        .add(markName, date)
+        .add(markName, Instant.now())
 }
 
 fun integrationEventMark(markName: String, date: Instant): EventTimeMarksDto {
     return EventTimeMarksDto("integration")
         .add("source", date)
-        .add(markName, date)
+        .add(markName, Instant.now())
 }
 
 fun offchainEventMark(markName: String): EventTimeMarksDto {
