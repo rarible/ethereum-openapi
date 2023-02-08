@@ -447,6 +447,7 @@ components:
             - PREVIEW
             - BIG
             - ORIGINAL
+            - PORTRAIT
         mimeType:
           type: string
           example: "image/png"
@@ -714,13 +715,6 @@ components:
           description: List of found ownerships
           items:
             "$ref": "#/components/schemas/NftOwnership"
-
-    NftMediaSize:
-      type: string
-      enum:
-        - ORIGINAL
-        - BIG
-        - PREVIEW
 
     NftItemIds:
       type: object
