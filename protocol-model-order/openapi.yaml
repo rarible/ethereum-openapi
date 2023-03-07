@@ -709,7 +709,6 @@ components:
         - zone
         - zoneHash
         - conduitKey
-        - counter
       properties:
         dataType:
           type: string
@@ -734,8 +733,11 @@ components:
         conduitKey:
           $ref: "#/components/schemas/Word"
         counter:
+          deprecated: true
           type: integer
           format: int64
+        nonce:
+          $ref: "#/components/schemas/BigInteger"
 
     SeaportOffer:
       type: object
