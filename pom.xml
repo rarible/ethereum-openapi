@@ -34,7 +34,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <revision>1.44.1</revision>
+        <revision>1.44.2</revision>
 
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
         <rarible.codegen.server.version>1.2.2</rarible.codegen.server.version>
@@ -95,16 +95,6 @@
             </dependency>
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-model-nft-order</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-model-unlockable</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-api-erc20</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -116,16 +106,6 @@
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-api-order</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-api-nft-order</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-api-unlockable</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -150,16 +130,6 @@
             </dependency>
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-client-nft-order</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-client-unlockable</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-client-erc20-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -171,16 +141,6 @@
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-client-order-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-client-nft-order-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-client-unlockable-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -215,11 +175,6 @@
             </dependency>
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-subscriber-unlockable</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-subscriber-order-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -236,11 +191,6 @@
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-subscriber-erc20-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-subscriber-unlockable-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -374,30 +324,20 @@
 
     <modules>
         <module>gateway-api</module>
-        <module>gateway-client</module>
-        <module>gateway-client-starter</module>
         <module>protocol-api-erc20</module>
         <module>protocol-api-nft</module>
-        <module>protocol-api-nft-order</module>
         <module>protocol-api-order</module>
-        <module>protocol-api-unlockable</module>
         <module>protocol-client-common</module>
         <module>protocol-client-erc20</module>
         <module>protocol-client-erc20-starter</module>
         <module>protocol-client-nft</module>
         <module>protocol-client-nft-starter</module>
-        <module>protocol-client-nft-order</module>
-        <module>protocol-client-nft-order-starter</module>
         <module>protocol-client-order</module>
         <module>protocol-client-order-starter</module>
-        <module>protocol-client-unlockable</module>
-        <module>protocol-client-unlockable-starter</module>
         <module>protocol-model-common</module>
         <module>protocol-model-erc20</module>
         <module>protocol-model-nft</module>
-        <module>protocol-model-nft-order</module>
         <module>protocol-model-order</module>
-        <module>protocol-model-unlockable</module>
         <module>protocol-subscriber-erc20</module>
         <module>protocol-subscriber-erc20-starter</module>
         <module>protocol-subscriber-nft</module>
@@ -406,7 +346,5 @@
         <module>protocol-subscriber-nft-order-starter</module>
         <module>protocol-subscriber-order</module>
         <module>protocol-subscriber-order-starter</module>
-        <module>protocol-subscriber-unlockable</module>
-        <module>protocol-subscriber-unlockable-starter</module>
     </modules>
 </project>
