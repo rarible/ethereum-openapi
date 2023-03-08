@@ -24,7 +24,7 @@
         <!-- =============== Protocol-API ================ -->
         <dependency>
             <groupId>com.rarible.protocol.ethereum</groupId>
-            <artifactId>protocol-model-nft-order</artifactId>
+            <artifactId>protocol-model-common</artifactId>
         </dependency>
 
         <!-- =============== Rarible-core ================ -->
