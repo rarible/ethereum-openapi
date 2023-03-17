@@ -55,6 +55,32 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/signature/seaport/order/{hash}":
+    get:
+      tags:
+        - order-signature-controller
+      operationId: getSeaportOrderSignature
+      description: Fetch Seaport order signature
+      parameters:
+        - name: hash
+          description: "Hash of the Seaport order"
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SeaportFulfillmentSimpleResponse"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/signature/validate":
     post:
       tags:
