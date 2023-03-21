@@ -32,6 +32,9 @@ components:
         lastUpdatedAt:
           type: string
           format: date-time
+        blockNumber:
+          type: integer
+          format: int64
 
     Erc20DecimalBalance:
       type: object
