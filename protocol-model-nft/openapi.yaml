@@ -73,7 +73,7 @@ components:
           items:
             "$ref": "#/components/schemas/Address"
         meta:
-          "$ref": "#/components/schemas/NftCollectionMeta"
+          "$ref": "#/components/schemas/EthCollectionMeta"
         isRaribleContract:
           type: boolean
 
@@ -366,15 +366,18 @@ components:
         originalMetaUri:
           type: string
         status:
-          type: string
-          enum:
-            - UNPARSEABLE_LINK
-            - UNPARSEABLE_JSON
-            - TIMEOUT
-            - ERROR
-            - OK
+          $ref: "#/components/schemas/EthMetaStatus"
 
-    NftCollectionMeta:
+    EthCollectionMetaResult:
+      required:
+        - status
+      properties:
+        status:
+          $ref: "#/components/schemas/EthMetaStatus"
+        meta:
+          $ref: "#/components/schemas/EthCollectionMeta"
+
+    EthCollectionMeta:
       required:
         - name
         - tags
@@ -521,6 +524,15 @@ components:
           type: string
           enum:
             - UNKNOWN
+
+    EthMetaStatus:
+      type: string
+      enum:
+        - UNPARSEABLE_LINK
+        - UNPARSEABLE_JSON
+        - TIMEOUT
+        - ERROR
+        - OK
 
     LazyNft:
       type: object

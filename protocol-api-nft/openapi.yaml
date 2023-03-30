@@ -815,6 +815,31 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/collections/{collection}/meta":
+    get:
+      tags:
+        - nft-collection-controller
+      description: Returns collection by address
+      operationId: getCollectionMeta
+      parameters:
+        - name: collection
+          in: path
+          description: "Address of the NFT collection"
+          required: true
+          schema:
+            $ref: "#/components/schemas/Address"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EthCollectionMetaResult"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/collections/{collection}/stats":
     get:
       tags:
