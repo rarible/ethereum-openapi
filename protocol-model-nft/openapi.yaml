@@ -683,6 +683,9 @@ components:
         eventTimeMarks:
           # TODO make it mandatory in 1.43
           $ref: "#/components/schemas/EventTimeMarks"
+        blockNumber:
+          type: integer
+          format: int64
       oneOf:
         - $ref: "#/components/schemas/NftOwnershipUpdateEvent"
         - $ref: "#/components/schemas/NftOwnershipDeleteEvent"
