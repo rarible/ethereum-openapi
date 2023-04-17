@@ -883,6 +883,24 @@ components:
           $ref: "#/components/schemas/BigInteger"
         additionalParameters:
           $ref: "#/components/schemas/Binary"
+        merkleRoot:
+          $ref: "#/components/schemas/Binary"
+        merkleProof:
+          type: array
+          items:
+            $ref: "#/components/schemas/LooksRareMerkleProof"
+
+    LooksRareMerkleProof:
+      type: object
+      required:
+        - position
+        - value
+      properties:
+        position:
+          type: integer
+          format: int64
+        value:
+          $ref: "#/components/schemas/Binary"
 
     OrderAmmDataV1:
       type: object
