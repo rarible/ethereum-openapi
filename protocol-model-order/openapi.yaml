@@ -159,6 +159,7 @@ components:
         - "$ref": "#/components/schemas/SeaportV1OrderBid"
         - "$ref": "#/components/schemas/CryptoPunksOrderBid"
         - "$ref": "#/components/schemas/LooksRareOrderBid"
+        - "$ref": "#/components/schemas/LooksRareV2OrderBid"
         - "$ref": "#/components/schemas/X2Y2OrderBid"
         - "$ref": "#/components/schemas/AmmOrderBid"
 
@@ -237,6 +238,19 @@ components:
             - LOOKSRARE
         data:
           $ref: "#/components/schemas/OrderLooksRareDataV1"
+
+    LooksRareV2OrderBid:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - LOOKSRARE_V2
+        data:
+          $ref: "#/components/schemas/OrderLooksRareDataV2"
 
     X2Y2OrderBid:
       type: object
@@ -484,6 +498,7 @@ components:
         - "$ref": "#/components/schemas/OrderSeaportDataV1"
         - "$ref": "#/components/schemas/OrderCryptoPunksData"
         - "$ref": "#/components/schemas/OrderLooksRareDataV1"
+        - "$ref": "#/components/schemas/OrderLooksRareDataV2"
         - "$ref": "#/components/schemas/OrderX2Y2Data"
         - "$ref": "#/components/schemas/OrderAmmDataV1"
 
@@ -839,6 +854,36 @@ components:
         params:
           $ref: "#/components/schemas/Binary"
 
+    OrderLooksRareDataV2:
+      type: object
+      required:
+        - quoteType
+        - globalNonce
+        - orderNonce
+        - subsetNonce
+        - strategyId
+        - additionalParameters
+      properties:
+        dataType:
+          type: string
+          enum:
+            - LOOKSRARE_DATA_V2
+        quoteType:
+          type: string
+          enum:
+            - ASK
+            - BID
+        globalNonce:
+          $ref: "#/components/schemas/BigInteger"
+        orderNonce:
+          $ref: "#/components/schemas/BigInteger"
+        subsetNonce:
+          $ref: "#/components/schemas/BigInteger"
+        strategyId:
+          $ref: "#/components/schemas/BigInteger"
+        additionalParameters:
+          $ref: "#/components/schemas/Binary"
+
     OrderAmmDataV1:
       type: object
       required:
@@ -1020,6 +1065,7 @@ components:
         - "$ref": "#/components/schemas/CryptoPunkOrder"
         - "$ref": "#/components/schemas/X2Y2Order"
         - "$ref": "#/components/schemas/LooksRareOrder"
+        - "$ref": "#/components/schemas/LooksRareV2Order"
         - "$ref": "#/components/schemas/AmmOrder"
 
     LegacyOrder:
@@ -1112,6 +1158,19 @@ components:
             - LOOKSRARE
         data:
           $ref: "#/components/schemas/OrderLooksRareDataV1"
+
+    LooksRareV2Order:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          enum:
+            - LOOKSRARE_V2
+        data:
+          $ref: "#/components/schemas/OrderLooksRareDataV2"
 
     AmmOrder:
       type: object
