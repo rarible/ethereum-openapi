@@ -869,34 +869,6 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
-  "/v0.1/collections/{collection}/resetMeta":
-    delete:
-      tags:
-        - nft-collection-controller
-      deprecated: true
-      description: Deletes the NFT collection meta by identifier
-      operationId: resetNftCollectionMetaById
-      parameters:
-        - name: collection
-          in: path
-          description: "Address of the NFT collection"
-          required: true
-          schema:
-            $ref: "#/components/schemas/Address"
-          example: 0x60f80121c31a0d46b5279700f9df786054aa5ee5
-      x-codeSamples:
-        - lang: 'cURL'
-          source: |
-            curl --request DELETE \
-            --url 'https://ethereum-api.rarible.org/v0.1/nft/collections/0x60f80121c31a0d46b5279700f9df786054aa5ee5/resetMeta'
-      responses:
-        '200':
-          description: OK
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
   "/v0.1/collections/byOwner":
     get:
       tags:
