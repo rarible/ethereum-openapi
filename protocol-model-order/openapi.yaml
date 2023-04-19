@@ -871,8 +871,8 @@ components:
         quoteType:
           type: string
           enum:
-            - ASK
             - BID
+            - ASK
         globalNonce:
           $ref: "#/components/schemas/BigInteger"
         orderNonce:
