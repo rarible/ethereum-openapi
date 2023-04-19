@@ -72,8 +72,6 @@ components:
           description: "List of addresses that can mint items in this collection"
           items:
             "$ref": "#/components/schemas/Address"
-        meta:
-          "$ref": "#/components/schemas/EthCollectionMeta"
         isRaribleContract:
           type: boolean
 
