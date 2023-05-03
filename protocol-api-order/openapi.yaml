@@ -1078,6 +1078,14 @@ paths:
             type: array
             items:
               $ref: "#/components/schemas/OrderStatus"
+        - name: currencyIds
+          in: query
+          required: false
+          description: "Bid currencies"
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Address"
         - name: startDate
           description: "Lower time border of data (unix format)"
           in: query
