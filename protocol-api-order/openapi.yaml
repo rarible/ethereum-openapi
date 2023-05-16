@@ -791,6 +791,14 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/BigInteger"
+        - name: status
+          description: "The order status"
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/OrderStatus"
       responses:
         '200':
           $ref: "#/components/responses/OrderCurrenciesPage"
@@ -818,6 +826,14 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/BigInteger"
+        - name: status
+          description: "The order status"
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/OrderStatus"
       responses:
         '200':
           $ref: "#/components/responses/OrderCurrenciesPage"
