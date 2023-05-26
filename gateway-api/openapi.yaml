@@ -3,19 +3,31 @@ info:
   title: OpenAPI definition
   version: v0.1
   description: |
-    # Exciting News for Passionate Developers! :rocket:
-    Hey there, amazing developers! :wave:
-    We've got some fantastic news to share that will make your experience with our product even better. We're thrilled to announce the implementation of API-Keys, which brings a new level of control and convenience to your development process. So, let's dive right into the details! :sparkles:
-    ## API-Keys for Enhanced Functionality :key:
+    # Exciting News
+    
+    Hey there, amazing developers! 👋
+    
+    We've got some fantastic news to share that will make your experience with our product even better. We're thrilled to announce the implementation of API-Keys, which brings a new level of control and convenience to your development process. So, let's dive right into the details! ✨
+    
+    ## API-Keys for Enhanced Functionality 🔑
+    
     Starting now, we have introduced API-Keys to streamline your interactions with our methods. You might have noticed a slight change while making requests – now, all you need to do is include the parameter `X-API-KEY` in the Header of your request. Simple as that!
-    ## Get Your API-Key in a Snap! :zap:
-    Securing your API-Key is a breeze. We've made the process super user-friendly to ensure you can get started quickly. Just head over to our website and fill out a simple form. Once you've done that, your shiny new API-Key will be delivered straight to your email inbox. Easy peasy! :email:
+    
+    ## Get Your API-Key in a Snap! ⚡️
+    
+    Securing your API-Key is a breeze. We've made the process super user-friendly to ensure you can get started quickly. Just head over to our website and fill out a simple form. Once you've done that, your shiny new API-Key will be delivered straight to your email inbox. Easy peasy! 📧
+    
     [Get Your API-Key Here](https://api.rarible.org/registration)
-    ## Unlock the Power of the Rarible Protocol :key:
-    As passionate developers, we know you're always hungry for knowledge and eager to explore new frontiers. That's why we invite you to discover the incredible world of the Rarible Protocol. By visiting our dedicated protocol page, you'll gain access to a treasure trove of useful information, tips, and insights that will elevate your development skills to new heights. :rocket:
+    
+    ## Unlock the Power of the Rarible Protocol 🔓
+    
+    As passionate developers, we know you're always hungry for knowledge and eager to explore new frontiers. That's why we invite you to discover the incredible world of the Rarible Protocol. By visiting our dedicated protocol page, you'll gain access to a treasure trove of useful information, tips, and insights that will elevate your development skills to new heights. 🚀
+    
     [Explore the Rarible Protocol](https://rarible.org)
-    So, buckle up and get ready for an enhanced development journey with our API-Keys. We're excited to see what you'll create using our revamped system! :muscle: :rocket:
-    Stay curious, keep innovating, and happy coding! :sparkles:
+    
+    So, buckle up and get ready for an enhanced development journey with our API-Keys. We're excited to see what you'll create using our revamped system! 💪🚀
+    
+    Stay curious, keep innovating, and happy coding! ✨
 
 security:
   - ApiKeyAuth: [ ]
