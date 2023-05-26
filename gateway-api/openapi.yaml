@@ -23,11 +23,13 @@ info:
     
     As passionate developers, we know you're always hungry for knowledge and eager to explore new frontiers. That's why we invite you to discover the incredible world of the Rarible Protocol. By visiting our dedicated protocol page, you'll gain access to a treasure trove of useful information, tips, and insights that will elevate your development skills to new heights. 🚀
     
-    [Explore the Rarible Protocol](https://rarible.org) [Explore the Rarible Protocol on Discord](https://discord.com/invite/rarifoundation)
+    [Explore the Rarible Protocol](https://rarible.org)
     
     So, buckle up and get ready for an enhanced development journey with our API-Keys. We're excited to see what you'll create using our revamped system! 💪🚀
     
     Stay curious, keep innovating, and happy coding! ✨
+    
+    [P.S. Join our Discord Server to stay up to date and ask questions](https://discord.gg/rarifoundation)
 
 security:
   - ApiKeyAuth: [ ]
