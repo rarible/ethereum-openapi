@@ -750,3 +750,10 @@ components:
           description: "List of the ownerships id"
           items:
             type: string
+
+    DomainResolveResult:
+        type: object
+        properties:
+          registrant:
+            type: string
+            description: "Domain registrant"

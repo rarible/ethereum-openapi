@@ -966,6 +966,39 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  ###################### Domain ######################
+
+  "/v0.1/domains/resolve":
+    get:
+      tags:
+        - nft-domain-controller
+      description: Resolve domain by name
+      operationId: resolveDomainByName
+      parameters:
+        - name: name
+          in: query
+          description: "Domain name"
+          required: true
+          schema:
+            type: string
+          example: rarible.eth
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --request GET \
+            --url 'https://ethereum-api.rarible.org/v0.1/nft/domains/resolve?name=rarible.eth'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DomainResolveResult"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
 components:
   responses:
     NftOwnershipsPage:
