@@ -753,6 +753,8 @@ components:
 
     DomainResolveResult:
         type: object
+        required:
+          - registrant
         properties:
           registrant:
             type: string
