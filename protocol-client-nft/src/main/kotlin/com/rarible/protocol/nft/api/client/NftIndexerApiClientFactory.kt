@@ -34,6 +34,10 @@ open class NftIndexerApiClientFactory(
         return NftTransactionControllerApi(createApiClient(blockchain))
     }
 
+    fun createNftDomainApiClient(blockchain: String): NftDomainControllerApi {
+        return NftDomainControllerApi(createApiClient(blockchain))
+    }
+
     private fun createApiClient(blockchain: String): ApiClient {
         return ApiClient(webClientCustomizer)
             .setBasePath(getBasePath(blockchain))
