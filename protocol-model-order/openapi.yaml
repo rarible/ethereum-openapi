@@ -1257,6 +1257,12 @@ components:
           format: int64
         signature:
           $ref: "#/components/schemas/Binary"
+        platform:
+            type: string
+            description: "Platform of the upsert order, default value RARIBLE"
+            enum:
+                - RARIBLE
+                - CMP
       oneOf:
         - "$ref": "#/components/schemas/LegacyOrderForm"
         - "$ref": "#/components/schemas/RaribleV2OrderForm"
@@ -1310,6 +1316,7 @@ components:
         - LOOKSRARE
         - SUDOSWAP
         - BLUR
+        - CMP
 
     OrderSort:
       type: string

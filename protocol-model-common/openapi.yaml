@@ -153,6 +153,7 @@ components:
             - LOOKSRARE
             - SUDOSWAP
             - BLUR
+            - CMP
       oneOf:
         - $ref: "#/components/schemas/OrderActivityMatch"
         - $ref: "#/components/schemas/OrderActivityBid"
