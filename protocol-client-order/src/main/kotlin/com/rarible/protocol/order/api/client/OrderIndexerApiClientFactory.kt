@@ -46,6 +46,10 @@ open class OrderIndexerApiClientFactory(
         return AuctionActivityControllerApi(createApiClient(blockchain))
     }
 
+    fun createAdminApiClient(blockchain: String): AdminControllerApi {
+        return AdminControllerApi(createApiClient(blockchain))
+    }
+
     private fun createApiClient(blockchain: String): ApiClient {
         return ApiClient(webClientCustomizer)
             .setBasePath(getBasePath(blockchain))
