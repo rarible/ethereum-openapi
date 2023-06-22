@@ -8,14 +8,13 @@ import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
 import reactor.core.publisher.Mono
 
 class AdminControllerApiTest {
     private val apiClient = mockk<ApiClient>()
-    private val adminControllerApi = AdminControllerApi(apiClient)
+    private val adminControllerApi = OrderAdminControllerApi(apiClient)
 
     @Test
     @Suppress("ReactiveStreamsUnusedPublisher")

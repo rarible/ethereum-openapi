@@ -12,7 +12,7 @@ import org.springframework.util.LinkedMultiValueMap
 /**
  * This API is only accessible inside cloud cluster, and can't be call directly by external clients.
  */
-class AdminControllerApi(
+class OrderAdminControllerApi(
     private val apiClient: ApiClient
 ) {
     suspend fun changeState(hash: String, state: OrderStateDto): OrderDto {
