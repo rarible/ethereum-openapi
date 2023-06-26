@@ -123,6 +123,7 @@ components:
           $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: '#/components/schemas/NftCollectionUpdateEvent'
+        - $ref: '#/components/schemas/NftCollectionSetBaseUriEvent'
 
     NftCollectionUpdateEvent:
       type: object
@@ -135,6 +136,14 @@ components:
             - UPDATE
         collection:
           $ref: '#/components/schemas/NftCollection'
+
+    NftCollectionSetBaseUriEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - SET_BASE_URI
 
     NftSignature:
       required:
