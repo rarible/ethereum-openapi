@@ -1,5 +1,6 @@
 package com.rarible.protocol.erc20.api.subscriber
 
+import com.rarible.core.kafka.RaribleKafkaConsumerSettings
 import com.rarible.ethereum.domain.Blockchain
 import com.rarible.protocol.dto.Erc20BalanceEventDto
 import com.rarible.protocol.dto.Erc20BalanceEventTopicProvider
@@ -11,6 +12,7 @@ class Erc20IndexerEventsConsumerFactory(
     private val host: String,
     private val environment: String
 ) {
+    @Deprecated("Use createErc20BalanceEventsKafkaConsumerSettings instead")
     fun createErc20BalanceEventsConsumer(
         consumerGroup: String,
         blockchain: Blockchain
@@ -21,6 +23,23 @@ class Erc20IndexerEventsConsumerFactory(
             consumerGroup = consumerGroup,
             defaultTopic = Erc20BalanceEventTopicProvider.getTopic(environment, blockchain.value),
             bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
+        )
+    }
+
+    fun createErc20BalanceEventsKafkaConsumerSettings(
+        group: String,
+        concurrency: Int,
+        batchSize: Int,
+        blockchain: Blockchain
+    ): RaribleKafkaConsumerSettings<Erc20BalanceEventDto> {
+        return RaribleKafkaConsumerSettings(
+            hosts = host,
+            topic = Erc20BalanceEventTopicProvider.getTopic(environment, blockchain.value),
+            valueClass = Erc20BalanceEventDto::class.java,
+            group = group,
+            concurrency = concurrency,
+            batchSize = batchSize,
             offsetResetStrategy = getOffsetResetStrategy()
         )
     }

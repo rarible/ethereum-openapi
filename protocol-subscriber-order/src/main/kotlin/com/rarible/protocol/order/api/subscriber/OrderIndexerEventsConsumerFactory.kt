@@ -1,10 +1,10 @@
 package com.rarible.protocol.order.api.subscriber
 
 import com.rarible.core.kafka.RaribleKafkaConsumer
+import com.rarible.core.kafka.RaribleKafkaConsumerSettings
 import com.rarible.core.kafka.json.JsonDeserializer
 import com.rarible.ethereum.domain.Blockchain
 import com.rarible.protocol.dto.AuctionEventDto
-import com.rarible.protocol.dto.NftOrdersPriceUpdateEventDto
 import com.rarible.protocol.dto.OrderEventDto
 import com.rarible.protocol.dto.OrderIndexerTopicProvider
 import org.apache.kafka.clients.consumer.OffsetResetStrategy
@@ -15,6 +15,7 @@ class OrderIndexerEventsConsumerFactory(
     private val host: String,
     private val environment: String
 ) {
+    @Deprecated("Use createOrderEventsConsumerSettings instead")
     fun createOrderEventsConsumer(consumerGroup: String, blockchain: Blockchain): RaribleKafkaConsumer<OrderEventDto> {
         return RaribleKafkaConsumer(
             clientId = "${createClientIdPrefix(blockchain)}.order-indexer-order-events-consumer",
@@ -27,21 +28,21 @@ class OrderIndexerEventsConsumerFactory(
         )
     }
 
-    fun createNftOrdersPriceUpdateEventsConsumer(
-        consumerGroup: String,
+    fun createOrderEventsKafkaConsumerSettings(
+        group: String,
+        concurrency: Int,
+        batchSize: Int,
         blockchain: Blockchain
-    ): RaribleKafkaConsumer<NftOrdersPriceUpdateEventDto> {
-        return RaribleKafkaConsumer(
-            clientId = "${createClientIdPrefix(blockchain)}.order-indexer-nft-orders-price-update-events-consumer",
-            valueDeserializerClass = JsonDeserializer::class.java,
-            valueClass = NftOrdersPriceUpdateEventDto::class.java,
-            consumerGroup = consumerGroup,
-            defaultTopic = OrderIndexerTopicProvider.getPriceUpdateTopic(environment, blockchain.value),
-            bootstrapServers = brokerReplicaSet,
-            offsetResetStrategy = getOffsetResetStrategy()
+    ): RaribleKafkaConsumerSettings<OrderEventDto> {
+        return createRaribleKafkaConsumerSettings(
+            group = group,
+            concurrency = concurrency,
+            batchSize = batchSize,
+            topic = { OrderIndexerTopicProvider.getOrderUpdateTopic(environment, blockchain.value) }
         )
     }
 
+    @Deprecated("Use createAuctionEventsConsumerSettings instead")
     fun createAuctionEventsConsumer(
         consumerGroup: String,
         blockchain: Blockchain
@@ -53,6 +54,37 @@ class OrderIndexerEventsConsumerFactory(
             consumerGroup = consumerGroup,
             defaultTopic = OrderIndexerTopicProvider.getAuctionUpdateTopic(environment, blockchain.value),
             bootstrapServers = brokerReplicaSet,
+            offsetResetStrategy = getOffsetResetStrategy()
+        )
+    }
+
+    fun createAuctionEventsKafkaConsumerSettings(
+        group: String,
+        concurrency: Int,
+        batchSize: Int,
+        blockchain: Blockchain
+    ): RaribleKafkaConsumerSettings<AuctionEventDto> {
+        return createRaribleKafkaConsumerSettings(
+            group = group,
+            concurrency = concurrency,
+            batchSize = batchSize,
+            topic = { OrderIndexerTopicProvider.getAuctionUpdateTopic(environment, blockchain.value) }
+        )
+    }
+
+    private inline fun <reified T> createRaribleKafkaConsumerSettings(
+        group: String,
+        concurrency: Int,
+        batchSize: Int,
+        topic: () -> String
+    ): RaribleKafkaConsumerSettings<T> {
+        return RaribleKafkaConsumerSettings(
+            hosts = host,
+            topic = topic(),
+            valueClass = T::class.java,
+            group = group,
+            concurrency = concurrency,
+            batchSize = batchSize,
             offsetResetStrategy = getOffsetResetStrategy()
         )
     }

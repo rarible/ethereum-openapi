@@ -3,6 +3,7 @@ package com.rarible.protocol.erc20.api.subscriber
 import org.apache.kafka.clients.consumer.OffsetResetStrategy
 import org.apache.kafka.common.serialization.Deserializer
 
+@Deprecated("Use RaribleKafkaConsumerSettings from protocol-kafka module")
 data class Erc20KafkaConsumerArguments<V>(
     val clientId: String,
     val consumerGroup: String,
