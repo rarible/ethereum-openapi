@@ -34,7 +34,7 @@ class Erc20IndexerEventsConsumerFactory(
         blockchain: Blockchain
     ): RaribleKafkaConsumerSettings<Erc20BalanceEventDto> {
         return RaribleKafkaConsumerSettings(
-            hosts = host,
+            hosts = brokerReplicaSet,
             topic = Erc20BalanceEventTopicProvider.getTopic(environment, blockchain.value),
             valueClass = Erc20BalanceEventDto::class.java,
             group = group,

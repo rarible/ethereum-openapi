@@ -109,7 +109,7 @@ class NftIndexerEventsConsumerFactory(
         topic: () -> String
     ): RaribleKafkaConsumerSettings<T> {
         return RaribleKafkaConsumerSettings(
-            hosts = host,
+            hosts = brokerReplicaSet,
             topic = topic(),
             valueClass = T::class.java,
             group = group,
