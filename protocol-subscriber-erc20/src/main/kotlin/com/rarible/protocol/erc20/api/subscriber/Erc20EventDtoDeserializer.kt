@@ -7,6 +7,7 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.rarible.protocol.dto.Erc20BalanceEventDto
 import org.apache.kafka.common.serialization.Deserializer
 
+@Deprecated("Use RaribleKafkaConsumerSettings from protocol-kafka module")
 class Erc20EventDtoDeserializer : Deserializer<Erc20BalanceEventDto> {
 
     private val mapper = ObjectMapper()
