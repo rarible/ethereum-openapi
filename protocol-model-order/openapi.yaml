@@ -702,6 +702,7 @@ components:
         - PARTIAL_OPEN
         - FULL_RESTRICTED
         - PARTIAL_RESTRICTED
+        - CONTRACT
 
     SeaportItemType:
       type: string
