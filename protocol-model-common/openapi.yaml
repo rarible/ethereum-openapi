@@ -88,6 +88,17 @@ components:
           type: string
           description: "Error message"
 
+    ActivityEvent:
+      type: object
+      required:
+        - activity
+        - eventTimeMarks
+      properties:
+        activity:
+          $ref: "#/components/schemas/Activity"
+        eventTimeMarks:
+          $ref: "#/components/schemas/EventTimeMarks"
+
     Activity:
       type: object
       required:
