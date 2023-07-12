@@ -7,5 +7,9 @@ class ActivityTopicProvider {
         fun getTopic(environment: String, blockchain: String): String {
             return "protocol.$environment.$blockchain.indexer.nft-order.activity"
         }
+
+        fun getActivityTopic(environment: String, blockchain: String): String {
+            return "protocol.$environment.$blockchain.indexer.activity"
+        }
     }
 }
