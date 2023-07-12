@@ -34,7 +34,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <revision>1.54.0</revision>
+        <revision>1.54.1</revision>
 
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
         <rarible.codegen.server.version>1.2.2</rarible.codegen.server.version>
@@ -165,11 +165,6 @@
             </dependency>
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-subscriber-nft-order</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-subscriber-erc20</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -181,11 +176,6 @@
             <dependency>
                 <groupId>com.rarible.protocol.ethereum</groupId>
                 <artifactId>protocol-subscriber-nft-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rarible.protocol.ethereum</groupId>
-                <artifactId>protocol-subscriber-nft-order-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -342,8 +332,6 @@
         <module>protocol-subscriber-erc20-starter</module>
         <module>protocol-subscriber-nft</module>
         <module>protocol-subscriber-nft-starter</module>
-        <module>protocol-subscriber-nft-order</module>
-        <module>protocol-subscriber-nft-order-starter</module>
         <module>protocol-subscriber-order</module>
         <module>protocol-subscriber-order-starter</module>
     </modules>
