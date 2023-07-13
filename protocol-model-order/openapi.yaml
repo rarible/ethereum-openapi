@@ -1239,6 +1239,7 @@ components:
         - take
         - signature
         - salt
+        - end
       properties:
         maker:
           $ref: "#/components/schemas/Address"
