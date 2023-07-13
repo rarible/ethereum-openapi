@@ -36,6 +36,23 @@ components:
           type: integer
           format: int64
 
+    Erc20Allowance:
+      type: object
+      required: [ contract, owner, balance, createdAt, lastUpdatedAt ]
+      properties:
+        contract:
+          $ref: '#/components/schemas/Address'
+        owner:
+          $ref: '#/components/schemas/Address'
+        allowance:
+          $ref: '#/components/schemas/BigInteger'
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdatedAt:
+          type: string
+          format: date-time
+
     Erc20DecimalBalance:
       type: object
       required: [ contract, owner, balance, decimalBalance ]
@@ -109,6 +126,7 @@ components:
           $ref: "#/components/schemas/EventTimeMarks"
       oneOf:
         - $ref: "#/components/schemas/Erc20BalanceUpdateEvent"
+        - $ref: "#/components/schemas/Erc20AllowanceEvent"
 
     Erc20BalanceUpdateEvent:
       type: object
@@ -121,6 +139,18 @@ components:
             - UPDATE
         balance:
           $ref: "#/components/schemas/Erc20Balance"
+
+    Erc20AllowanceEvent:
+      type: object
+      required:
+        - allowance
+      properties:
+        type:
+          type: string
+          enum:
+            - ALLOWANCE
+        allowance:
+          $ref: "#/components/schemas/Erc20Allowance"
 
     Address:
       type: string
