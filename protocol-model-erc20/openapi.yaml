@@ -38,7 +38,7 @@ components:
 
     Erc20Allowance:
       type: object
-      required: [ contract, owner, balance, createdAt, lastUpdatedAt ]
+      required: [ contract, owner, allowance, createdAt, lastUpdatedAt ]
       properties:
         contract:
           $ref: '#/components/schemas/Address'
