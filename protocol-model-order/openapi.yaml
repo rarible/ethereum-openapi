@@ -1220,6 +1220,16 @@ components:
         takeValue:
           $ref: "#/components/schemas/BigDecimal"
 
+    EthOrderFees:
+      type: object
+      required:
+        - fees
+      properties:
+        fees:
+          type: object
+          additionalProperties:
+            type: integer
+
     OrderIds:
       type: object
       required:

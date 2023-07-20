@@ -182,6 +182,24 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  ####################### Order Settings API ########################
+
+  "/v0.1/orders/settings/fees":
+    get:
+      tags:
+        - order-settings-controller
+      description: "Returns set fees for different order types"
+      operationId: getFees
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EthOrderFees"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   ####################### Orders API ########################
 
   "/v0.1/orders":
