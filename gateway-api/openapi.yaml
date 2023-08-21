@@ -69,6 +69,7 @@ components:
       type: apiKey
       in: header
       name: X-API-KEY
+      "x-default": "11111111-1111-1111-1111-111111111111"
   schemas:
     GatewayApiError:
       required:
