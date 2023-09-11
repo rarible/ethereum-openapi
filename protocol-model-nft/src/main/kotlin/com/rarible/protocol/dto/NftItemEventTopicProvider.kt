@@ -8,5 +8,9 @@ class NftItemEventTopicProvider {
         fun getTopic(environment: String, blockchain: String): String {
             return "protocol.$environment.$blockchain.indexer.nft.item"
         }
+
+        fun getItemMetaTopic(environment: String, blockchain: String): String {
+            return "protocol.$environment.$blockchain.indexer.nft.item.meta"
+        }
     }
 }

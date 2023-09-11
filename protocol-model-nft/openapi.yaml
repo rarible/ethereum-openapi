@@ -304,6 +304,28 @@ components:
         item:
           $ref: "#/components/schemas/NftDeletedItem"
 
+    NftItemMetaEvent:
+      required:
+        - eventId
+        - itemId
+      properties:
+        eventId:
+          type: string
+        itemId:
+          type: string
+        eventTimeMarks:
+          $ref: "#/components/schemas/EventTimeMarks"
+      oneOf:
+        - $ref: "#/components/schemas/NftItemMetaRefreshEvent"
+
+    NftItemMetaRefreshEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - META_REFRESH
+
     NftItems:
       required:
         - items
