@@ -74,6 +74,9 @@ components:
             "$ref": "#/components/schemas/Address"
         isRaribleContract:
           type: boolean
+        scam:
+          type: boolean
+          default: false
 
     NftCollectionStats:
       type: object
