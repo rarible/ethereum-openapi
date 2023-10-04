@@ -84,7 +84,7 @@ components:
           type: boolean
           default: false
 
-    NftCollectionFlag:
+    EthCollectionFlag:
       type: object
       properties:
         flag:
