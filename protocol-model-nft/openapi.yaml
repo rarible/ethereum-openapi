@@ -64,6 +64,12 @@ components:
               - MINT_WITH_ADDRESS
               - SECONDARY_SALE_FEES
               - MINT_AND_TRANSFER
+              - PAUSABLE
+        flags:
+          type: array
+          description: "Token flags reflects current state of token regarding its features"
+          items:
+            "$ref": "#/components/schemas/EthCollectionFlag"
         supportsLazyMint:
           type: boolean
           description: "Does the collection support lazy mint or not"
@@ -77,6 +83,19 @@ components:
         scam:
           type: boolean
           default: false
+
+    EthCollectionFlag:
+      type: object
+      properties:
+        flag:
+          type: string
+          enum:
+            - PAUSED
+        value:
+          type: string
+      required:
+        - flag
+        - value
 
     NftCollectionStats:
       type: object
