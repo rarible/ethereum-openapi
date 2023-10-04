@@ -69,7 +69,7 @@ components:
           type: array
           description: "Token flags reflects current state of token regarding its features"
           items:
-            "$ref": "#/components/schemas/NftCollectionFlag"
+            "$ref": "#/components/schemas/EthCollectionFlag"
         supportsLazyMint:
           type: boolean
           description: "Does the collection support lazy mint or not"
