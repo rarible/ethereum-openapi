@@ -34,7 +34,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <revision>1.65.0</revision>
+        <revision>1.65.100</revision>
 
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
         <rarible.codegen.server.version>1.2.2</rarible.codegen.server.version>
@@ -44,7 +44,7 @@
         <codegen.package>com.rarible.protocol.dto</codegen.package>
 
         <rarible.core.version>2.6.0</rarible.core.version>
-        <rarible.ethereum.version>1.7.15</rarible.ethereum.version>
+        <rarible.ethereum.version>1.7.24</rarible.ethereum.version>
 
         <dir.target.classes>${project.basedir}/target/classes</dir.target.classes>
         <dir.target.temp>${project.basedir}/target/temp</dir.target.temp>

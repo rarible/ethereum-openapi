@@ -1913,40 +1913,6 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
-  "/v0.1/aggregations/aggregateNftCollectionStats/{collection}":
-    get:
-      tags:
-        - order-aggregation-controller
-      operationId: aggregateNftCollectionStats
-      deprecated: true
-      parameters:
-        - name: collection
-          in: path
-          description: "Address of the NFT collection"
-          required: true
-          schema:
-            $ref: "#/components/schemas/Address"
-          example: 0x60f80121c31a0d46b5279700f9df786054aa5ee5
-        - name: currency
-          in: query
-          description: "Currency address"
-          required: false
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/OrderCollectionStats"
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
   ####################### Auctions-Search API ########################
 
   "/v0.1/auctions/{hash}":

@@ -1655,23 +1655,6 @@ components:
         auction:
           "$ref": "#/components/schemas/Auction"
 
-    OrderCollectionStats:
-      type: object
-      properties:
-        token:
-          "$ref": "#/components/schemas/Address"
-        floorPrice:
-          "$ref": "#/components/schemas/BigDecimal"
-        totalVolume:
-          "$ref": "#/components/schemas/BigDecimal"
-        highestSale:
-          "$ref": "#/components/schemas/BigDecimal"
-        lastUpdatedAt:
-          type: string
-          format: date-time
-      required:
-        - token
-
     OrderState:
       type: object
       properties:
