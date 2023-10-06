@@ -66,10 +66,7 @@ components:
               - MINT_AND_TRANSFER
               - PAUSABLE
         flags:
-          type: array
-          description: "Token flags reflects current state of token regarding its features"
-          items:
-            "$ref": "#/components/schemas/EthCollectionFlag"
+          "$ref": "#/components/schemas/EthCollectionFlags"
         supportsLazyMint:
           type: boolean
           description: "Does the collection support lazy mint or not"
@@ -84,18 +81,22 @@ components:
           type: boolean
           default: false
 
-    EthCollectionFlag:
+    EthCollectionFlags:
+<<<<<<< Updated upstream
+=======
       type: object
+      description: "Token flags reflects current state of token regarding its features"
       properties:
-        flag:
-          type: string
-          enum:
-            - PAUSED
-        value:
-          type: string
-      required:
-        - flag
-        - value
+        paused:
+          type: boolean
+
+    NftCollectionStats:
+>>>>>>> Stashed changes
+      type: object
+      description: "Token flags reflects current state of token regarding its features"
+      properties:
+        paused:
+          type: boolean
 
     NftCollections:
       required:
