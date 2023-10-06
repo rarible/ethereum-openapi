@@ -82,16 +82,6 @@ components:
           default: false
 
     EthCollectionFlags:
-<<<<<<< Updated upstream
-=======
-      type: object
-      description: "Token flags reflects current state of token regarding its features"
-      properties:
-        paused:
-          type: boolean
-
-    NftCollectionStats:
->>>>>>> Stashed changes
       type: object
       description: "Token flags reflects current state of token regarding its features"
       properties:
