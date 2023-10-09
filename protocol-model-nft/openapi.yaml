@@ -65,6 +65,7 @@ components:
               - SECONDARY_SALE_FEES
               - MINT_AND_TRANSFER
               - PAUSABLE
+              - NOT_FOR_SALE
         flags:
           "$ref": "#/components/schemas/EthCollectionFlags"
         supportsLazyMint:
