@@ -360,6 +360,35 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/orders/{hash}/report":
+    post:
+      tags:
+        - order-controller
+      description: Report not working order
+      operationId: reportOrder
+      parameters:
+        - name: hash
+          description: "Hash of the order"
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --request POST \
+            --url 'https://ethereum-api.rarible.org/v0.1/order/orders/0x38a2616dcff042fa157b2d5389171fe6f1d92c9dc3c85b7465a7e60948bf3ba0/report'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/orders/{hash}/updateMakeStock":
     get:
       tags:
