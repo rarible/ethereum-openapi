@@ -102,6 +102,19 @@ class NftIndexerEventsConsumerFactory(
         ) { NftOwnershipEventTopicProvider.getTopic(environment, blockchain.value) }
     }
 
+    fun createDomainEventsKafkaConsumerSettings(
+        consumerGroup: String,
+        concurrency: Int,
+        batchSize: Int,
+        blockchain: Blockchain
+    ): RaribleKafkaConsumerSettings<NftOwnershipEventDto> {
+        return createRaribleKafkaConsumerSettings(
+            group = consumerGroup,
+            concurrency = concurrency,
+            batchSize = batchSize
+        ) { NftOwnershipEventTopicProvider.getTopic(environment, blockchain.value) }
+    }
+
     private inline fun <reified T> createRaribleKafkaConsumerSettings(
         group: String,
         concurrency: Int,
