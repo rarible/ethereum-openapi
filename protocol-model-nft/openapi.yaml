@@ -477,6 +477,9 @@ components:
         id:
           type: string
           description: Domain identifier, has format '${contract}:${tokenId}'
+        name:
+          type: string
+          description: Domain name'
         contract:
           "$ref": "#/components/schemas/Address"
         tokenId:
