@@ -939,6 +939,33 @@ paths:
 
   ###################### Domain ######################
 
+  "/v0.1/domains/{domainId}":
+    get:
+      tags:
+        - nft-domain-controller
+      description: Get domain by id
+      operationId: getDomainById
+      parameters:
+        - name: domainId
+          description: "ID of the domain in format: '$contractAddress:$tokenId'"
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NftDomain"
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
   "/v0.1/domains/{domain}/resolution":
     get:
       tags:

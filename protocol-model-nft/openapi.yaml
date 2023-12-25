@@ -465,6 +465,64 @@ components:
           items:
             "$ref": "#/components/schemas/NftItemRoyalty"
 
+    NftDomain:
+      type: object
+      required:
+        - id
+        - contract
+        - tokenId
+        - expires
+        - lastUpdatedAt
+      properties:
+        id:
+          type: string
+          description: Domain identifier, has format '${contract}:${tokenId}'
+        name:
+          type: string
+          description: Domain name'
+        contract:
+          "$ref": "#/components/schemas/Address"
+        tokenId:
+          "$ref": "#/components/schemas/BigInteger"
+        expires:
+          type: string
+          format: date-time
+          description: "Datetime when the item was minted"
+        lastUpdatedAt:
+          type: string
+          format: date-time
+          description: "Datetime when the item was created"
+
+    NftDomainEvent:
+      required:
+        - eventId
+        - domainId
+        - eventTimeMarks
+      properties:
+        eventId:
+          type: string
+        domainId:
+          type: string
+        eventTimeMarks:
+          $ref: "#/components/schemas/EventTimeMarks"
+        blockNumber:
+          type: integer
+          format: int64
+      oneOf:
+        - $ref: "#/components/schemas/NftDomainUpdateEvent"
+
+    NftDomainUpdateEvent:
+      type: object
+      required:
+        - domain
+      properties:
+        type:
+          type: string
+          enum:
+            - UPDATE
+        domain:
+          $ref: "#/components/schemas/NftDomain"
+
     MetaContent:
       type: object
       properties:
@@ -717,6 +775,7 @@ components:
       oneOf:
         - $ref: "#/components/schemas/NftOwnershipUpdateEvent"
         - $ref: "#/components/schemas/NftOwnershipDeleteEvent"
+
     NftOwnershipUpdateEvent:
       type: object
       required:
@@ -728,6 +787,7 @@ components:
             - UPDATE
         ownership:
           $ref: "#/components/schemas/NftOwnership"
+
     NftOwnershipDeleteEvent:
       type: object
       properties:
