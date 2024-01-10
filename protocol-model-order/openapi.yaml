@@ -368,12 +368,18 @@ components:
     EncodedOrder:
       type: object
       required:
+        - orderHash
         - signMessage
+        - signHash
       properties:
-        transferProxyAddress:
-          "$ref": "#/components/schemas/Address"
+        orderHash:
+          $ref: "#/components/schemas/Word"
+        signHash:
+          $ref: "#/components/schemas/Word"
         signMessage:
           "$ref": "#/components/schemas/SignMessage"
+        transferProxyAddress:
+          "$ref": "#/components/schemas/Address"
 
     OrderExchangeHistory:
       type: object
