@@ -369,11 +369,14 @@ components:
       type: object
       required:
         - signMessage
+        - signHash
       properties:
         transferProxyAddress:
           "$ref": "#/components/schemas/Address"
         signMessage:
           "$ref": "#/components/schemas/SignMessage"
+        signHash:
+          $ref: "#/components/schemas/Word"
 
     OrderExchangeHistory:
       type: object
