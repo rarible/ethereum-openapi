@@ -230,8 +230,7 @@ paths:
     post:
       tags:
         - order-controller
-      deprecated: true
-      description: Prepare order transaction. Deprecated. Use Rarible Protocol Ethereum SDK https://github.com/rarible/ethereum-sdk/tree/master
+      description: Prepare order transaction.
       operationId: prepareOrderTransaction
       parameters:
         - name: hash
