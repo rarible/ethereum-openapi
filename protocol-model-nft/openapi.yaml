@@ -391,6 +391,11 @@ components:
           description: "NFT content information"
           items:
             $ref: "#/components/schemas/MetaContent"
+        extraContent:
+          type: array
+          default: [ ]
+          items:
+            $ref: "#/components/schemas/MetaContent"
         originalMetaUri:
           type: string
         status:
