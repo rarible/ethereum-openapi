@@ -997,6 +997,26 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  ###################### Blocks ######################
+
+  "/v0.1/blocks/latest-indexed":
+    get:
+      tags:
+        - nft-block-controller
+      description: Get latest indexed block
+      operationId: getLatestIndexedBlock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LatestIndexedBlock"
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '500':
+          $ref: "#/components/responses/ServerError"
+
 components:
   responses:
     NftOwnershipsPage:
