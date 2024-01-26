@@ -1660,6 +1660,15 @@ components:
           type: string
           format: date-time
 
+    LatestIndexedBlock:
+      type: object
+      required:
+        - blockNumber
+      properties:
+        blockNumber:
+          type: integer
+          format: int64
+
     Word:
       type: string
 
