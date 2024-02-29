@@ -33,20 +33,6 @@ components:
           items:
             "$ref": "#/components/schemas/OrderActivity"
 
-    AuctionActivities:
-      required:
-        - items
-      type: object
-      properties:
-        continuation:
-          type: string
-          description: Continuation token to paginate items search result
-        items:
-          type: array
-          description: List of found activities
-          items:
-            "$ref": "#/components/schemas/AuctionActivity"
-
     EthereumOrderDataApiError:
       required:
         - code
@@ -1580,86 +1566,6 @@ components:
 
     ObjectNode:
       type: object
-
-    AuctionSort:
-      type: string
-      enum:
-        - LAST_UPDATE_ASC
-        - LAST_UPDATE_DESC
-        - BUY_PRICE_ASC
-
-    AuctionIds:
-      type: object
-      required:
-        - ids
-      properties:
-        ids:
-          type: array
-          description: "List of the auctions hash"
-          items:
-            $ref: "#/components/schemas/Word"
-
-    AuctionsPagination:
-      type: object
-      required:
-        - auctions
-      properties:
-        auctions:
-          type: array
-          items:
-            $ref: "#/components/schemas/Auction"
-        continuation:
-          type: string
-
-    AuctionBidsPagination:
-      type: object
-      required:
-        - bids
-      properties:
-        bids:
-          type: array
-          items:
-            $ref: "#/components/schemas/AuctionBid"
-        continuation:
-          type: string
-
-    AuctionEvent:
-      type: object
-      required:
-        - eventId
-        - auctionId
-      properties:
-        eventId:
-          type: string
-        auctionId:
-          type: string
-      oneOf:
-        - "$ref": "#/components/schemas/AuctionUpdateEvent"
-        - "$ref": "#/components/schemas/AuctionDeleteEvent"
-
-    AuctionUpdateEvent:
-      type: object
-      required:
-        - auction
-      properties:
-        type:
-          type: string
-          enum:
-            - UPDATE
-        auction:
-          "$ref": "#/components/schemas/Auction"
-
-    AuctionDeleteEvent:
-      type: object
-      required:
-        - auction
-      properties:
-        type:
-          type: string
-          enum:
-            - DELETE
-        auction:
-          "$ref": "#/components/schemas/Auction"
 
     OrderState:
       type: object
