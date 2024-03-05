@@ -186,12 +186,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: showDeleted
-          in: query
-          description: "Return ownership if it is deleted"
-          required: false
-          schema:
-            type: boolean
       responses:
         '200':
           description: OK
@@ -303,12 +297,6 @@ paths:
           schema:
             type: integer
             format: int32
-        - name: showDeleted
-          in: query
-          description: "Include deleted ownerships"
-          required: false
-          schema:
-            type: boolean
       responses:
         '200':
           $ref: "#/components/responses/NftOwnershipsPage"
