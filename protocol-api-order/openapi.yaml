@@ -1532,51 +1532,6 @@ paths:
           $ref: "#/components/responses/ServerError"
 
   ####################### Activities ########################
-
-  "/v0.1/activities/search":
-    post:
-      tags:
-        - order-activity-controller
-      operationId: getOrderActivities
-      description: Returns event history with order
-      parameters:
-        - name: continuation
-          description: "Continuation token from the previous response"
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: size
-          in: query
-          description: "The number of items to return"
-          required: false
-          schema:
-            type: integer
-            format: int32
-        - name: sort
-          description: "Sorting by data update time"
-          in: query
-          required: false
-          schema:
-            $ref: "#/components/schemas/ActivitySort"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/OrderActivityFilter"
-        required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/OrderActivities"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
   "/v0.1/activities/byId":
     post:
       tags:
@@ -1671,38 +1626,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/OrderActivities"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
-
-  "/v0.1/activities/sell/right":
-    get:
-      tags:
-        - order-activity-controller
-      operationId: getOrderSellRightActivities
-      description: Returns right sell event history with order
-      parameters:
-        - name: continuation
-          description: "Continuation token from the previous response"
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: size
-          in: query
-          description: "The number of items to return"
-          required: false
-          schema:
-            type: integer
-            format: int32
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Ids"
         '400':
           $ref: "#/components/responses/BadRequest"
         '500':
