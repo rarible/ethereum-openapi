@@ -34,10 +34,6 @@ open class OrderIndexerApiClientFactory(
         return OrderTransactionControllerApi(createApiClient(blockchain))
     }
 
-    fun createOrderAggregationApiClient(blockchain: String): OrderAggregationControllerApi {
-        return OrderAggregationControllerApi(createApiClient(blockchain))
-    }
-
     fun createOrderAdminApiClient(blockchain: String): OrderAdminControllerApi {
         return OrderAdminControllerApi(createApiClient(blockchain))
     }

@@ -78,21 +78,6 @@ components:
           type: integer
           format: int32
 
-    AggregationData:
-      type: object
-      required:
-        - address
-        - sum
-        - count
-      properties:
-        address:
-          $ref: "#/components/schemas/Address"
-        sum:
-          $ref: "#/components/schemas/BigDecimal"
-        count:
-          type: integer
-          format: int64
-
     OrderBid:
       type: object
       required:
