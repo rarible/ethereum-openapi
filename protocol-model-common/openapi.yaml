@@ -340,7 +340,6 @@ components:
     NftActivity:
       type: object
       required:
-        - owner
         - contract
         - tokenId
         - value
@@ -349,8 +348,6 @@ components:
         - blockNumber
         - logIndex
       properties:
-        owner:
-          $ref: "#/components/schemas/Address"
         contract:
           $ref: "#/components/schemas/Address"
         tokenId:
@@ -370,16 +367,21 @@ components:
         - $ref: "#/components/schemas/Mint"
         - $ref: "#/components/schemas/Burn"
         - $ref: "#/components/schemas/Transfer"
+        - $ref: "#/components/schemas/SentToChain"
+        - $ref: "#/components/schemas/ReceiveFromChain"
 
     Mint:
       type: object
       required:
         - "@type"
+        - owner
       properties:
         "@type":
           type: string
           enum:
             - "mint"
+        owner:
+          $ref: "#/components/schemas/Address"
         mintPrice:
           $ref: "#/components/schemas/BigDecimal"
 
@@ -387,26 +389,70 @@ components:
       type: object
       required:
         - "@type"
+        - owner
       properties:
         "@type":
           type: string
           enum:
             - "burn"
+        owner:
+          $ref: "#/components/schemas/Address"
 
     Transfer:
       type: object
       required:
         - "@type"
+        - owner
         - from
       properties:
         "@type":
           type: string
           enum:
             - "transfer"
+        owner:
+          $ref: "#/components/schemas/Address"
         from:
           $ref: "#/components/schemas/Address"
         purchase:
           type: boolean
+
+    SentToChain:
+      type: object
+      required:
+        - "@type"
+        - owner
+        - from
+        - chainId
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "sentToChain"
+        owner:
+          $ref: "#/components/schemas/Binary"
+        from:
+          $ref: "#/components/schemas/Address"
+        chainId:
+          $ref: "#/components/schemas/BigInteger"
+
+    ReceiveFromChain:
+      type: object
+      required:
+        - "@type"
+        - owner
+        - from
+        - chainId
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "receiveFromChain"
+        owner:
+          $ref: "#/components/schemas/Address"
+        from:
+          $ref: "#/components/schemas/Binary"
+        chainId:
+          $ref: "#/components/schemas/BigInteger"
 
     Activities:
       type: object
