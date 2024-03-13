@@ -340,6 +340,7 @@ components:
     NftActivity:
       type: object
       required:
+        - owner
         - contract
         - tokenId
         - value
@@ -348,6 +349,8 @@ components:
         - blockNumber
         - logIndex
       properties:
+        owner:
+          $ref: "#/components/schemas/Address"
         contract:
           $ref: "#/components/schemas/Address"
         tokenId:
@@ -374,14 +377,11 @@ components:
       type: object
       required:
         - "@type"
-        - owner
       properties:
         "@type":
           type: string
           enum:
             - "mint"
-        owner:
-          $ref: "#/components/schemas/Address"
         mintPrice:
           $ref: "#/components/schemas/BigDecimal"
 
@@ -389,28 +389,22 @@ components:
       type: object
       required:
         - "@type"
-        - owner
       properties:
         "@type":
           type: string
           enum:
             - "burn"
-        owner:
-          $ref: "#/components/schemas/Address"
 
     Transfer:
       type: object
       required:
         - "@type"
-        - owner
         - from
       properties:
         "@type":
           type: string
           enum:
             - "transfer"
-        owner:
-          $ref: "#/components/schemas/Address"
         from:
           $ref: "#/components/schemas/Address"
         purchase:
@@ -420,18 +414,15 @@ components:
       type: object
       required:
         - "@type"
-        - owner
-        - from
+        - to
         - chainId
       properties:
         "@type":
           type: string
           enum:
             - "sentToChain"
-        owner:
+        to:
           $ref: "#/components/schemas/Binary"
-        from:
-          $ref: "#/components/schemas/Address"
         chainId:
           $ref: "#/components/schemas/BigInteger"
 
@@ -439,7 +430,6 @@ components:
       type: object
       required:
         - "@type"
-        - owner
         - from
         - chainId
       properties:
@@ -447,8 +437,6 @@ components:
           type: string
           enum:
             - "receiveFromChain"
-        owner:
-          $ref: "#/components/schemas/Address"
         from:
           $ref: "#/components/schemas/Binary"
         chainId:
