@@ -367,7 +367,7 @@ components:
         - $ref: "#/components/schemas/Mint"
         - $ref: "#/components/schemas/Burn"
         - $ref: "#/components/schemas/Transfer"
-        - $ref: "#/components/schemas/SentToChain"
+        - $ref: "#/components/schemas/SendToChain"
         - $ref: "#/components/schemas/ReceiveFromChain"
 
     Mint:
@@ -416,7 +416,7 @@ components:
         purchase:
           type: boolean
 
-    SentToChain:
+    SendToChain:
       type: object
       required:
         - "@type"
