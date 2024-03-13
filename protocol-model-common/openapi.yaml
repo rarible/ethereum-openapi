@@ -370,6 +370,8 @@ components:
         - $ref: "#/components/schemas/Mint"
         - $ref: "#/components/schemas/Burn"
         - $ref: "#/components/schemas/Transfer"
+        - $ref: "#/components/schemas/SendToChain"
+        - $ref: "#/components/schemas/ReceiveFromChain"
 
     Mint:
       type: object
@@ -407,6 +409,38 @@ components:
           $ref: "#/components/schemas/Address"
         purchase:
           type: boolean
+
+    SendToChain:
+      type: object
+      required:
+        - "@type"
+        - to
+        - chainId
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "sentToChain"
+        to:
+          $ref: "#/components/schemas/Binary"
+        chainId:
+          $ref: "#/components/schemas/BigInteger"
+
+    ReceiveFromChain:
+      type: object
+      required:
+        - "@type"
+        - from
+        - chainId
+      properties:
+        "@type":
+          type: string
+          enum:
+            - "receiveFromChain"
+        from:
+          $ref: "#/components/schemas/Binary"
+        chainId:
+          $ref: "#/components/schemas/BigInteger"
 
     Activities:
       type: object
