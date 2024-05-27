@@ -382,8 +382,10 @@ components:
           type: string
           enum:
             - "mint"
-        mintPrice:
+        mintPrice: # deprecated, use mintPayment
           $ref: "#/components/schemas/BigDecimal"
+        mintPayment:
+          $ref: "#/components/schemas/Asset"
 
     Burn:
       type: object
