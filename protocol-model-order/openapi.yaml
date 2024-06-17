@@ -483,6 +483,8 @@ components:
         - "$ref": "#/components/schemas/OrderRaribleV2DataV1"
         - "$ref": "#/components/schemas/OrderRaribleV2DataV2"
         - "$ref": "#/components/schemas/OrderRaribleV2DataV3"
+        - "$ref": "#/components/schemas/OrderRaribleV2DataV3Sell"
+        - "$ref": "#/components/schemas/OrderRaribleV2DataV3Buy"
 
     OrderRaribleV2DataV1:
       type: object
@@ -563,6 +565,49 @@ components:
         isMakeFill:
           type: boolean
           description: "If true, the 'fill' part of the order applies to the 'make' side, otherwise to the 'take' side"
+
+    OrderRaribleV2DataV3Sell:
+      description: "Order data for create or update"
+      type: object
+      required:
+        - dataType
+        - maxFeesBasePoint
+      properties:
+        dataType:
+          type: string
+          description: "Data type of the order"
+          enum:
+            - RARIBLE_V2_DATA_V3_SELL
+        payout:
+          $ref: "#/components/schemas/Part"
+        originFeeFirst:
+          $ref: "#/components/schemas/Part"
+        originFeeSecond:
+          $ref: "#/components/schemas/Part"
+        maxFeesBasePoint:
+          type: integer
+        marketplaceMarker:
+          $ref: "#/components/schemas/Word"
+
+    OrderRaribleV2DataV3Buy:
+      description: "Order data for create or update"
+      type: object
+      required:
+        - dataType
+      properties:
+        dataType:
+          type: string
+          description: "Data type of the order"
+          enum:
+            - RARIBLE_V2_DATA_V3_BUY
+        payout:
+          $ref: "#/components/schemas/Part"
+        originFeeFirst:
+          $ref: "#/components/schemas/Part"
+        originFeeSecond:
+          $ref: "#/components/schemas/Part"
+        marketplaceMarker:
+          $ref: "#/components/schemas/Word"
 
     OrderDataLegacy:
       type: object
