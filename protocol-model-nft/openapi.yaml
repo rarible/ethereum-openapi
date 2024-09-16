@@ -81,6 +81,9 @@ components:
         scam:
           type: boolean
           default: false
+        spamScore:
+          type: integer
+          format: int32
 
     EthCollectionFlags:
       type: object
