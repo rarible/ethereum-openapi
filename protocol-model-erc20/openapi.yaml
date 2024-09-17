@@ -85,15 +85,6 @@ components:
         decimals:
           type: integer
 
-    Erc20TokenDecimals:
-      type: object
-      required: [ contract, decimals ]
-      properties:
-        contract:
-          $ref: '#/components/schemas/Address'
-        decimals:
-          type: integer
-
     Erc20IndexerApiError:
       type: object
       required:
