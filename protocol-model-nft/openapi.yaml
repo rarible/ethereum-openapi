@@ -179,6 +179,8 @@ components:
         - creators
         - supply
         - lazySupply
+        - lastUpdatedAt
+        - version
       type: object
       properties:
         id:
@@ -212,7 +214,11 @@ components:
         lastUpdatedAt:
           type: string
           format: date-time
-          description: "Datetime when the item was created"
+          description: "Datetime when the item was updated"
+        version:
+          type: integer
+          description: "Logical version of this item, incremented each time when the item is updated"
+          format: int64
         mintedAt:
           type: string
           format: date-time
@@ -857,3 +863,31 @@ components:
           registrant:
             type: string
             description: "Domain registrant"
+
+    EntityPollResult:
+      type: object
+      properties:
+        entityIds:
+          type: array
+          items:
+            $ref: "#/components/schemas/VersionedEntityId"
+        continuation:
+          type: string
+      required:
+        - entityIds
+
+    VersionedEntityId:
+      type: object
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+          format: int64
+        lastUpdatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - version
+        - lastUpdatedAt

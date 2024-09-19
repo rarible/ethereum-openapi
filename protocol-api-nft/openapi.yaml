@@ -654,6 +654,44 @@ paths:
         '500':
           $ref: "#/components/responses/ServerError"
 
+  "/v0.1/items/poll":
+    get:
+      tags:
+        - nft-item-controller
+      summary: "Get IDs of items updated after a specific datetime. The results are sorted by lastUpdatedAt, then by id."
+      operationId: "pollItems"
+      parameters:
+        - name: "updatedAfter"
+          in: query
+          required: true
+          allowEmptyValue: false
+          description: "Point in time after which the items should be returned"
+          schema:
+            type: string
+            format: date-time
+        - name: "continuation"
+          in: query
+          required: false
+          description: "Paging cursor"
+          schema:
+            type: string
+        - name: "size"
+          in: query
+          required: false
+          description: "The maximum number of results to be returned. If not specified, a predefined number is used."
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityPollResult"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
 
   "/v0.1/items/{itemId}/royalty":
     get:
