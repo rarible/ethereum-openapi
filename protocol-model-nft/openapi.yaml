@@ -863,31 +863,3 @@ components:
           registrant:
             type: string
             description: "Domain registrant"
-
-    EntityPollResult:
-      type: object
-      properties:
-        entityIds:
-          type: array
-          items:
-            $ref: "#/components/schemas/VersionedEntityId"
-        continuation:
-          type: string
-      required:
-        - entityIds
-
-    VersionedEntityId:
-      type: object
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-          format: int64
-        lastUpdatedAt:
-          type: string
-          format: date-time
-      required:
-        - id
-        - version
-        - lastUpdatedAt
