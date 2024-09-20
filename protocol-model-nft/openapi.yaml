@@ -179,6 +179,8 @@ components:
         - creators
         - supply
         - lazySupply
+        - lastUpdatedAt
+        - version
       type: object
       properties:
         id:
@@ -212,7 +214,11 @@ components:
         lastUpdatedAt:
           type: string
           format: date-time
-          description: "Datetime when the item was created"
+          description: "Datetime when the item was updated"
+        version:
+          type: integer
+          description: "Logical version of this item, incremented each time when the item is updated"
+          format: int64
         mintedAt:
           type: string
           format: date-time
