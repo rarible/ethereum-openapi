@@ -34,12 +34,12 @@
     <packaging>pom</packaging>
 
     <properties>
-        <revision>1.105.1</revision>
+        <revision>1.105.2</revision>
 
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
         <rarible.codegen.server.version>1.2.2</rarible.codegen.server.version>
         <rarible.codegen.client.version>1.3.0</rarible.codegen.client.version>
-        <rarible.codegen.model.version>1.6.0</rarible.codegen.model.version>
+        <rarible.codegen.model.version>1.7.0</rarible.codegen.model.version>
 
         <codegen.package>com.rarible.protocol.dto</codegen.package>
 
@@ -48,6 +48,7 @@
 
         <dir.target.classes>${project.basedir}/target/classes</dir.target.classes>
         <dir.target.temp>${project.basedir}/target/temp</dir.target.temp>
+        <dir.src.generated.kotlin>${project.basedir}/target/generated-sources/rarible/src/main/kotlin</dir.src.generated.kotlin>
     </properties>
 
     <dependencyManagement>
@@ -203,6 +204,7 @@
                     <configuration>
                         <schema>
                             <type>openapi</type>
+                            <mergeTags>true</mergeTags>
                         </schema>
                     </configuration>
                 </plugin>
@@ -210,17 +212,17 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>${version.plugin.build.helper}</version>
+                    <version>${build-helper-maven-plugin.version}</version>
                     <executions>
                         <execution>
+                            <id>add-model-generated-sources</id>
                             <phase>generate-sources</phase>
                             <goals>
                                 <goal>add-source</goal>
                             </goals>
                             <configuration>
                                 <sources>
-                                    <source>${dir.src.kotlin}</source>
-                                    <source>${dir.src.generated}</source>
+                                    <source>${dir.src.generated.kotlin}</source>
                                 </sources>
                             </configuration>
                         </execution>
