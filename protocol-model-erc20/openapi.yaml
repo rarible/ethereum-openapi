@@ -82,6 +82,8 @@ components:
           type: string
         symbol:
           type: string
+        decimals:
+          type: integer
 
     Erc20IndexerApiError:
       type: object
