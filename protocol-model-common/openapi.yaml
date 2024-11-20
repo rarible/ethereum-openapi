@@ -116,6 +116,10 @@ components:
           type: string
           format: date-time
           description: "Date and time when the activity was updated in the DB"
+        version:
+          type: integer
+          description: "Logical version of this activity, incremented each time when the activity is updated"
+          format: int64
         reverted:
           type: boolean
       oneOf:
@@ -163,6 +167,10 @@ components:
             - LOOKSRARE
             - SUDOSWAP
             - BLUR
+        version:
+          type: integer
+          description: "Logical version of this activity, incremented each time when the activity is updated"
+          format: int64
       oneOf:
         - $ref: "#/components/schemas/OrderActivityMatch"
         - $ref: "#/components/schemas/OrderActivityBid"
@@ -366,6 +374,10 @@ components:
           format: int64
         logIndex:
           type: integer
+        version:
+          type: integer
+          description: "Logical version of this activity, incremented each time when the activity is updated"
+          format: int64
       oneOf:
         - $ref: "#/components/schemas/Mint"
         - $ref: "#/components/schemas/Burn"

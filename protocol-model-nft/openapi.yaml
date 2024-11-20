@@ -84,6 +84,10 @@ components:
         spamScore:
           type: integer
           format: int32
+        version:
+          type: integer
+          description: "Logical version of this collection, incremented each time when the collection is updated"
+          format: int64
 
     EthCollectionFlags:
       type: object
@@ -770,6 +774,10 @@ components:
           description: History of ownership
           items:
             "$ref": "#/components/schemas/ItemHistory"
+        version:
+          type: integer
+          description: "Logical version of this ownership, incremented each time when the ownership is updated"
+          format: int64
 
     NftOwnershipEvent:
       required:

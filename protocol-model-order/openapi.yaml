@@ -1079,6 +1079,10 @@ components:
             $ref: "#/components/schemas/OrderPriceHistoryRecord"
         status:
           $ref: "#/components/schemas/OrderStatus"
+        version:
+          type: integer
+          description: "Logical version of this order, incremented each time when the order is updated"
+          format: int64
 
       oneOf:
         - "$ref": "#/components/schemas/LegacyOrder"
