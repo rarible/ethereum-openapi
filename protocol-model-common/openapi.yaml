@@ -104,7 +104,6 @@ components:
       required:
         - id
         - date
-        - version
       properties:
         id:
           type: string
@@ -152,7 +151,6 @@ components:
         - id
         - date
         - source
-        - version
       properties:
         id:
           type: string
@@ -358,7 +356,6 @@ components:
         - blockHash
         - blockNumber
         - logIndex
-        - version
       properties:
         owner:
           $ref: "#/components/schemas/Address"

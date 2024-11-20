@@ -1011,7 +1011,6 @@ components:
         - createdAt
         - lastUpdateAt
         - hash
-        - version
       properties:
         maker:
           $ref: "#/components/schemas/Address"

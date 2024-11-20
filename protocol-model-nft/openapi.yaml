@@ -26,7 +26,6 @@ components:
         - name
         - type
         - supportsLazyMint
-        - version
       type: object
       properties:
         id:
@@ -742,7 +741,6 @@ components:
         - lazyValue
         - date
         - pending
-        - version
       type: object
       properties:
         id:
