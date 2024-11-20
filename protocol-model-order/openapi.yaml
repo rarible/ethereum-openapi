@@ -1084,7 +1084,6 @@ components:
           description: "Logical version of this order, incremented each time when the order is updated"
           format: int64
 
-
       oneOf:
         - "$ref": "#/components/schemas/LegacyOrder"
         - "$ref": "#/components/schemas/RaribleV2Order"
